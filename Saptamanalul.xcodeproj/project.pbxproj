@@ -1,0 +1,736 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		15B034D51CC62B87002656B4 /* JSONInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B034D41CC62B87002656B4 /* JSONInteractor.swift */; };
+		15CAD8441CC8C8B900F84D66 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CAD8431CC8C8B900F84D66 /* DetailsViewController.swift */; };
+		15EEB8C71CA80F0D006FB78C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEB8C61CA80F0D006FB78C /* AppDelegate.swift */; };
+		15EEB8C91CA80F0D006FB78C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEB8C81CA80F0D006FB78C /* ViewController.swift */; };
+		15EEB8CC1CA80F0D006FB78C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15EEB8CA1CA80F0D006FB78C /* Main.storyboard */; };
+		15EEB8CE1CA80F0D006FB78C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15EEB8CD1CA80F0D006FB78C /* Assets.xcassets */; };
+		15EEB8D11CA80F0D006FB78C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15EEB8CF1CA80F0D006FB78C /* LaunchScreen.storyboard */; };
+		15EEB8DC1CA80F0D006FB78C /* SaptamanalulTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEB8DB1CA80F0D006FB78C /* SaptamanalulTests.swift */; };
+		15EEB8E71CA80F0D006FB78C /* SaptamanalulUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEB8E61CA80F0D006FB78C /* SaptamanalulUITests.swift */; };
+		15EEB8F51CA81298006FB78C /* MyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEB8F41CA81298006FB78C /* MyCell.swift */; };
+		15EEB8FC1CA81E16006FB78C /* lansare boliacu1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 15EEB8F61CA81E16006FB78C /* lansare boliacu1.jpg */; };
+		15EEB8FD1CA81E16006FB78C /* miron.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 15EEB8F71CA81E16006FB78C /* miron.JPG */; };
+		15EEB8FE1CA81E16006FB78C /* olarean.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 15EEB8F81CA81E16006FB78C /* olarean.jpg */; };
+		15EEB8FF1CA81E16006FB78C /* olarean11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 15EEB8F91CA81E16006FB78C /* olarean11.jpg */; };
+		15EEB9001CA81E16006FB78C /* sab.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 15EEB8FA1CA81E16006FB78C /* sab.jpg */; };
+		15EEB9011CA81E16006FB78C /* tibeica.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 15EEB8FB1CA81E16006FB78C /* tibeica.JPG */; };
+		15EEB9051CA82384006FB78C /* cromtel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 15EEB9041CA82384006FB78C /* cromtel.jpg */; };
+		6A80FCCDA3C224BEEDAF0FE9 /* Pods_SaptamanalulUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A77673BA6CD631D8D67766CD /* Pods_SaptamanalulUITests.framework */; };
+		8CA3259C3559F3372A15CD79 /* Pods_Saptamanalul.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4A2E9DC5B23C000844199BB /* Pods_Saptamanalul.framework */; };
+		D9B47CB47390DC285B1DF4C6 /* Pods_SaptamanalulTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97D5F4EE22600F64D402508 /* Pods_SaptamanalulTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		15EEB8D81CA80F0D006FB78C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 15EEB8BB1CA80F0D006FB78C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 15EEB8C21CA80F0D006FB78C;
+			remoteInfo = Saptamanalul;
+		};
+		15EEB8E31CA80F0D006FB78C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 15EEB8BB1CA80F0D006FB78C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 15EEB8C21CA80F0D006FB78C;
+			remoteInfo = Saptamanalul;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		15B034D41CC62B87002656B4 /* JSONInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONInteractor.swift; sourceTree = "<group>"; };
+		15CAD8431CC8C8B900F84D66 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		15EEB8C31CA80F0D006FB78C /* Saptamanalul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Saptamanalul.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		15EEB8C61CA80F0D006FB78C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		15EEB8C81CA80F0D006FB78C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		15EEB8CB1CA80F0D006FB78C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		15EEB8CD1CA80F0D006FB78C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		15EEB8D01CA80F0D006FB78C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		15EEB8D21CA80F0D006FB78C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15EEB8D71CA80F0D006FB78C /* SaptamanalulTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SaptamanalulTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		15EEB8DB1CA80F0D006FB78C /* SaptamanalulTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaptamanalulTests.swift; sourceTree = "<group>"; };
+		15EEB8DD1CA80F0D006FB78C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15EEB8E21CA80F0D006FB78C /* SaptamanalulUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SaptamanalulUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		15EEB8E61CA80F0D006FB78C /* SaptamanalulUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaptamanalulUITests.swift; sourceTree = "<group>"; };
+		15EEB8E81CA80F0D006FB78C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15EEB8F41CA81298006FB78C /* MyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCell.swift; sourceTree = "<group>"; };
+		15EEB8F61CA81E16006FB78C /* lansare boliacu1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "lansare boliacu1.jpg"; sourceTree = "<group>"; };
+		15EEB8F71CA81E16006FB78C /* miron.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = miron.JPG; sourceTree = "<group>"; };
+		15EEB8F81CA81E16006FB78C /* olarean.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = olarean.jpg; sourceTree = "<group>"; };
+		15EEB8F91CA81E16006FB78C /* olarean11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = olarean11.jpg; sourceTree = "<group>"; };
+		15EEB8FA1CA81E16006FB78C /* sab.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sab.jpg; sourceTree = "<group>"; };
+		15EEB8FB1CA81E16006FB78C /* tibeica.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tibeica.JPG; sourceTree = "<group>"; };
+		15EEB9041CA82384006FB78C /* cromtel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cromtel.jpg; sourceTree = "<group>"; };
+		18BBAFB55C430EC42B5F5F7F /* Pods-Saptamanalul.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saptamanalul.release.xcconfig"; path = "Pods/Target Support Files/Pods-Saptamanalul/Pods-Saptamanalul.release.xcconfig"; sourceTree = "<group>"; };
+		3DC3EC531EFD8759CE08E639 /* Pods-SaptamanalulUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaptamanalulUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SaptamanalulUITests/Pods-SaptamanalulUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		565BD93C8A7411F6622865E4 /* Pods-Saptamanalul.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saptamanalul.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Saptamanalul/Pods-Saptamanalul.debug.xcconfig"; sourceTree = "<group>"; };
+		9269C8A5045B00D7015FBD8A /* Pods-SaptamanalulUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaptamanalulUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SaptamanalulUITests/Pods-SaptamanalulUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9CB5089DFAB54D2296035683 /* Pods-SaptamanalulTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaptamanalulTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SaptamanalulTests/Pods-SaptamanalulTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A77673BA6CD631D8D67766CD /* Pods_SaptamanalulUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaptamanalulUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4A2E9DC5B23C000844199BB /* Pods_Saptamanalul.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Saptamanalul.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E81A4D3F955B5E566453B9F6 /* Pods-SaptamanalulTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaptamanalulTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SaptamanalulTests/Pods-SaptamanalulTests.release.xcconfig"; sourceTree = "<group>"; };
+		F97D5F4EE22600F64D402508 /* Pods_SaptamanalulTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaptamanalulTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		15EEB8C01CA80F0D006FB78C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CA3259C3559F3372A15CD79 /* Pods_Saptamanalul.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15EEB8D41CA80F0D006FB78C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9B47CB47390DC285B1DF4C6 /* Pods_SaptamanalulTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15EEB8DF1CA80F0D006FB78C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A80FCCDA3C224BEEDAF0FE9 /* Pods_SaptamanalulUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		07C12A01A34703A14F013712 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E4A2E9DC5B23C000844199BB /* Pods_Saptamanalul.framework */,
+				F97D5F4EE22600F64D402508 /* Pods_SaptamanalulTests.framework */,
+				A77673BA6CD631D8D67766CD /* Pods_SaptamanalulUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		15EEB8BA1CA80F0D006FB78C = {
+			isa = PBXGroup;
+			children = (
+				15EEB8C51CA80F0D006FB78C /* Saptamanalul */,
+				15EEB8DA1CA80F0D006FB78C /* SaptamanalulTests */,
+				15EEB8E51CA80F0D006FB78C /* SaptamanalulUITests */,
+				15EEB8C41CA80F0D006FB78C /* Products */,
+				AB293269194F6EADEC1DDD46 /* Pods */,
+				07C12A01A34703A14F013712 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		15EEB8C41CA80F0D006FB78C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				15EEB8C31CA80F0D006FB78C /* Saptamanalul.app */,
+				15EEB8D71CA80F0D006FB78C /* SaptamanalulTests.xctest */,
+				15EEB8E21CA80F0D006FB78C /* SaptamanalulUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		15EEB8C51CA80F0D006FB78C /* Saptamanalul */ = {
+			isa = PBXGroup;
+			children = (
+				15EEB8C61CA80F0D006FB78C /* AppDelegate.swift */,
+				15EEB8C81CA80F0D006FB78C /* ViewController.swift */,
+				15EEB8CA1CA80F0D006FB78C /* Main.storyboard */,
+				15EEB8CD1CA80F0D006FB78C /* Assets.xcassets */,
+				15EEB8CF1CA80F0D006FB78C /* LaunchScreen.storyboard */,
+				15EEB8D21CA80F0D006FB78C /* Info.plist */,
+				15EEB8F41CA81298006FB78C /* MyCell.swift */,
+				15EEB8F61CA81E16006FB78C /* lansare boliacu1.jpg */,
+				15EEB8F71CA81E16006FB78C /* miron.JPG */,
+				15EEB9041CA82384006FB78C /* cromtel.jpg */,
+				15EEB8F81CA81E16006FB78C /* olarean.jpg */,
+				15EEB8F91CA81E16006FB78C /* olarean11.jpg */,
+				15EEB8FA1CA81E16006FB78C /* sab.jpg */,
+				15EEB8FB1CA81E16006FB78C /* tibeica.JPG */,
+				15B034D41CC62B87002656B4 /* JSONInteractor.swift */,
+				15CAD8431CC8C8B900F84D66 /* DetailsViewController.swift */,
+			);
+			path = Saptamanalul;
+			sourceTree = "<group>";
+		};
+		15EEB8DA1CA80F0D006FB78C /* SaptamanalulTests */ = {
+			isa = PBXGroup;
+			children = (
+				15EEB8DB1CA80F0D006FB78C /* SaptamanalulTests.swift */,
+				15EEB8DD1CA80F0D006FB78C /* Info.plist */,
+			);
+			path = SaptamanalulTests;
+			sourceTree = "<group>";
+		};
+		15EEB8E51CA80F0D006FB78C /* SaptamanalulUITests */ = {
+			isa = PBXGroup;
+			children = (
+				15EEB8E61CA80F0D006FB78C /* SaptamanalulUITests.swift */,
+				15EEB8E81CA80F0D006FB78C /* Info.plist */,
+			);
+			path = SaptamanalulUITests;
+			sourceTree = "<group>";
+		};
+		AB293269194F6EADEC1DDD46 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				565BD93C8A7411F6622865E4 /* Pods-Saptamanalul.debug.xcconfig */,
+				18BBAFB55C430EC42B5F5F7F /* Pods-Saptamanalul.release.xcconfig */,
+				9CB5089DFAB54D2296035683 /* Pods-SaptamanalulTests.debug.xcconfig */,
+				E81A4D3F955B5E566453B9F6 /* Pods-SaptamanalulTests.release.xcconfig */,
+				3DC3EC531EFD8759CE08E639 /* Pods-SaptamanalulUITests.debug.xcconfig */,
+				9269C8A5045B00D7015FBD8A /* Pods-SaptamanalulUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		15EEB8C21CA80F0D006FB78C /* Saptamanalul */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15EEB8EB1CA80F0D006FB78C /* Build configuration list for PBXNativeTarget "Saptamanalul" */;
+			buildPhases = (
+				5244A12CD9222C526DCEE47F /* 📦 Check Pods Manifest.lock */,
+				15EEB8BF1CA80F0D006FB78C /* Sources */,
+				15EEB8C01CA80F0D006FB78C /* Frameworks */,
+				15EEB8C11CA80F0D006FB78C /* Resources */,
+				E69440142ADF48AC1F306433 /* 📦 Embed Pods Frameworks */,
+				87B51F371268D875B057913C /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Saptamanalul;
+			productName = Saptamanalul;
+			productReference = 15EEB8C31CA80F0D006FB78C /* Saptamanalul.app */;
+			productType = "com.apple.product-type.application";
+		};
+		15EEB8D61CA80F0D006FB78C /* SaptamanalulTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15EEB8EE1CA80F0D006FB78C /* Build configuration list for PBXNativeTarget "SaptamanalulTests" */;
+			buildPhases = (
+				A127021F0A7D8F87E45D6EF9 /* 📦 Check Pods Manifest.lock */,
+				15EEB8D31CA80F0D006FB78C /* Sources */,
+				15EEB8D41CA80F0D006FB78C /* Frameworks */,
+				15EEB8D51CA80F0D006FB78C /* Resources */,
+				D3564FA3BFD82DA7BA79CFAB /* 📦 Embed Pods Frameworks */,
+				58199D7D704AFBD2E0EB96C0 /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				15EEB8D91CA80F0D006FB78C /* PBXTargetDependency */,
+			);
+			name = SaptamanalulTests;
+			productName = SaptamanalulTests;
+			productReference = 15EEB8D71CA80F0D006FB78C /* SaptamanalulTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		15EEB8E11CA80F0D006FB78C /* SaptamanalulUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15EEB8F11CA80F0D006FB78C /* Build configuration list for PBXNativeTarget "SaptamanalulUITests" */;
+			buildPhases = (
+				CFAE533E24171A439C4FF6BE /* 📦 Check Pods Manifest.lock */,
+				15EEB8DE1CA80F0D006FB78C /* Sources */,
+				15EEB8DF1CA80F0D006FB78C /* Frameworks */,
+				15EEB8E01CA80F0D006FB78C /* Resources */,
+				C114F523BB0E584BCA448F0C /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				15EEB8E41CA80F0D006FB78C /* PBXTargetDependency */,
+			);
+			name = SaptamanalulUITests;
+			productName = SaptamanalulUITests;
+			productReference = 15EEB8E21CA80F0D006FB78C /* SaptamanalulUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		15EEB8BB1CA80F0D006FB78C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = yakis;
+				TargetAttributes = {
+					15EEB8C21CA80F0D006FB78C = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 4WPNK427TB;
+					};
+					15EEB8D61CA80F0D006FB78C = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 4WPNK427TB;
+						TestTargetID = 15EEB8C21CA80F0D006FB78C;
+					};
+					15EEB8E11CA80F0D006FB78C = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 4WPNK427TB;
+						TestTargetID = 15EEB8C21CA80F0D006FB78C;
+					};
+				};
+			};
+			buildConfigurationList = 15EEB8BE1CA80F0D006FB78C /* Build configuration list for PBXProject "Saptamanalul" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 15EEB8BA1CA80F0D006FB78C;
+			productRefGroup = 15EEB8C41CA80F0D006FB78C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				15EEB8C21CA80F0D006FB78C /* Saptamanalul */,
+				15EEB8D61CA80F0D006FB78C /* SaptamanalulTests */,
+				15EEB8E11CA80F0D006FB78C /* SaptamanalulUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		15EEB8C11CA80F0D006FB78C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15EEB9011CA81E16006FB78C /* tibeica.JPG in Resources */,
+				15EEB8D11CA80F0D006FB78C /* LaunchScreen.storyboard in Resources */,
+				15EEB8FF1CA81E16006FB78C /* olarean11.jpg in Resources */,
+				15EEB8FD1CA81E16006FB78C /* miron.JPG in Resources */,
+				15EEB8FC1CA81E16006FB78C /* lansare boliacu1.jpg in Resources */,
+				15EEB9001CA81E16006FB78C /* sab.jpg in Resources */,
+				15EEB8CE1CA80F0D006FB78C /* Assets.xcassets in Resources */,
+				15EEB8FE1CA81E16006FB78C /* olarean.jpg in Resources */,
+				15EEB9051CA82384006FB78C /* cromtel.jpg in Resources */,
+				15EEB8CC1CA80F0D006FB78C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15EEB8D51CA80F0D006FB78C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15EEB8E01CA80F0D006FB78C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5244A12CD9222C526DCEE47F /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		58199D7D704AFBD2E0EB96C0 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SaptamanalulTests/Pods-SaptamanalulTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		87B51F371268D875B057913C /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Saptamanalul/Pods-Saptamanalul-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A127021F0A7D8F87E45D6EF9 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C114F523BB0E584BCA448F0C /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SaptamanalulUITests/Pods-SaptamanalulUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CFAE533E24171A439C4FF6BE /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D3564FA3BFD82DA7BA79CFAB /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SaptamanalulTests/Pods-SaptamanalulTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E69440142ADF48AC1F306433 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Saptamanalul/Pods-Saptamanalul-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		15EEB8BF1CA80F0D006FB78C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15B034D51CC62B87002656B4 /* JSONInteractor.swift in Sources */,
+				15EEB8F51CA81298006FB78C /* MyCell.swift in Sources */,
+				15EEB8C91CA80F0D006FB78C /* ViewController.swift in Sources */,
+				15EEB8C71CA80F0D006FB78C /* AppDelegate.swift in Sources */,
+				15CAD8441CC8C8B900F84D66 /* DetailsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15EEB8D31CA80F0D006FB78C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15EEB8DC1CA80F0D006FB78C /* SaptamanalulTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15EEB8DE1CA80F0D006FB78C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15EEB8E71CA80F0D006FB78C /* SaptamanalulUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		15EEB8D91CA80F0D006FB78C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 15EEB8C21CA80F0D006FB78C /* Saptamanalul */;
+			targetProxy = 15EEB8D81CA80F0D006FB78C /* PBXContainerItemProxy */;
+		};
+		15EEB8E41CA80F0D006FB78C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 15EEB8C21CA80F0D006FB78C /* Saptamanalul */;
+			targetProxy = 15EEB8E31CA80F0D006FB78C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		15EEB8CA1CA80F0D006FB78C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				15EEB8CB1CA80F0D006FB78C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		15EEB8CF1CA80F0D006FB78C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				15EEB8D01CA80F0D006FB78C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		15EEB8E91CA80F0D006FB78C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		15EEB8EA1CA80F0D006FB78C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		15EEB8EC1CA80F0D006FB78C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 565BD93C8A7411F6622865E4 /* Pods-Saptamanalul.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = Saptamanalul/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = yakis.home.Saptamanalul;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		15EEB8ED1CA80F0D006FB78C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18BBAFB55C430EC42B5F5F7F /* Pods-Saptamanalul.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = Saptamanalul/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = yakis.home.Saptamanalul;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		15EEB8EF1CA80F0D006FB78C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CB5089DFAB54D2296035683 /* Pods-SaptamanalulTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SaptamanalulTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = yakis.home.SaptamanalulTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Saptamanalul.app/Saptamanalul";
+			};
+			name = Debug;
+		};
+		15EEB8F01CA80F0D006FB78C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E81A4D3F955B5E566453B9F6 /* Pods-SaptamanalulTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SaptamanalulTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = yakis.home.SaptamanalulTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Saptamanalul.app/Saptamanalul";
+			};
+			name = Release;
+		};
+		15EEB8F21CA80F0D006FB78C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DC3EC531EFD8759CE08E639 /* Pods-SaptamanalulUITests.debug.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = SaptamanalulUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = yakis.home.SaptamanalulUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Saptamanalul;
+			};
+			name = Debug;
+		};
+		15EEB8F31CA80F0D006FB78C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9269C8A5045B00D7015FBD8A /* Pods-SaptamanalulUITests.release.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = SaptamanalulUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = yakis.home.SaptamanalulUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Saptamanalul;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		15EEB8BE1CA80F0D006FB78C /* Build configuration list for PBXProject "Saptamanalul" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15EEB8E91CA80F0D006FB78C /* Debug */,
+				15EEB8EA1CA80F0D006FB78C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15EEB8EB1CA80F0D006FB78C /* Build configuration list for PBXNativeTarget "Saptamanalul" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15EEB8EC1CA80F0D006FB78C /* Debug */,
+				15EEB8ED1CA80F0D006FB78C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15EEB8EE1CA80F0D006FB78C /* Build configuration list for PBXNativeTarget "SaptamanalulTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15EEB8EF1CA80F0D006FB78C /* Debug */,
+				15EEB8F01CA80F0D006FB78C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15EEB8F11CA80F0D006FB78C /* Build configuration list for PBXNativeTarget "SaptamanalulUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15EEB8F21CA80F0D006FB78C /* Debug */,
+				15EEB8F31CA80F0D006FB78C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 15EEB8BB1CA80F0D006FB78C /* Project object */;
+}

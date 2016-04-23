@@ -1,0 +1,6 @@
+framework module Pods_Saptamanalul {
+  umbrella header "Pods-Saptamanalul-umbrella.h"
+
+  export *
+  module * { export * }
+}
