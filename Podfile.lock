@@ -1,11 +1,15 @@
 PODS:
   - Alamofire (3.3.1)
+  - Firebase (2.5.1)
+  - IQKeyboardManagerSwift (4.0.1)
   - Kingfisher (2.2.2)
   - SVProgressHUD (2.0.3)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
   - Alamofire (~> 3.3)
+  - Firebase (>= 2.5.1)
+  - IQKeyboardManagerSwift
   - Kingfisher (~> 2.2)
   - SVProgressHUD (from `https://github.com/SVProgressHUD/SVProgressHUD.git`)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
@@ -26,10 +30,12 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  Firebase: 3565ea88b830f28f2c77ecc524622bc71a20d085
+  IQKeyboardManagerSwift: e92246955e21dad73ad9dc89b80adb134d8bb395
   Kingfisher: 7e8de5b0cf7b5dc8ec559d193029a0859df93ef1
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: 6a30565b8f3f0f701ff17cf405d2c3516c561ee3
+PODFILE CHECKSUM: 9211d9b210ea377943acfd424d239bb8675cf7d6
 
 COCOAPODS: 1.0.0.beta.8

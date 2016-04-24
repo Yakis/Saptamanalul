@@ -84,6 +84,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                             self.collectionView.reloadData()
                         })
                     } else {
+                        self.showErrorAlert("No Internet Connection", msg: "Please check your internet connection and come back later")
                         print(error?.localizedDescription)
                     }
             }
@@ -109,13 +110,21 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.openPostLabel.text = ""
         loadLogoToNavigationBar()
         startLoading()
         getData(stringPhotosURL)
         makeOneRowHost3Cells()
+        
     }
     
     
+    func showErrorAlert (title: String, msg: String) {
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
+        let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+        alert.addAction(action)
+        presentViewController(alert, animated: true, completion: nil)
+    }
     
 
     func makeOneRowHost3Cells() {

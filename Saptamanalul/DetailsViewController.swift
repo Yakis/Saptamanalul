@@ -31,7 +31,7 @@ class DetailsViewController: UIViewController {
         let vc = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
         vc.setInitialText(detailsTitleLabel.text)
         vc.addImage(detailsImageView.image!)
-        vc.addURL(NSURL(string: "http://www.photolib.noaa.gov/nssl"))
+        vc.addURL(NSURL(string: "http://www.monitorulsv.ro"))
         presentViewController(vc, animated: true, completion: nil)
         
     }
