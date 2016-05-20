@@ -8,12 +8,11 @@
 
 import Foundation
 import Firebase
+import FirebaseDatabase
+import FirebaseAuth
 
 class DataService {
     
     static let ds = DataService()
-    private var _REF_BASE = Firebase(url: "https://saptamanalul.firebaseio.com")
-    var refBase: Firebase {
-        return _REF_BASE
-    }
+    var refBase = FIRDatabase.database().reference()
 }

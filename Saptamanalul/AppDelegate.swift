@@ -8,8 +8,8 @@
 
 import UIKit
 import FBSDKCoreKit
-
-
+import Batch
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,10 +18,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        FIRApp.configure()
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         // Override point for customization after application launch.
+        Batch.startWithAPIKey("5739669F65E82D8251293A48AC8010")
+        BatchPush.registerForRemoteNotifications()
         return true
     }
+    
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject])
+    {
+        // Start Batch.
+        // TODO : switch to live api key before store release
+        // Batch.startWithAPIKey("DEV5739669F677C306C6AA31FA7659") // dev
+        Batch.startWithAPIKey("5739669F65E82D8251293A48AC8010") // live
+        // Register for push notifications
+        BatchPush.registerForRemoteNotifications()
+        BatchPush.dismissNotifications()
+    }
+    
 
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)

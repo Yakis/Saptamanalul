@@ -15,8 +15,11 @@
 		1509261B1CCB88DC00243434 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1509261A1CCB88DC00243434 /* Constants.swift */; };
 		1509261D1CCB8EB900243434 /* MaterialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1509261C1CCB8EB900243434 /* MaterialButton.swift */; };
 		1509261F1CCB978000243434 /* MaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1509261E1CCB978000243434 /* MaterialTextField.swift */; };
-		156074F31CCBBF1100AA97C8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 156074F21CCBBF1100AA97C8 /* Default-568h@2x.png */; };
+		152EF3931CEDB33A006A6BE4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 152EF3921CEDB33A006A6BE4 /* GoogleService-Info.plist */; };
+		154FFCC11CE5EE49004A50B4 /* MyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154FFCBF1CE5EE49004A50B4 /* MyCell.swift */; };
+		154FFCC21CE5EE49004A50B4 /* MyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 154FFCC01CE5EE49004A50B4 /* MyCell.xib */; };
 		156074F51CCBC6EC00AA97C8 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156074F41CCBC6EC00AA97C8 /* DataService.swift */; };
+		1587E3E81CE6295600E8D355 /* PopoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587E3E71CE6295600E8D355 /* PopoverVC.swift */; };
 		15CAD8441CC8C8B900F84D66 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CAD8431CC8C8B900F84D66 /* DetailsViewController.swift */; };
 		15EEB8C71CA80F0D006FB78C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEB8C61CA80F0D006FB78C /* AppDelegate.swift */; };
 		15EEB8C91CA80F0D006FB78C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEB8C81CA80F0D006FB78C /* ViewController.swift */; };
@@ -25,10 +28,7 @@
 		15EEB8D11CA80F0D006FB78C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15EEB8CF1CA80F0D006FB78C /* LaunchScreen.storyboard */; };
 		15EEB8DC1CA80F0D006FB78C /* SaptamanalulTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEB8DB1CA80F0D006FB78C /* SaptamanalulTests.swift */; };
 		15EEB8E71CA80F0D006FB78C /* SaptamanalulUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEB8E61CA80F0D006FB78C /* SaptamanalulUITests.swift */; };
-		15EEB8F51CA81298006FB78C /* MyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEB8F41CA81298006FB78C /* MyCell.swift */; };
-		6A80FCCDA3C224BEEDAF0FE9 /* Pods_SaptamanalulUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A77673BA6CD631D8D67766CD /* Pods_SaptamanalulUITests.framework */; };
 		8CA3259C3559F3372A15CD79 /* Pods_Saptamanalul.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4A2E9DC5B23C000844199BB /* Pods_Saptamanalul.framework */; };
-		D9B47CB47390DC285B1DF4C6 /* Pods_SaptamanalulTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97D5F4EE22600F64D402508 /* Pods_SaptamanalulTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +57,11 @@
 		1509261A1CCB88DC00243434 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1509261C1CCB8EB900243434 /* MaterialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialButton.swift; sourceTree = "<group>"; };
 		1509261E1CCB978000243434 /* MaterialTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialTextField.swift; sourceTree = "<group>"; };
-		156074F21CCBBF1100AA97C8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		152EF3921CEDB33A006A6BE4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		154FFCBF1CE5EE49004A50B4 /* MyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCell.swift; sourceTree = "<group>"; };
+		154FFCC01CE5EE49004A50B4 /* MyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCell.xib; sourceTree = "<group>"; };
 		156074F41CCBC6EC00AA97C8 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		1587E3E71CE6295600E8D355 /* PopoverVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverVC.swift; sourceTree = "<group>"; };
 		15CAD8431CC8C8B900F84D66 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		15EEB8C31CA80F0D006FB78C /* Saptamanalul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Saptamanalul.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15EEB8C61CA80F0D006FB78C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,15 +76,10 @@
 		15EEB8E21CA80F0D006FB78C /* SaptamanalulUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SaptamanalulUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		15EEB8E61CA80F0D006FB78C /* SaptamanalulUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaptamanalulUITests.swift; sourceTree = "<group>"; };
 		15EEB8E81CA80F0D006FB78C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		15EEB8F41CA81298006FB78C /* MyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCell.swift; sourceTree = "<group>"; };
 		18BBAFB55C430EC42B5F5F7F /* Pods-Saptamanalul.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saptamanalul.release.xcconfig"; path = "Pods/Target Support Files/Pods-Saptamanalul/Pods-Saptamanalul.release.xcconfig"; sourceTree = "<group>"; };
-		3DC3EC531EFD8759CE08E639 /* Pods-SaptamanalulUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaptamanalulUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SaptamanalulUITests/Pods-SaptamanalulUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		565BD93C8A7411F6622865E4 /* Pods-Saptamanalul.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saptamanalul.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Saptamanalul/Pods-Saptamanalul.debug.xcconfig"; sourceTree = "<group>"; };
-		9269C8A5045B00D7015FBD8A /* Pods-SaptamanalulUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaptamanalulUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SaptamanalulUITests/Pods-SaptamanalulUITests.release.xcconfig"; sourceTree = "<group>"; };
-		9CB5089DFAB54D2296035683 /* Pods-SaptamanalulTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaptamanalulTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SaptamanalulTests/Pods-SaptamanalulTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A77673BA6CD631D8D67766CD /* Pods_SaptamanalulUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaptamanalulUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4A2E9DC5B23C000844199BB /* Pods_Saptamanalul.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Saptamanalul.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E81A4D3F955B5E566453B9F6 /* Pods-SaptamanalulTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaptamanalulTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SaptamanalulTests/Pods-SaptamanalulTests.release.xcconfig"; sourceTree = "<group>"; };
 		F97D5F4EE22600F64D402508 /* Pods_SaptamanalulTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaptamanalulTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -101,7 +99,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9B47CB47390DC285B1DF4C6 /* Pods_SaptamanalulTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,7 +106,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A80FCCDA3C224BEEDAF0FE9 /* Pods_SaptamanalulUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +128,6 @@
 		15EEB8BA1CA80F0D006FB78C = {
 			isa = PBXGroup;
 			children = (
-				156074F21CCBBF1100AA97C8 /* Default-568h@2x.png */,
 				15EEB8C51CA80F0D006FB78C /* Saptamanalul */,
 				15EEB8DA1CA80F0D006FB78C /* SaptamanalulTests */,
 				15EEB8E51CA80F0D006FB78C /* SaptamanalulUITests */,
@@ -163,12 +158,15 @@
 				15EEB8CD1CA80F0D006FB78C /* Assets.xcassets */,
 				15EEB8CF1CA80F0D006FB78C /* LaunchScreen.storyboard */,
 				15EEB8D21CA80F0D006FB78C /* Info.plist */,
-				15EEB8F41CA81298006FB78C /* MyCell.swift */,
+				152EF3921CEDB33A006A6BE4 /* GoogleService-Info.plist */,
 				150926181CCB885000243434 /* MaterialView.swift */,
 				1509261A1CCB88DC00243434 /* Constants.swift */,
 				1509261C1CCB8EB900243434 /* MaterialButton.swift */,
 				1509261E1CCB978000243434 /* MaterialTextField.swift */,
 				156074F41CCBC6EC00AA97C8 /* DataService.swift */,
+				154FFCBF1CE5EE49004A50B4 /* MyCell.swift */,
+				154FFCC01CE5EE49004A50B4 /* MyCell.xib */,
+				1587E3E71CE6295600E8D355 /* PopoverVC.swift */,
 			);
 			path = Saptamanalul;
 			sourceTree = "<group>";
@@ -196,10 +194,6 @@
 			children = (
 				565BD93C8A7411F6622865E4 /* Pods-Saptamanalul.debug.xcconfig */,
 				18BBAFB55C430EC42B5F5F7F /* Pods-Saptamanalul.release.xcconfig */,
-				9CB5089DFAB54D2296035683 /* Pods-SaptamanalulTests.debug.xcconfig */,
-				E81A4D3F955B5E566453B9F6 /* Pods-SaptamanalulTests.release.xcconfig */,
-				3DC3EC531EFD8759CE08E639 /* Pods-SaptamanalulUITests.debug.xcconfig */,
-				9269C8A5045B00D7015FBD8A /* Pods-SaptamanalulUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -231,12 +225,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 15EEB8EE1CA80F0D006FB78C /* Build configuration list for PBXNativeTarget "SaptamanalulTests" */;
 			buildPhases = (
-				A127021F0A7D8F87E45D6EF9 /* 📦 Check Pods Manifest.lock */,
 				15EEB8D31CA80F0D006FB78C /* Sources */,
 				15EEB8D41CA80F0D006FB78C /* Frameworks */,
 				15EEB8D51CA80F0D006FB78C /* Resources */,
-				D3564FA3BFD82DA7BA79CFAB /* 📦 Embed Pods Frameworks */,
-				58199D7D704AFBD2E0EB96C0 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -252,11 +243,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 15EEB8F11CA80F0D006FB78C /* Build configuration list for PBXNativeTarget "SaptamanalulUITests" */;
 			buildPhases = (
-				CFAE533E24171A439C4FF6BE /* 📦 Check Pods Manifest.lock */,
 				15EEB8DE1CA80F0D006FB78C /* Sources */,
 				15EEB8DF1CA80F0D006FB78C /* Frameworks */,
 				15EEB8E01CA80F0D006FB78C /* Resources */,
-				C114F523BB0E584BCA448F0C /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -281,6 +270,11 @@
 					15EEB8C21CA80F0D006FB78C = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 4WPNK427TB;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					15EEB8D61CA80F0D006FB78C = {
 						CreatedOnToolsVersion = 7.3;
@@ -320,9 +314,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				15EEB8D11CA80F0D006FB78C /* LaunchScreen.storyboard in Resources */,
-				156074F31CCBBF1100AA97C8 /* Default-568h@2x.png in Resources */,
 				15EEB8CE1CA80F0D006FB78C /* Assets.xcassets in Resources */,
+				152EF3931CEDB33A006A6BE4 /* GoogleService-Info.plist in Resources */,
 				15EEB8CC1CA80F0D006FB78C /* Main.storyboard in Resources */,
+				154FFCC21CE5EE49004A50B4 /* MyCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,21 +353,6 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		58199D7D704AFBD2E0EB96C0 /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SaptamanalulTests/Pods-SaptamanalulTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		87B51F371268D875B057913C /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -386,66 +366,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Saptamanalul/Pods-Saptamanalul-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A127021F0A7D8F87E45D6EF9 /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		C114F523BB0E584BCA448F0C /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SaptamanalulUITests/Pods-SaptamanalulUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CFAE533E24171A439C4FF6BE /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		D3564FA3BFD82DA7BA79CFAB /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SaptamanalulTests/Pods-SaptamanalulTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E69440142ADF48AC1F306433 /* 📦 Embed Pods Frameworks */ = {
@@ -470,9 +390,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1587E3E81CE6295600E8D355 /* PopoverVC.swift in Sources */,
 				150926111CCB6EFC00243434 /* LoginViewController.swift in Sources */,
+				154FFCC11CE5EE49004A50B4 /* MyCell.swift in Sources */,
 				1509261F1CCB978000243434 /* MaterialTextField.swift in Sources */,
-				15EEB8F51CA81298006FB78C /* MyCell.swift in Sources */,
 				15EEB8C91CA80F0D006FB78C /* ViewController.swift in Sources */,
 				15EEB8C71CA80F0D006FB78C /* AppDelegate.swift in Sources */,
 				1509261D1CCB8EB900243434 /* MaterialButton.swift in Sources */,
@@ -631,7 +552,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Saptamanalul/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yakis.Saptamanalul;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -651,7 +572,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Saptamanalul/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yakis.Saptamanalul;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -661,7 +582,6 @@
 		};
 		15EEB8EF1CA80F0D006FB78C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9CB5089DFAB54D2296035683 /* Pods-SaptamanalulTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = SaptamanalulTests/Info.plist;
@@ -674,7 +594,6 @@
 		};
 		15EEB8F01CA80F0D006FB78C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E81A4D3F955B5E566453B9F6 /* Pods-SaptamanalulTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = SaptamanalulTests/Info.plist;
@@ -687,7 +606,6 @@
 		};
 		15EEB8F21CA80F0D006FB78C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3DC3EC531EFD8759CE08E639 /* Pods-SaptamanalulUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = SaptamanalulUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -699,7 +617,6 @@
 		};
 		15EEB8F31CA80F0D006FB78C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9269C8A5045B00D7015FBD8A /* Pods-SaptamanalulUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = SaptamanalulUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

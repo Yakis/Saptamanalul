@@ -9,27 +9,33 @@
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
-import Firebase
+import FirebaseAuth
+import SVProgressHUD
 
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
     
     
-    let ref = Firebase(url: "https://saptamanalul.firebaseio.com")
     let facebookLogin = FBSDKLoginManager()
-    
-    
+    let loginButton = FBSDKLoginButton()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
-               
     }
+    
+    
+    func loginButtonClicked() {
+        
+    }
+    
     
     
     override func viewDidAppear(animated: Bool) {
         if NSUserDefaults.standardUserDefaults().valueForKey(KEY_UID) != nil {
+            print(NSUserDefaults.standardUserDefaults().valueForKey(KEY_UID))
             self.showSecondVC()
         }
     
@@ -38,58 +44,66 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func facebookLoginButton(sender: AnyObject) {
-        facebookLogin.logInWithReadPermissions(["email"], fromViewController: self) { (facebookResult, facebookError) in
-            
-            if facebookError != nil {
-                print("Facebook login failed. Error \(facebookError)")
-            } else {
-                let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
-                    DataService.ds.refBase.authWithOAuthProvider("facebook", token: accessToken, withCompletionBlock: {(error, authData) in
-                        if error != nil {
-                            print("Login failed. \(error)")
-                        } else {
-                            print("Logged in!")
-                            NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: KEY_UID)
-                            self.showSecondVC()
-                        }
-                })
+        let login: FBSDKLoginManager = FBSDKLoginManager()
+        login.logInWithReadPermissions(["public_profile"], fromViewController: self) { (result, error) in
+            if error != nil {
+                print("Process error")
+            }
+            else if result.isCancelled {
+                print("Cancelled")
+            }
+            else {
+                NSUserDefaults.standardUserDefaults().setValue(result.token.userID, forKey: KEY_UID)
+                self.showSecondVC()
             }
         }
     }
     
+    
+    func loggedIn() {
+        SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.Custom)
+        SVProgressHUD.setStatus("Logged In!")
+        SVProgressHUD.showWithStatus("Logged In!")
+        SVProgressHUD.dismissWithDelay(1)
+    }
     
     
     @IBOutlet weak var emailTextField: MaterialTextField!
     
     @IBOutlet weak var passwordTextField: MaterialTextField!
     
+    
+    
+    
+    
     @IBAction func loginWithEmailButton(sender: AnyObject) {
         if let email = emailTextField.text where email != "", let pwd = passwordTextField.text where pwd != "" {
-            DataService.ds.refBase.authUser(email, password: pwd, withCompletionBlock: { (error, authData) in
+            FIRAuth.auth()?.signInWithEmail(email, password: pwd) { (user, error) in
                 if error != nil {
-                    if error.code == STATUS_ACCOUNT_NOT_EXIST {
-                        DataService.ds.refBase.createUser(email, password: pwd, withValueCompletionBlock: { (error, result) in
+                    if error!.localizedDescription == STATUS_ACCOUNT_NOT_EXIST {
+                        FIRAuth.auth()?.createUserWithEmail(email, password: pwd) { (user, error) in
                             if error != nil {
                                 self.showErrorAlert("Could not create account", msg: "Problem creating account. Try something else!")
                             } else {
-                                NSUserDefaults.standardUserDefaults().setValue(result[KEY_UID], forKey: KEY_UID)
-                                DataService.ds.refBase.authUser(email, password: pwd, withCompletionBlock: nil)
+                                NSUserDefaults.standardUserDefaults().setValue(user?.uid, forKey: KEY_UID)
+                                FIRAuth.auth()
+                                self.loggedIn()
                                 self.showSecondVC()
                             }
-                        })
+                        }
                     } else {
                         self.showErrorAlert("Could not login", msg: "Please check your email or password")
                     }
                 } else {
+                    NSUserDefaults.standardUserDefaults().setValue(user?.uid, forKey: KEY_UID)
+                    self.loggedIn()
                     self.showSecondVC()
                 }
-            })
-        } else {
-            showErrorAlert("Email and Password required", msg: "You must enter an email and a password")
+                // self.showErrorAlert("Email and Password required", msg: "You must enter an email and a password")
+            }
         }
-        
-        
     }
+
     
     
     func showSecondVC () {

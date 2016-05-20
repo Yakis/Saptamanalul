@@ -1,6 +1,0 @@
-framework module Pods_SaptamanalulUITests {
-  umbrella header "Pods-SaptamanalulUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -5,18 +5,9 @@ use_frameworks!
 
 target 'Saptamanalul' do
 pod 'Alamofire', '~> 3.3'
-pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 pod 'SVProgressHUD', :git => 'https://github.com/SVProgressHUD/SVProgressHUD.git'
 pod 'Kingfisher', '~> 2.2'
-pod 'Firebase', '>= 2.5.1'
-pod 'IQKeyboardManagerSwift'
+pod 'Firebase/Database'
+pod 'Firebase/Auth'
+pod 'Batch', '~> 1.5'
 end
-
-target 'SaptamanalulTests' do
-
-end
-
-target 'SaptamanalulUITests' do
-
-end
-
