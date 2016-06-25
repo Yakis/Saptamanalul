@@ -7,12 +7,9 @@
 //
 
 import UIKit
-import Alamofire
 import SVProgressHUD
+import CloudKit
 import Kingfisher
-import Firebase
-import FirebaseDatabase
-
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -20,77 +17,110 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var openPostLabel: UILabel!
     
-    var rootRef = FIRDatabase.database().reference()
     var refresher: UIRefreshControl!
     
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var mainImageHeightConstrain: NSLayoutConstraint!
     
-    var myJSON: NSArray?
-
+    
+    var myJSON = [CKRecord]()
     
     
     @IBAction func didTapOnImage(sender: AnyObject) {
-        if let json = myJSON {
         let detailsVC = self.storyboard?.instantiateViewControllerWithIdentifier("detailsVC") as! DetailsViewController
         self.navigationController?.showViewController(detailsVC, sender: navigationController)
-        let post = json[0]
+        let post = myJSON[0]
         if let title = post["title"] as? String {
             detailsVC.titleValue = title
-            if let image = post["thumbnailUrl"] as? String {
-                detailsVC.imageName = image
+            if let file = post.valueForKey("image") as? String {
+                let imageUrl = NSURL(string: file)
+                detailsVC.imageName = imageUrl
                 if let body = post["body"] as? String {
                     detailsVC.bodyValue = body
-                    if let pubImage = post["pubImageUrl"] as? String {
-                        detailsVC.pubImageName = pubImage
+                    if let filePub = post.valueForKey("publicitate") as? String {
+                        let pubUrl = NSURL(string: filePub)
+                        detailsVC.pubImageName = pubUrl
                     }
                 }
             }
         }
     }
+    
+    
+    
+    @IBAction func butonAnunturi(sender: AnyObject) {
+        
+        let anunturiVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("anunturiVC")
+        self.navigationController?.presentViewController(anunturiVC, animated: true, completion: nil)
+        
     }
     
     
-    func getDataFromFirebase () {
-        let postsRef = rootRef.child("posts")
-        postsRef.observeEventType(.Value, withBlock: { (snapshot) in
-            self.myJSON = (snapshot.value as? NSArray)?.reverse()
-            self.setOpenPost()
-            dispatch_async(dispatch_get_main_queue(),{
-                self.tableView.reloadData()
-                SVProgressHUD.dismiss()
-                self.refresher.endRefreshing()
-            })
-            
-        }) { (error) in
-            print(error.description)
+    
+    //HEAD: Cloudkit Implementation
+    
+    func getPosts () {
+        myJSON = [CKRecord]()
+        let publicDatabase: CKDatabase = CKContainer.defaultContainer().publicCloudDatabase
+        let predicate: NSPredicate = NSPredicate(format: "TRUEPREDICATE", argumentArray: nil)
+        let query: CKQuery = CKQuery(recordType: "Stiri", predicate: predicate)
+        query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        let queryOperation: CKQueryOperation = CKQueryOperation()
+        queryOperation.query = query
+        queryOperation.qualityOfService = .UserInteractive
+        publicDatabase.performQuery(query, inZoneWithID: nil) { ( records: [CKRecord]?, error: NSError?) in
+            if error == nil {
+                if let records = records {
+                    for post in records {
+                    self.myJSON.append(post)
+                    }
+                    NSOperationQueue.mainQueue().addOperationWithBlock({
+                        SVProgressHUD.dismiss()
+                        self.setOpenPost()
+                        self.tableView.reloadData()
+                        if self.refresher != nil {
+                            self.refresher.endRefreshing()
+                        }
+                    })
+                } else {
+                    print(error?.localizedDescription)
+                }
+                
+            }
         }
     }
+    
+
+
+
     
     
     func loadLogoToNavigationBar () {
         if let img: UIImage = UIImage(named: "saptamanalulWhite.png") {
-        let imgView: UIImageView = UIImageView(frame: CGRectMake(0, 50, 150, 45))
-        imgView.image = img
-        // setContent mode aspect fit
-        imgView.contentMode = .ScaleAspectFit
-        self.navigationItem.titleView = imgView
-    }
+           // let imgView: UIImageView = UIImageView(frame: CGRectMake(0, 50, 150, 45))
+            let imgView: UIImageView = UIImageView(frame: CGRectMake(400, 200, 120, 30))
+            imgView.image = img
+            // setContent mode aspect fit
+            imgView.contentMode = .ScaleAspectFit
+            self.navigationItem.titleView = imgView
+        }
+        
+        
     }
    
     func setOpenPost () {
-        if let json = myJSON {
-        if let stringURL = json[0]["thumbnailUrl"] as? String {
-        if let url = NSURL(string: stringURL) {
-        self.openPostLabel.text = json[0]["title"] as? String
-        self.openPostImageView.kf_setImageWithURL(url)
-        self.openPostLabel.backgroundColor = UIColor(red: 8/255, green: 64/255, blue: 109/255, alpha: 0.6)
-        self.openPostLabel.textColor = UIColor.whiteColor()
+        if let file = myJSON[0].valueForKey("image") as? String {
+           let imageUrl = NSURL(string: file)
+                    self.openPostLabel.text = myJSON[0]["title"] as? String
+                    self.openPostImageView.kf_setImageWithURL(imageUrl!)
+                    self.openPostLabel.backgroundColor = UIColor(red: 8/255, green: 64/255, blue: 109/255, alpha: 0.6)
+                    self.openPostLabel.textColor = UIColor.whiteColor()
+                }
     }
-    }
-    }
-    }
+    
+    
+    
     
     func refreshNews() {
         refresher = UIRefreshControl()
@@ -101,7 +131,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func executeRefreshNews() {
-        getDataFromFirebase()
+        getPosts()
     }
     
     func setImageViewToHalfScreenOfDevice () {
@@ -124,7 +154,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.openPostLabel.text = ""
         loadLogoToNavigationBar()
         SVProgressHUD.show()
-        getDataFromFirebase()
+        getPosts()
         refreshNews()
     }
     
@@ -136,31 +166,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         presentViewController(alert, animated: true, completion: nil)
     }
     
-
-    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.myJSON?.count ?? 0
+        return self.myJSON.count ?? 0
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! MyCell
-        var tempArray: Array<AnyObject> = []
-        if let json = self.myJSON {
-        for post in json {
-           tempArray.append(post)
+        let post = myJSON[indexPath.row]
+            let title = post["title"] as? String
+        if let file = post.valueForKey("image") as? String {
+            let imageUrl = NSURL(string: file)
+                cell.myImageView.kf_setImageWithURL(imageUrl!)
+                cell.myTitleView.text = title
         }
-        let post = tempArray[indexPath.row]
-        if let title = post["title"] as? String {
-            if let imageURL: String = post["thumbnailUrl"] as? String {
-                if let url = NSURL(string: imageURL) {
-                    cell.addContent(url, title: title)
-                }
-            }
-        }
-        }
-        
         return cell
     }
     
@@ -169,28 +189,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let detailsVC = self.storyboard?.instantiateViewControllerWithIdentifier("detailsVC") as! DetailsViewController
         self.navigationController?.showViewController(detailsVC, sender: navigationController)
-        var tempArray: Array<AnyObject> = []
-        if let json = self.myJSON {
-            for post in json {
-                tempArray.append(post)
-            }
-            let post = tempArray[indexPath.row]
-        if let title = post["title"] as? String {
-            detailsVC.titleValue = title
-            if let image = post["thumbnailUrl"] as? String {
-                detailsVC.imageName = image
-                if let body = post["body"] as? String {
-                    detailsVC.bodyValue = body
-                    if let pubImage = post["pubImageUrl"] as? String {
-                        detailsVC.pubImageName = pubImage
+            let post = myJSON[indexPath.row]
+            if let title = post["title"] as? String {
+                detailsVC.titleValue = title
+                if let file = post.valueForKey("image") as? String {
+                    let imageUrl = NSURL(string: file)
+                    detailsVC.imageName = imageUrl
+                    if let body = post["body"] as? String {
+                        detailsVC.bodyValue = body
+                        if let filePub = post.valueForKey("publicitate") as? String {
+                            let pubUrl = NSURL(string: filePub)
+                            detailsVC.pubImageName = pubUrl
+                        }
                     }
                 }
             }
         }
-    }
-}
     
-    
+
+
+
+
     
 }
 

@@ -9,13 +9,11 @@
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
-import FirebaseAuth
 import SVProgressHUD
 
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
-    
     
     let facebookLogin = FBSDKLoginManager()
     let loginButton = FBSDKLoginButton()
@@ -35,7 +33,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidAppear(animated: Bool) {
         if NSUserDefaults.standardUserDefaults().valueForKey(KEY_UID) != nil {
-            print(NSUserDefaults.standardUserDefaults().valueForKey(KEY_UID))
             self.showSecondVC()
         }
     
@@ -76,33 +73,33 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     
-    @IBAction func loginWithEmailButton(sender: AnyObject) {
-        if let email = emailTextField.text where email != "", let pwd = passwordTextField.text where pwd != "" {
-            FIRAuth.auth()?.signInWithEmail(email, password: pwd) { (user, error) in
-                if error != nil {
-                    if error!.localizedDescription == STATUS_ACCOUNT_NOT_EXIST {
-                        FIRAuth.auth()?.createUserWithEmail(email, password: pwd) { (user, error) in
-                            if error != nil {
-                                self.showErrorAlert("Could not create account", msg: "Problem creating account. Try something else!")
-                            } else {
-                                NSUserDefaults.standardUserDefaults().setValue(user?.uid, forKey: KEY_UID)
-                                FIRAuth.auth()
-                                self.loggedIn()
-                                self.showSecondVC()
-                            }
-                        }
-                    } else {
-                        self.showErrorAlert("Could not login", msg: "Please check your email or password")
-                    }
-                } else {
-                    NSUserDefaults.standardUserDefaults().setValue(user?.uid, forKey: KEY_UID)
-                    self.loggedIn()
-                    self.showSecondVC()
-                }
-                // self.showErrorAlert("Email and Password required", msg: "You must enter an email and a password")
-            }
-        }
-    }
+//    @IBAction func loginWithEmailButton(sender: AnyObject) {
+//        if let email = emailTextField.text where email != "", let pwd = passwordTextField.text where pwd != "" {
+//            FIRAuth.auth()?.signInWithEmail(email, password: pwd) { (user, error) in
+//                if error != nil {
+//                    if error!.localizedDescription == STATUS_ACCOUNT_NOT_EXIST {
+//                        FIRAuth.auth()?.createUserWithEmail(email, password: pwd) { (user, error) in
+//                            if error != nil {
+//                                self.showErrorAlert("Could not create account", msg: "Problem creating account. Try something else!")
+//                            } else {
+//                                NSUserDefaults.standardUserDefaults().setValue(user?.uid, forKey: KEY_UID)
+//                                FIRAuth.auth()
+//                                self.loggedIn()
+//                                self.showSecondVC()
+//                            }
+//                        }
+//                    } else {
+//                        self.showErrorAlert("Could not login", msg: "Please check your email or password")
+//                    }
+//                } else {
+//                    NSUserDefaults.standardUserDefaults().setValue(user?.uid, forKey: KEY_UID)
+//                    self.loggedIn()
+//                    self.showSecondVC()
+//                }
+//                // self.showErrorAlert("Email and Password required", msg: "You must enter an email and a password")
+//            }
+//        }
+//    }
 
     
     

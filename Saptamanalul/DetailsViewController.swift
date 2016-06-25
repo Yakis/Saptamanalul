@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import Kingfisher
 import Social
+import Kingfisher
 
 class DetailsViewController: UIViewController {
 
@@ -24,9 +24,9 @@ class DetailsViewController: UIViewController {
     
     
     var titleValue = ""
-    var imageName = ""
+    var imageName: NSURL?
     var bodyValue = ""
-    var pubImageName = ""
+    var pubImageName: NSURL?
     
     var runTimer: NSTimer!
     var stopTimer: NSTimer!
@@ -46,10 +46,11 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         view.layoutIfNeeded()
         imageHeightConstrain.constant = (view.frame.size.height / 2) - 70
-        let url = NSURL(string: imageName)
         detailsTitleLabel.text = titleValue
         detailsBodyLabel.text = bodyValue
-        detailsImageView.kf_setImageWithURL(url!)
+        if let imageUrl = imageName {
+        detailsImageView.kf_setImageWithURL(imageUrl)
+    }
     }
     
     
@@ -67,17 +68,18 @@ class DetailsViewController: UIViewController {
 
     
     func runTimedCode() {
-        if pubImageName != "" {
-            let pubImageUrl = NSURL(string: pubImageName)
-        detailsImageView.kf_setImageWithURL(pubImageUrl!)
+        if let pubImage = self.pubImageName {
+        detailsImageView.kf_setImageWithURL(pubImage)
         }
         runTimer.invalidate()
     }
     
     func stopTimedCode () {
-        let url = NSURL(string: imageName)
-        detailsImageView.kf_setImageWithURL(url!)
+        if let image = imageName {
+        detailsImageView.kf_setImageWithURL(image)
         stopTimer.invalidate()
+        }
     }
+        
 
 }

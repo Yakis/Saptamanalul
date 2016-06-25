@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Alamofire.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Kingfisher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,17 +22,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
+		<key>502BECE5E40025AC855940635218AD41</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BC55662E08F7D30AA577E99889C8BB38</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E124B87EE91E601D402D91BCA242ABB2</key>
+		<key>77848C180B31EC4EFC54C3F134FBA9B7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

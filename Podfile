@@ -4,10 +4,7 @@
 use_frameworks!
 
 target 'Saptamanalul' do
-pod 'Alamofire', '~> 3.3'
 pod 'SVProgressHUD', :git => 'https://github.com/SVProgressHUD/SVProgressHUD.git'
-pod 'Kingfisher', '~> 2.2'
-pod 'Firebase/Database'
-pod 'Firebase/Auth'
 pod 'Batch', '~> 1.5'
+pod 'Kingfisher', '~> 2.4'
 end
