@@ -21,8 +21,9 @@
 		1581A40A1D0D6EE40015B63D /* DetailsAnuntViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581A4091D0D6EE40015B63D /* DetailsAnuntViewController.swift */; };
 		1586D1A51CF31ED20090DD44 /* AnunturiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1586D1A41CF31ED20090DD44 /* AnunturiVC.swift */; };
 		1587E3E81CE6295600E8D355 /* PopoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587E3E71CE6295600E8D355 /* PopoverVC.swift */; };
+		15A4354F1D1FBB2B00E378AD /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A4354E1D1FBB2B00E378AD /* Kingfisher.framework */; };
+		15A435571D1FBC0600E378AD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A4354C1D1FBA9300E378AD /* CloudKit.framework */; };
 		15CAD8441CC8C8B900F84D66 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CAD8431CC8C8B900F84D66 /* DetailsViewController.swift */; };
-		15CF15611CEF61D600511C69 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15CF15601CEF61D600511C69 /* CloudKit.framework */; };
 		15EEB8C71CA80F0D006FB78C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEB8C61CA80F0D006FB78C /* AppDelegate.swift */; };
 		15EEB8C91CA80F0D006FB78C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEB8C81CA80F0D006FB78C /* ViewController.swift */; };
 		15EEB8CC1CA80F0D006FB78C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15EEB8CA1CA80F0D006FB78C /* Main.storyboard */; };
@@ -66,9 +67,10 @@
 		1581A4091D0D6EE40015B63D /* DetailsAnuntViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsAnuntViewController.swift; sourceTree = "<group>"; };
 		1586D1A41CF31ED20090DD44 /* AnunturiVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnunturiVC.swift; sourceTree = "<group>"; };
 		1587E3E71CE6295600E8D355 /* PopoverVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverVC.swift; sourceTree = "<group>"; };
+		15A4354C1D1FBA9300E378AD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		15A4354E1D1FBB2B00E378AD /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = "../../Library/Developer/Xcode/DerivedData/Saptamanalul-hbdevngxamnxzlegxdhyifwicbrd/Build/Products/Debug-iphoneos/Kingfisher/Kingfisher.framework"; sourceTree = "<group>"; };
 		15CAD8431CC8C8B900F84D66 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		15CF155F1CEF61CC00511C69 /* Saptamanalul.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Saptamanalul.entitlements; sourceTree = "<group>"; };
-		15CF15601CEF61D600511C69 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		15EEB8C31CA80F0D006FB78C /* Saptamanalul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Saptamanalul.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15EEB8C61CA80F0D006FB78C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15EEB8C81CA80F0D006FB78C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -95,11 +97,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15CF15611CEF61D600511C69 /* CloudKit.framework in Frameworks */,
+				15A435571D1FBC0600E378AD /* CloudKit.framework in Frameworks */,
 				150926171CCB7BE100243434 /* FBSDKShareKit.framework in Frameworks */,
 				8CA3259C3559F3372A15CD79 /* Pods_Saptamanalul.framework in Frameworks */,
 				150926151CCB7BE100243434 /* FBSDKCoreKit.framework in Frameworks */,
 				150926161CCB7BE100243434 /* FBSDKLoginKit.framework in Frameworks */,
+				15A4354F1D1FBB2B00E378AD /* Kingfisher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,7 +126,8 @@
 		07C12A01A34703A14F013712 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				15CF15601CEF61D600511C69 /* CloudKit.framework */,
+				15A4354E1D1FBB2B00E378AD /* Kingfisher.framework */,
+				15A4354C1D1FBA9300E378AD /* CloudKit.framework */,
 				150926121CCB7BE100243434 /* FBSDKCoreKit.framework */,
 				150926131CCB7BE100243434 /* FBSDKLoginKit.framework */,
 				150926141CCB7BE100243434 /* FBSDKShareKit.framework */,
