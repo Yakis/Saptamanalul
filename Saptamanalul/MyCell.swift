@@ -14,6 +14,10 @@ class MyCell: UITableViewCell {
     
     @IBOutlet weak var myTitleView: UILabel!
     
+    @IBOutlet weak var timeStampLabel: UILabel!
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

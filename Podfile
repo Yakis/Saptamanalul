@@ -7,4 +7,6 @@ target 'Saptamanalul' do
 pod 'SVProgressHUD', :git => 'https://github.com/SVProgressHUD/SVProgressHUD.git'
 pod 'Batch', '~> 1.5'
 pod 'Kingfisher', '~> 2.4'
+pod 'Firebase'
+pod 'Firebase/Database'
 end

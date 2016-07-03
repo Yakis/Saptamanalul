@@ -9,6 +9,8 @@
 import UIKit
 import FBSDKCoreKit
 import Batch
+import Firebase
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,7 +23,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         Batch.startWithAPIKey("5739669F65E82D8251293A48AC8010")
         BatchPush.registerForRemoteNotifications()
+       // FIRApp.configure()
         return true
+    }
+    
+    
+    
+    override init() {
+        // Firebase Init
+        FIRApp.configure()
     }
     
     

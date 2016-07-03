@@ -55,8 +55,10 @@ class DetailsViewController: UIViewController {
     
     
     override func viewDidAppear(animated: Bool) {
+        if pubImageName?.absoluteString != "" {
         runTimer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
         stopTimer = NSTimer.scheduledTimerWithTimeInterval(8, target: self, selector: #selector(stopTimedCode), userInfo: nil, repeats: true)
+    }
     }
     
     

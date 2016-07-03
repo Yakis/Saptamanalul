@@ -10,6 +10,8 @@ import UIKit
 import SVProgressHUD
 import CloudKit
 import Kingfisher
+import FirebaseDatabase
+
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -18,40 +20,48 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var openPostLabel: UILabel!
     
     var refresher: UIRefreshControl!
-    
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var mainImageHeightConstrain: NSLayoutConstraint!
     
-    
-    var myJSON = [CKRecord]()
+    @IBOutlet weak var mainTitleBandConstrain: NSLayoutConstraint!
+    var ref = FIRDatabase.database().reference()
+    var posts = [Post]()
     
     
     @IBAction func didTapOnImage(sender: AnyObject) {
         let detailsVC = self.storyboard?.instantiateViewControllerWithIdentifier("detailsVC") as! DetailsViewController
         self.navigationController?.showViewController(detailsVC, sender: navigationController)
-        let post = myJSON[0]
-        if let title = post["title"] as? String {
+        let post = posts[0]
+        let title = post.title
             detailsVC.titleValue = title
-            if let file = post.valueForKey("image") as? String {
+            let file = post.image
                 let imageUrl = NSURL(string: file)
                 detailsVC.imageName = imageUrl
-                if let body = post["body"] as? String {
+                let body = post.body
                     detailsVC.bodyValue = body
-                    if let filePub = post.valueForKey("publicitate") as? String {
-                        let pubUrl = NSURL(string: filePub)
+        let filePub = post.pubImage
+        let pubUrl = NSURL(string: filePub)
                         detailsVC.pubImageName = pubUrl
-                    }
-                }
-            }
         }
+
+    
+    func addTapGesture() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(ViewController.handleTap))
+        tap.numberOfTapsRequired = 5
+        self.view.addGestureRecognizer(tap)
+    }
+    
+    func handleTap() {
+        let adminVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("adminVC") 
+        self.navigationController?.pushViewController(adminVC, animated: true)
     }
     
     
     
     @IBAction func butonAnunturi(sender: AnyObject) {
         
-        let anunturiVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("anunturiVC")
+        let anunturiVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("anunturiVC") as! AdminVC
         self.navigationController?.presentViewController(anunturiVC, animated: true, completion: nil)
         
     }
@@ -61,32 +71,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //HEAD: Cloudkit Implementation
     
     func getPosts () {
-        myJSON = [CKRecord]()
-        let publicDatabase: CKDatabase = CKContainer.defaultContainer().publicCloudDatabase
-        let predicate: NSPredicate = NSPredicate(format: "TRUEPREDICATE", argumentArray: nil)
-        let query: CKQuery = CKQuery(recordType: "Stiri", predicate: predicate)
-        query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-        let queryOperation: CKQueryOperation = CKQueryOperation()
-        queryOperation.query = query
-        queryOperation.qualityOfService = .UserInteractive
-        publicDatabase.performQuery(query, inZoneWithID: nil) { ( records: [CKRecord]?, error: NSError?) in
-            if error == nil {
-                if let records = records {
-                    for post in records {
-                    self.myJSON.append(post)
+        posts = []
+        let postRef = self.ref.child("posts")
+        postRef.observeSingleEventOfType(.Value) { (snapshot: FIRDataSnapshot) in
+            for snap in snapshot.children.allObjects as! [FIRDataSnapshot] {
+               // let key = snap.key
+                guard let title = snap.value!["title"] as? String else {return}
+                guard let body = snap.value!["body"] as? String else {return}
+                guard let image = snap.value!["image"] as? String else {return}
+                let pubImage = snap.value!["pubImage"] as? String ?? ""
+                let post = Post(title: title, body: body, image: image, pubImage: pubImage)
+                self.posts.append(post)
+                dispatch_async(dispatch_get_main_queue()) {
+                    SVProgressHUD.dismiss()
+                    self.setOpenPost()
+                    self.tableView.reloadData()
+                    if self.refresher != nil {
+                        self.refresher.endRefreshing()
+                    
                     }
-                    NSOperationQueue.mainQueue().addOperationWithBlock({
-                        SVProgressHUD.dismiss()
-                        self.setOpenPost()
-                        self.tableView.reloadData()
-                        if self.refresher != nil {
-                            self.refresher.endRefreshing()
-                        }
-                    })
-                } else {
-                    print(error?.localizedDescription)
                 }
-                
             }
         }
     }
@@ -110,16 +114,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
    
     func setOpenPost () {
-        if let file = myJSON[0].valueForKey("image") as? String {
+        let file = posts[0].image
            let imageUrl = NSURL(string: file)
-                    self.openPostLabel.text = myJSON[0]["title"] as? String
+                    self.openPostLabel.text = posts[0].title
                     self.openPostImageView.kf_setImageWithURL(imageUrl!)
                     self.openPostLabel.backgroundColor = UIColor(red: 8/255, green: 64/255, blue: 109/255, alpha: 0.6)
                     self.openPostLabel.textColor = UIColor.whiteColor()
-                }
     }
     
     
+    
+    func getTimestampString () -> String {
+        let date = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([.Day , .Month , .Year], fromDate: date)
+        let year =  components.year
+        let month = components.month
+        let day = components.day
+        return "\(day).\(month).\(year)"
+    }
     
     
     func refreshNews() {
@@ -137,6 +150,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func setImageViewToHalfScreenOfDevice () {
         view.layoutIfNeeded()
         mainImageHeightConstrain.constant = view.frame.size.height / 2
+        mainTitleBandConstrain.constant = view.frame.size.height / 11
     }
     
     
@@ -148,6 +162,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addTapGesture()
         setImageViewToHalfScreenOfDevice()
         setTapRecognizerOnImage()
         tableView.registerNib(UINib(nibName: "MyCell", bundle: nil), forCellReuseIdentifier: "Cell")
@@ -168,19 +183,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.myJSON.count ?? 0
+        return self.posts.count ?? 0
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! MyCell
-        let post = myJSON[indexPath.row]
-            let title = post["title"] as? String
-        if let file = post.valueForKey("image") as? String {
+        let post = posts[indexPath.row]
+            let title = post.title
+        let file = post.image
             let imageUrl = NSURL(string: file)
                 cell.myImageView.kf_setImageWithURL(imageUrl!)
                 cell.myTitleView.text = title
-        }
+        cell.timeStampLabel.text = getTimestampString()
+        
         return cell
     }
     
@@ -189,21 +205,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let detailsVC = self.storyboard?.instantiateViewControllerWithIdentifier("detailsVC") as! DetailsViewController
         self.navigationController?.showViewController(detailsVC, sender: navigationController)
-            let post = myJSON[indexPath.row]
-            if let title = post["title"] as? String {
+            let post = posts[indexPath.row]
+            let title = post.title
                 detailsVC.titleValue = title
-                if let file = post.valueForKey("image") as? String {
+                let file = post.image
                     let imageUrl = NSURL(string: file)
                     detailsVC.imageName = imageUrl
-                    if let body = post["body"] as? String {
+                    let body = post.body
                         detailsVC.bodyValue = body
-                        if let filePub = post.valueForKey("publicitate") as? String {
-                            let pubUrl = NSURL(string: filePub)
+    let filePub = post.pubImage
+         let pubUrl = NSURL(string: filePub)
                             detailsVC.pubImageName = pubUrl
-                        }
-                    }
-                }
-            }
         }
     
 

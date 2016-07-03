@@ -8,6 +8,8 @@
 
 import UIKit
 import CloudKit
+import FirebaseDatabase
+
 
 class AnunturiVC: UITableViewController, UISearchBarDelegate {
 
@@ -16,8 +18,8 @@ class AnunturiVC: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     
     
-    var anunturiJSON: [Anunt] = []
-    
+    var anunturi: [Anunt] = []
+    var ref = FIRDatabase.database().reference()
     var searchActive: Bool = false
     var filteredItems: [Anunt] = []
     
@@ -42,7 +44,7 @@ class AnunturiVC: UITableViewController, UISearchBarDelegate {
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         
-        filteredItems = anunturiJSON.filter({ (text) -> Bool in
+        filteredItems = anunturi.filter({ (text) -> Bool in
             let tmp: NSString = text.anunt!
             let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
             return range.location != NSNotFound
@@ -58,32 +60,19 @@ class AnunturiVC: UITableViewController, UISearchBarDelegate {
     
     
     func getAnunturi () {
-        anunturiJSON = []
-        let publicDatabase: CKDatabase = CKContainer.defaultContainer().publicCloudDatabase
-        let predicate: NSPredicate = NSPredicate(format: "TRUEPREDICATE", argumentArray: nil)
-        let query: CKQuery = CKQuery(recordType: "Anunturi", predicate: predicate)
-        query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-        let queryOperation: CKQueryOperation = CKQueryOperation()
-        queryOperation.query = query
-        queryOperation.qualityOfService = .UserInitiated
-        publicDatabase.performQuery(query, inZoneWithID: nil) { ( records: [CKRecord]?, error: NSError?) in
-            if error == nil {
-                if let records = records {
-                    for post in records {
-                        guard let anunt = post.valueForKey("anunt") as? String else {return}
-                        let image = post.valueForKey("image") as? String
-                        let anuntu = Anunt(anunt: anunt, image: image ?? "")
-                        self.anunturiJSON.append(anuntu)
-                        print(self.anunturiJSON)
-                    }
-                    NSOperationQueue.mainQueue().addOperationWithBlock({
-                        self.tableView.reloadData()
-                    })
-                    
-                } else {
-                    print(error?.localizedDescription)
-                }
+        anunturi = []
+        let anunturiRef = self.ref.child("anunturi")
+        anunturiRef.observeSingleEventOfType(.Value) { (snapshot: FIRDataSnapshot) in
+            for snap in snapshot.children.allObjects as! [FIRDataSnapshot] {
+                // let key = snap.key
+                guard let body = snap.value!["body"] as? String else {return}
+                guard let image = snap.value!["image"] as? String else {return}
+                let anunt = Anunt(anunt: body, image: image)
+                self.anunturi.append(anunt)
                 
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.tableView.reloadData()
+                }
             }
         }
     }
@@ -120,7 +109,7 @@ class AnunturiVC: UITableViewController, UISearchBarDelegate {
         if searchActive {
             return filteredItems.count
         } else if !searchActive {
-        return self.anunturiJSON.count
+        return self.anunturi.count
         } else {
             return 0
         }
@@ -132,7 +121,7 @@ class AnunturiVC: UITableViewController, UISearchBarDelegate {
         if searchActive {
             cell.textLabel?.text = filteredItems[indexPath.row].anunt
         } else {
-            cell.textLabel?.text = anunturiJSON[indexPath.row].anunt
+            cell.textLabel?.text = anunturi[indexPath.row].anunt
         }
 
         return cell
@@ -149,8 +138,8 @@ class AnunturiVC: UITableViewController, UISearchBarDelegate {
             detailsAnuntVC.anunt = filteredItems[indexPath.row].anunt
             detailsAnuntVC.image = filteredItems[indexPath.row].image
         } else {
-            detailsAnuntVC.anunt = anunturiJSON[indexPath.row].anunt
-            detailsAnuntVC.image = anunturiJSON[indexPath.row].image
+            detailsAnuntVC.anunt = anunturi[indexPath.row].anunt
+            detailsAnuntVC.image = anunturi[indexPath.row].image
         }
     }
     
