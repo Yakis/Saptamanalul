@@ -15,9 +15,9 @@
 		1509261B1CCB88DC00243434 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1509261A1CCB88DC00243434 /* Constants.swift */; };
 		1509261D1CCB8EB900243434 /* MaterialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1509261C1CCB8EB900243434 /* MaterialButton.swift */; };
 		1509261F1CCB978000243434 /* MaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1509261E1CCB978000243434 /* MaterialTextField.swift */; };
-		1541A4B21D1FC99D00C5F401 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1541A4B11D1FC99D00C5F401 /* GoogleService-Info.plist */; };
 		1541A4B41D1FE57A00C5F401 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1541A4B31D1FE57A00C5F401 /* Post.swift */; };
 		1541A4B61D295DC500C5F401 /* AdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1541A4B51D295DC500C5F401 /* AdminVC.swift */; };
+		1541A4B81D2969B000C5F401 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1541A4B71D2969B000C5F401 /* GoogleService-Info.plist */; };
 		154FFCC11CE5EE49004A50B4 /* MyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154FFCBF1CE5EE49004A50B4 /* MyCell.swift */; };
 		154FFCC21CE5EE49004A50B4 /* MyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 154FFCC01CE5EE49004A50B4 /* MyCell.xib */; };
 		1581A40A1D0D6EE40015B63D /* DetailsAnuntViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581A4091D0D6EE40015B63D /* DetailsAnuntViewController.swift */; };
@@ -62,9 +62,9 @@
 		1509261A1CCB88DC00243434 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1509261C1CCB8EB900243434 /* MaterialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialButton.swift; sourceTree = "<group>"; };
 		1509261E1CCB978000243434 /* MaterialTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialTextField.swift; sourceTree = "<group>"; };
-		1541A4B11D1FC99D00C5F401 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1541A4B31D1FE57A00C5F401 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		1541A4B51D295DC500C5F401 /* AdminVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminVC.swift; sourceTree = "<group>"; };
+		1541A4B71D2969B000C5F401 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		154FFCBF1CE5EE49004A50B4 /* MyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCell.swift; sourceTree = "<group>"; };
 		154FFCC01CE5EE49004A50B4 /* MyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCell.xib; sourceTree = "<group>"; };
 		1581A4091D0D6EE40015B63D /* DetailsAnuntViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsAnuntViewController.swift; sourceTree = "<group>"; };
@@ -173,7 +173,7 @@
 				15EEB8CD1CA80F0D006FB78C /* Assets.xcassets */,
 				15EEB8CF1CA80F0D006FB78C /* LaunchScreen.storyboard */,
 				15EEB8D21CA80F0D006FB78C /* Info.plist */,
-				1541A4B11D1FC99D00C5F401 /* GoogleService-Info.plist */,
+				1541A4B71D2969B000C5F401 /* GoogleService-Info.plist */,
 				150926181CCB885000243434 /* MaterialView.swift */,
 				1509261A1CCB88DC00243434 /* Constants.swift */,
 				1509261C1CCB8EB900243434 /* MaterialButton.swift */,
@@ -289,6 +289,9 @@
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 4WPNK427TB;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -336,7 +339,7 @@
 			files = (
 				15EEB8D11CA80F0D006FB78C /* LaunchScreen.storyboard in Resources */,
 				15EEB8CE1CA80F0D006FB78C /* Assets.xcassets in Resources */,
-				1541A4B21D1FC99D00C5F401 /* GoogleService-Info.plist in Resources */,
+				1541A4B81D2969B000C5F401 /* GoogleService-Info.plist in Resources */,
 				15EEB8CC1CA80F0D006FB78C /* Main.storyboard in Resources */,
 				154FFCC21CE5EE49004A50B4 /* MyCell.xib in Resources */,
 			);
@@ -581,7 +584,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yakis.Saptamanalul;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "1c0206a3-2734-4d2a-afa3-d30fe239c0e7";
 			};
 			name = Debug;
 		};
@@ -601,7 +604,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yakis.Saptamanalul;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "1c0206a3-2734-4d2a-afa3-d30fe239c0e7";
 			};
 			name = Release;
 		};

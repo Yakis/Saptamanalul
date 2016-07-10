@@ -19,6 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        let settings: UIUserNotificationSettings =
+            UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+        application.registerUserNotificationSettings(settings)
+        application.registerForRemoteNotifications()
+        
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         // Override point for customization after application launch.
         Batch.startWithAPIKey("5739669F65E82D8251293A48AC8010")
@@ -37,9 +42,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject])
     {
+        
         // Start Batch.
         // TODO : switch to live api key before store release
-        // Batch.startWithAPIKey("DEV5739669F677C306C6AA31FA7659") // dev
+         //Batch.startWithAPIKey("DEV5739669F677C306C6AA31FA7659") // dev
         Batch.startWithAPIKey("5739669F65E82D8251293A48AC8010") // live
         // Register for push notifications
         BatchPush.registerForRemoteNotifications()
