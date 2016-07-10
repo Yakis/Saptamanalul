@@ -24,6 +24,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var mainImageHeightConstrain: NSLayoutConstraint!
     
+    @IBOutlet weak var bandView: UIView!
+    
     @IBOutlet weak var mainTitleBandConstrain: NSLayoutConstraint!
     var ref = FIRDatabase.database().reference()
     var posts = [Post]()
@@ -36,26 +38,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let title = post.title
             detailsVC.titleValue = title
             let file = post.image
-                let imageUrl = NSURL(string: file)
+        guard let imageUrl = NSURL(string: file) else {return}
                 detailsVC.imageName = imageUrl
                 let body = post.body
                     detailsVC.bodyValue = body
         let filePub = post.pubImage
-        let pubUrl = NSURL(string: filePub)
+        guard let pubUrl = NSURL(string: filePub) else {return}
                         detailsVC.pubImageName = pubUrl
         }
 
-    
-    func addTapGesture() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(ViewController.handleTap))
-        tap.numberOfTapsRequired = 5
-        self.view.addGestureRecognizer(tap)
-    }
-    
-    func handleTap() {
-        let adminVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("adminVC") 
-        self.navigationController?.pushViewController(adminVC, animated: true)
-    }
     
     
     
@@ -84,6 +75,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.posts.append(post)
                 dispatch_async(dispatch_get_main_queue()) {
                     SVProgressHUD.dismiss()
+                    self.bandView.alpha = 0.7
                     self.setOpenPost()
                     self.tableView.reloadData()
                     if self.refresher != nil {
@@ -162,7 +154,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addTapGesture()
+        self.bandView.alpha = 0
         setImageViewToHalfScreenOfDevice()
         setTapRecognizerOnImage()
         tableView.registerNib(UINib(nibName: "MyCell", bundle: nil), forCellReuseIdentifier: "Cell")
