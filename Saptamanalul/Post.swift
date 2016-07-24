@@ -15,13 +15,15 @@ class Post {
     var body: String
     var image: String
     var pubImage: String = ""
+    var postDate: String = ""
     
     
-    init (title: String, body: String, image: String, pubImage: String) {
+    init (title: String, body: String, image: String, pubImage: String, postDate: String) {
         self.title = title
         self.body = body
         self.image = image
         self.pubImage = pubImage
+        self.postDate = postDate
     }
     
 }

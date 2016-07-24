@@ -67,11 +67,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         postRef.observeSingleEventOfType(.Value) { (snapshot: FIRDataSnapshot) in
             for snap in snapshot.children.allObjects as! [FIRDataSnapshot] {
                // let key = snap.key
-                guard let title = snap.value!["title"] as? String else {return}
-                guard let body = snap.value!["body"] as? String else {return}
-                guard let image = snap.value!["image"] as? String else {return}
-                let pubImage = snap.value!["pubImage"] as? String ?? ""
-                let post = Post(title: title, body: body, image: image, pubImage: pubImage)
+                guard let title = snap.value?["title"] as? String else {return}
+                guard let body = snap.value?["body"] as? String else {return}
+                guard let image = snap.value?["image"] as? String else {return}
+                let pubImage = snap.value?["pubImage"] as? String ?? ""
+                let postDate = snap.value?["date"] as? String ?? ""
+                let post = Post(title: title, body: body, image: image, pubImage: pubImage, postDate: postDate)
                 self.posts.append(post)
                 dispatch_async(dispatch_get_main_queue()) {
                     SVProgressHUD.dismiss()
@@ -129,6 +130,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func refreshNews() {
         refresher = UIRefreshControl()
+        refresher.tintColor = friendlyBlue
         refresher.attributedTitle = NSAttributedString(string: "Refresh...")
         refresher.addTarget(self, action: #selector(ViewController.executeRefreshNews), forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refresher)
@@ -187,7 +189,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let imageUrl = NSURL(string: file)
                 cell.myImageView.kf_setImageWithURL(imageUrl!)
                 cell.myTitleView.text = title
-        cell.timeStampLabel.text = getTimestampString()
+        cell.timeStampLabel.text = post.postDate
         
         return cell
     }
