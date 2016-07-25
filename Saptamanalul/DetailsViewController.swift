@@ -22,6 +22,10 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet weak var imageHeightConstrain: NSLayoutConstraint!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var contentWidthConstrain: NSLayoutConstraint!
+    
     
     var titleValue = ""
     var imageName: NSURL?
@@ -31,12 +35,11 @@ class DetailsViewController: UIViewController {
     var runTimer: NSTimer!
     var stopTimer: NSTimer!
 
-    // De vazut aici cum stabilim contentul pe device ca nu arata nimic
+
     func shareTapped () {
         let vc = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
         vc.addImage(detailsImageView.image!)
         vc.setInitialText(detailsTitleLabel.text)
-       // vc.addURL(NSURL(string: "http://www.monitorulsv.ro"))
         presentViewController(vc, animated: true, completion: nil)
         
     }
@@ -65,7 +68,6 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         setLabelsAndImage()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: #selector(DetailsViewController.shareTapped))
-        //setRightBarButton()
     }
 
     
