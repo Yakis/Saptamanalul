@@ -31,6 +31,7 @@ class DetailsViewController: UIViewController {
     var imageName: NSURL?
     var bodyValue = ""
     var pubImageName: NSURL?
+    var pubUrl: NSURL?
     
     var runTimer: NSTimer!
     var stopTimer: NSTimer!
@@ -68,6 +69,19 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         setLabelsAndImage()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: #selector(DetailsViewController.shareTapped))
+        
+        let imageView = detailsImageView
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(DetailsViewController.imageTapped))
+        imageView.userInteractionEnabled = true
+        imageView.addGestureRecognizer(tapGestureRecognizer)
+        
+    }
+    
+    
+    
+    func imageTapped () {
+        guard let url = self.pubUrl else {return}
+        UIApplication.sharedApplication().openURL(url)
     }
 
     
@@ -81,6 +95,8 @@ class DetailsViewController: UIViewController {
     func stopTimedCode () {
         if let image = imageName {
         detailsImageView.kf_setImageWithURL(image)
+        
+
         stopTimer.invalidate()
         }
     }

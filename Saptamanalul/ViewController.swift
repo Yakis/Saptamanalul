@@ -43,8 +43,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 let body = post.body
                     detailsVC.bodyValue = body
         let filePub = post.pubImage
-        guard let pubUrl = NSURL(string: filePub) else {return}
-                        detailsVC.pubImageName = pubUrl
+        guard let pubImageUrl = NSURL(string: filePub) else {return}
+                        detailsVC.pubImageName = pubImageUrl
+        guard let pubUrl = NSURL(string: post.pubUrl) else {return}
+        detailsVC.pubUrl = pubUrl
         }
 
     
@@ -72,7 +74,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 guard let image = snap.value?["image"] as? String else {return}
                 let pubImage = snap.value?["pubImage"] as? String ?? ""
                 let postDate = snap.value?["date"] as? String ?? ""
-                let post = Post(title: title, body: body, image: image, pubImage: pubImage, postDate: postDate)
+                let pubUrl = snap.value?["pubUrl"] as? String ?? ""
+                let post = Post(title: title, body: body, image: image, pubImage: pubImage, postDate: postDate, pubUrl: pubUrl)
                 self.posts.append(post)
                 dispatch_async(dispatch_get_main_queue()) {
                     SVProgressHUD.dismiss()
@@ -156,6 +159,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       // self.navigationController?.navigationBar.translucent = false
         self.bandView.alpha = 0
         setImageViewToHalfScreenOfDevice()
         setTapRecognizerOnImage()
@@ -199,18 +203,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let detailsVC = self.storyboard?.instantiateViewControllerWithIdentifier("detailsVC") as! DetailsViewController
         self.navigationController?.showViewController(detailsVC, sender: navigationController)
-            let post = posts[indexPath.row]
-            let title = post.title
-                detailsVC.titleValue = title
-                let file = post.image
-                    let imageUrl = NSURL(string: file)
-                    detailsVC.imageName = imageUrl
-                    let body = post.body
-                        detailsVC.bodyValue = body
-    let filePub = post.pubImage
-         let pubUrl = NSURL(string: filePub)
-                            detailsVC.pubImageName = pubUrl
-        }
+        let post = posts[indexPath.row]
+        let title = post.title
+        detailsVC.titleValue = title
+        let file = post.image
+        let imageUrl = NSURL(string: file)
+        detailsVC.imageName = imageUrl
+        let body = post.body
+        detailsVC.bodyValue = body
+        let filePub = post.pubImage
+        let pubImageUrl = NSURL(string: filePub)
+        detailsVC.pubImageName = pubImageUrl
+        let pubUrl = NSURL(string: post.pubUrl)
+        detailsVC.pubUrl = pubUrl
+    }
     
 
 
