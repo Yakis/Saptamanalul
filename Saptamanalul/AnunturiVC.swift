@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CloudKit
 import FirebaseDatabase
 
 
@@ -26,27 +25,27 @@ class AnunturiVC: UITableViewController, UISearchBarDelegate {
     
     
     // Implementarea Search
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchActive = true;
     }
     
-    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchActive = false;
     }
     
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false;
     }
     
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false;
     }
     
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         filteredItems = anunturi.filter({ (text) -> Bool in
-            let tmp: NSString = text.anunt!
-            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            let tmp: NSString = text.anunt! as NSString
+            let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
             return range.location != NSNotFound
         })
         if(filteredItems.count == 0){
@@ -62,21 +61,20 @@ class AnunturiVC: UITableViewController, UISearchBarDelegate {
     func getAnunturi () {
         anunturi = []
         let anunturiRef = self.ref.child("anunturi")
-        anunturiRef.observeSingleEventOfType(.Value) { (snapshot: FIRDataSnapshot) in
-            for snap in snapshot.children.allObjects as! [FIRDataSnapshot] {
-                // let key = snap.key
-                guard let body = snap.value!["body"] as? String else {return}
-                guard let image = snap.value!["image"] as? String else {return}
+        anunturiRef.observe(.value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            guard let body = value?["body"] as? String else {return}
+                guard let image = value?["image"] as? String else {return}
                 let anunt = Anunt(anunt: body, image: image)
                 self.anunturi.append(anunt)
-                
-                dispatch_async(dispatch_get_main_queue()) {
+            
+                DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
-            }
-        }
+            })
     }
-    
+
+
 
     
     
@@ -92,19 +90,15 @@ class AnunturiVC: UITableViewController, UISearchBarDelegate {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+    
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if searchActive {
             return filteredItems.count
@@ -116,12 +110,12 @@ class AnunturiVC: UITableViewController, UISearchBarDelegate {
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("anunturiCell", forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "anunturiCell", for: indexPath)
         if searchActive {
-            cell.textLabel?.text = filteredItems[indexPath.row].anunt
+            cell.textLabel?.text = filteredItems[(indexPath as NSIndexPath).row].anunt
         } else {
-            cell.textLabel?.text = anunturi[indexPath.row].anunt
+            cell.textLabel?.text = anunturi[(indexPath as NSIndexPath).row].anunt
         }
 
         return cell
@@ -130,16 +124,16 @@ class AnunturiVC: UITableViewController, UISearchBarDelegate {
     
     
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let detailsAnuntVC = self.storyboard?.instantiateViewControllerWithIdentifier("detailsAnuntVC") as! DetailsAnuntViewController
-        self.navigationController?.showViewController(detailsAnuntVC, sender: navigationController)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailsAnuntVC = self.storyboard?.instantiateViewController(withIdentifier: "detailsAnuntVC") as! DetailsAnuntViewController
+        self.navigationController?.show(detailsAnuntVC, sender: navigationController)
         // This is for modalviewcontroller
         if searchActive {
-            detailsAnuntVC.anunt = filteredItems[indexPath.row].anunt
-            detailsAnuntVC.image = filteredItems[indexPath.row].image
+            detailsAnuntVC.anunt = filteredItems[(indexPath as NSIndexPath).row].anunt
+            detailsAnuntVC.image = filteredItems[(indexPath as NSIndexPath).row].image
         } else {
-            detailsAnuntVC.anunt = anunturi[indexPath.row].anunt
-            detailsAnuntVC.image = anunturi[indexPath.row].image
+            detailsAnuntVC.anunt = anunturi[(indexPath as NSIndexPath).row].anunt
+            detailsAnuntVC.image = anunturi[(indexPath as NSIndexPath).row].image
         }
     }
     

@@ -28,20 +28,20 @@ class DetailsViewController: UIViewController {
     
     
     var titleValue = ""
-    var imageName: NSURL?
+    var imageName: URL?
     var bodyValue = ""
-    var pubImageName: NSURL?
-    var pubUrl: NSURL?
+    var pubImageName: URL?
+    var pubUrl: URL?
     
-    var runTimer: NSTimer!
-    var stopTimer: NSTimer!
+    var runTimer: Timer!
+    var stopTimer: Timer!
 
 
     func shareTapped () {
         let vc = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-        vc.addImage(detailsImageView.image!)
-        vc.setInitialText(detailsTitleLabel.text)
-        presentViewController(vc, animated: true, completion: nil)
+        vc?.add(detailsImageView.image!)
+        vc?.setInitialText(detailsTitleLabel.text)
+        present(vc!, animated: true, completion: nil)
         
     }
     
@@ -53,27 +53,27 @@ class DetailsViewController: UIViewController {
         detailsTitleLabel.text = titleValue
         detailsBodyLabel.text = bodyValue
         if let imageUrl = imageName {
-        detailsImageView.kf_setImageWithURL(imageUrl)
+            detailsImageView.kf.setImage(with: imageUrl)
     }
     }
     
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         if pubImageName?.absoluteString != "" {
-        runTimer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
-        stopTimer = NSTimer.scheduledTimerWithTimeInterval(8, target: self, selector: #selector(stopTimedCode), userInfo: nil, repeats: true)
+        runTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
+        stopTimer = Timer.scheduledTimer(timeInterval: 8, target: self, selector: #selector(stopTimedCode), userInfo: nil, repeats: true)
     }
     }
     
     
     override func viewDidLoad() {
         setLabelsAndImage()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: #selector(DetailsViewController.shareTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(DetailsViewController.shareTapped))
         
         let imageView = detailsImageView
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(DetailsViewController.imageTapped))
-        imageView.userInteractionEnabled = true
-        imageView.addGestureRecognizer(tapGestureRecognizer)
+        imageView?.isUserInteractionEnabled = true
+        imageView?.addGestureRecognizer(tapGestureRecognizer)
         
     }
     
@@ -81,20 +81,20 @@ class DetailsViewController: UIViewController {
     
     func imageTapped () {
         guard let url = self.pubUrl else {return}
-        UIApplication.sharedApplication().openURL(url)
+        UIApplication.shared.openURL(url)
     }
 
     
     func runTimedCode() {
         if let pubImage = self.pubImageName {
-        detailsImageView.kf_setImageWithURL(pubImage)
+            detailsImageView.kf.setImage(with: pubImage)
         }
         runTimer.invalidate()
     }
     
     func stopTimedCode () {
         if let image = imageName {
-        detailsImageView.kf_setImageWithURL(image)
+            detailsImageView.kf.setImage(with: image)
         
 
         stopTimer.invalidate()

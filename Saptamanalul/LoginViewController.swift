@@ -31,8 +31,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     
-    override func viewDidAppear(animated: Bool) {
-        if NSUserDefaults.standardUserDefaults().valueForKey(KEY_UID) != nil {
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.value(forKey: KEY_UID) != nil {
             self.showSecondVC()
         }
     
@@ -40,17 +40,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     
-    @IBAction func facebookLoginButton(sender: AnyObject) {
+    @IBAction func facebookLoginButton(_ sender: AnyObject) {
         let login: FBSDKLoginManager = FBSDKLoginManager()
-        login.logInWithReadPermissions(["public_profile"], fromViewController: self) { (result, error) in
+        login.logIn(withReadPermissions: ["public_profile"], from: self) { (result, error) in
             if error != nil {
                 print("Process error")
             }
-            else if result.isCancelled {
+            else if (result?.isCancelled)! {
                 print("Cancelled")
             }
             else {
-                NSUserDefaults.standardUserDefaults().setValue(result.token.userID, forKey: KEY_UID)
+                UserDefaults.standard.setValue(result?.token.userID, forKey: KEY_UID)
                 self.showSecondVC()
             }
         }
@@ -58,10 +58,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     func loggedIn() {
-        SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.Custom)
+        SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.custom)
         SVProgressHUD.setStatus("Logged In!")
-        SVProgressHUD.showWithStatus("Logged In!")
-        SVProgressHUD.dismissWithDelay(1)
+        SVProgressHUD.show(withStatus: "Logged In!")
+        SVProgressHUD.dismiss(withDelay: 1)
     }
     
     
@@ -104,34 +104,34 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     func showSecondVC () {
-        let navVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("navVC") as! UINavigationController
-        self.presentViewController(navVC, animated: true, completion: nil)
+        let navVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "navVC") as! UINavigationController
+        self.present(navVC, animated: true, completion: nil)
     }
     
     
-    func showErrorAlert (title: String, msg: String) {
-        let alert = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
-        let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+    func showErrorAlert (_ title: String, msg: String) {
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alert.addAction(action)
-        presentViewController(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
     
     // MARK: Move view when keyboard firesUp
     
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationDuration(0.3)
         UIView.setAnimationBeginsFromCurrentState(true)
-        self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y - 200.0, self.view.frame.size.width, self.view.frame.size.height)
+        self.view.frame = CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y - 200.0, width: self.view.frame.size.width, height: self.view.frame.size.height)
         UIView.commitAnimations()
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationDuration(0.3)
         UIView.setAnimationBeginsFromCurrentState(true)
-        self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + 200.0, self.view.frame.size.width, self.view.frame.size.height)
+        self.view.frame = CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y + 200.0, width: self.view.frame.size.width, height: self.view.frame.size.height)
         UIView.commitAnimations()
     }
     

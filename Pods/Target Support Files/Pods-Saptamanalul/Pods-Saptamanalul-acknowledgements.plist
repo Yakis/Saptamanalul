@@ -23,7 +23,7 @@
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>Copyright 2016 Google Inc.</string>
+			<string>Copyright 2016 Google</string>
 			<key>Title</key>
 			<string>Firebase</string>
 			<key>Type</key>
@@ -31,7 +31,7 @@
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>Copyright 2016 Google Inc.</string>
+			<string>Copyright 2016 Google</string>
 			<key>Title</key>
 			<string>FirebaseAnalytics</string>
 			<key>Type</key>
@@ -47,7 +47,7 @@
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>Copyright 2016 Google Inc.</string>
+			<string>Copyright 2016 Google</string>
 			<key>Title</key>
 			<string>FirebaseInstanceID</string>
 			<key>Type</key>

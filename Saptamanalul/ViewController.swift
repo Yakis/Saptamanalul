@@ -31,31 +31,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var posts = [Post]()
     
     
-    @IBAction func didTapOnImage(sender: AnyObject) {
-        let detailsVC = self.storyboard?.instantiateViewControllerWithIdentifier("detailsVC") as! DetailsViewController
-        self.navigationController?.showViewController(detailsVC, sender: navigationController)
+    @IBAction func didTapOnImage(_ sender: AnyObject) {
+        let detailsVC = self.storyboard?.instantiateViewController(withIdentifier: "detailsVC") as! DetailsViewController
+        self.navigationController?.show(detailsVC, sender: navigationController)
         let post = posts[0]
         let title = post.title
             detailsVC.titleValue = title
             let file = post.image
-        guard let imageUrl = NSURL(string: file) else {return}
+        guard let imageUrl = URL(string: file) else {return}
                 detailsVC.imageName = imageUrl
                 let body = post.body
                     detailsVC.bodyValue = body
         let filePub = post.pubImage
-        guard let pubImageUrl = NSURL(string: filePub) else {return}
+        guard let pubImageUrl = URL(string: filePub) else {return}
                         detailsVC.pubImageName = pubImageUrl
-        guard let pubUrl = NSURL(string: post.pubUrl) else {return}
+        guard let pubUrl = URL(string: post.pubUrl) else {return}
         detailsVC.pubUrl = pubUrl
         }
 
     
     
     
-    @IBAction func butonAnunturi(sender: AnyObject) {
+    @IBAction func butonAnunturi(_ sender: AnyObject) {
         
-        let anunturiVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("anunturiVC") as! AdminVC
-        self.navigationController?.presentViewController(anunturiVC, animated: true, completion: nil)
+        let anunturiVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "anunturiVC") as! AdminVC
+        self.navigationController?.present(anunturiVC, animated: true, completion: nil)
         
     }
     
@@ -66,18 +66,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func getPosts () {
         posts = []
         let postRef = self.ref.child("posts")
-        postRef.observeSingleEventOfType(.Value) { (snapshot: FIRDataSnapshot) in
-            for snap in snapshot.children.allObjects as! [FIRDataSnapshot] {
+        postRef.observe(.childAdded) { (snapshot: FIRDataSnapshot) in
                // let key = snap.key
-                guard let title = snap.value?["title"] as? String else {return}
-                guard let body = snap.value?["body"] as? String else {return}
-                guard let image = snap.value?["image"] as? String else {return}
-                let pubImage = snap.value?["pubImage"] as? String ?? ""
-                let postDate = snap.value?["date"] as? String ?? ""
-                let pubUrl = snap.value?["pubUrl"] as? String ?? ""
+            let value = snapshot.value as? NSDictionary
+                guard let title = value?["title"] as? String else {return}
+                guard let body = value?["body"] as? String else {return}
+                guard let image = value?["image"] as? String else {return}
+                let pubImage = value?["pubImage"] as? String ?? ""
+                let postDate = value?["date"] as? String ?? ""
+                let pubUrl = value?["pubUrl"] as? String ?? ""
                 let post = Post(title: title, body: body, image: image, pubImage: pubImage, postDate: postDate, pubUrl: pubUrl)
                 self.posts.append(post)
-                dispatch_async(dispatch_get_main_queue()) {
+                DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
                     self.bandView.alpha = 0.7
                     self.setOpenPost()
@@ -86,7 +86,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         self.refresher.endRefreshing()
                     
                     }
-                }
             }
         }
     }
@@ -99,10 +98,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func loadLogoToNavigationBar () {
         if let img: UIImage = UIImage(named: "saptamanalulWhite.png") {
            // let imgView: UIImageView = UIImageView(frame: CGRectMake(0, 50, 150, 45))
-            let imgView: UIImageView = UIImageView(frame: CGRectMake(400, 200, 120, 30))
+            let imgView: UIImageView = UIImageView(frame: CGRect(x: 400, y: 200, width: 120, height: 30))
             imgView.image = img
             // setContent mode aspect fit
-            imgView.contentMode = .ScaleAspectFit
+            imgView.contentMode = .scaleAspectFit
             self.navigationItem.titleView = imgView
         }
         
@@ -111,19 +110,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
    
     func setOpenPost () {
         let file = posts[0].image
-           let imageUrl = NSURL(string: file)
+           let imageUrl = URL(string: file)
                     self.openPostLabel.text = posts[0].title
-                    self.openPostImageView.kf_setImageWithURL(imageUrl!)
+        self.openPostImageView.kf.setImage(with: imageUrl!)
                     self.openPostLabel.backgroundColor = UIColor(red: 8/255, green: 64/255, blue: 109/255, alpha: 0.6)
-                    self.openPostLabel.textColor = UIColor.whiteColor()
+                    self.openPostLabel.textColor = UIColor.white
     }
     
     
     
     func getTimestampString () -> String {
-        let date = NSDate()
-        let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components([.Day , .Month , .Year], fromDate: date)
+        let date = Date()
+        let calendar = Calendar.current
+        let components = (calendar as NSCalendar).components([.day , .month , .year], from: date)
         let year =  components.year
         let month = components.month
         let day = components.day
@@ -135,7 +134,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         refresher = UIRefreshControl()
         refresher.tintColor = friendlyBlue
         refresher.attributedTitle = NSAttributedString(string: "Refresh...")
-        refresher.addTarget(self, action: #selector(ViewController.executeRefreshNews), forControlEvents: UIControlEvents.ValueChanged)
+        refresher.addTarget(self, action: #selector(ViewController.executeRefreshNews), for: UIControlEvents.valueChanged)
         self.tableView.addSubview(refresher)
     }
     
@@ -153,7 +152,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func setTapRecognizerOnImage () {
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(ViewController.didTapOnImage(_:)))
-        openPostImageView.userInteractionEnabled = true
+        openPostImageView.isUserInteractionEnabled = true
         openPostImageView.addGestureRecognizer(tapGestureRecognizer)
     }
     
@@ -163,7 +162,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.bandView.alpha = 0
         setImageViewToHalfScreenOfDevice()
         setTapRecognizerOnImage()
-        tableView.registerNib(UINib(nibName: "MyCell", bundle: nil), forCellReuseIdentifier: "Cell")
+        tableView.register(UINib(nibName: "MyCell", bundle: nil), forCellReuseIdentifier: "Cell")
         self.openPostLabel.text = ""
         loadLogoToNavigationBar()
         SVProgressHUD.show()
@@ -172,26 +171,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
-    func showErrorAlert (title: String, msg: String) {
-        let alert = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
-        let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+    func showErrorAlert (_ title: String, msg: String) {
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alert.addAction(action)
-        presentViewController(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.posts.count ?? 0
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.posts.count 
     }
     
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! MyCell
-        let post = posts[indexPath.row]
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MyCell
+        let post = posts[(indexPath as NSIndexPath).row]
             let title = post.title
         let file = post.image
-            let imageUrl = NSURL(string: file)
-                cell.myImageView.kf_setImageWithURL(imageUrl!)
+            let imageUrl = URL(string: file)
+        cell.myImageView.kf.setImage(with: imageUrl!)
                 cell.myTitleView.text = title
         cell.timeStampLabel.text = post.postDate
         
@@ -200,21 +199,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let detailsVC = self.storyboard?.instantiateViewControllerWithIdentifier("detailsVC") as! DetailsViewController
-        self.navigationController?.showViewController(detailsVC, sender: navigationController)
-        let post = posts[indexPath.row]
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailsVC = self.storyboard?.instantiateViewController(withIdentifier: "detailsVC") as! DetailsViewController
+        self.navigationController?.show(detailsVC, sender: navigationController)
+        let post = posts[(indexPath as NSIndexPath).row]
         let title = post.title
         detailsVC.titleValue = title
         let file = post.image
-        let imageUrl = NSURL(string: file)
+        let imageUrl = URL(string: file)
         detailsVC.imageName = imageUrl
         let body = post.body
         detailsVC.bodyValue = body
         let filePub = post.pubImage
-        let pubImageUrl = NSURL(string: filePub)
+        let pubImageUrl = URL(string: filePub)
         detailsVC.pubImageName = pubImageUrl
-        let pubUrl = NSURL(string: post.pubUrl)
+        let pubUrl = URL(string: post.pubUrl)
         detailsVC.pubUrl = pubUrl
     }
     

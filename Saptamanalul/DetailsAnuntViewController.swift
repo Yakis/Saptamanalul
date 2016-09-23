@@ -26,14 +26,13 @@ class DetailsAnuntViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         imageOfAnunt.image = UIImage(named: "noImage")
-        imageOfAnunt.contentMode = .ScaleAspectFit
+        imageOfAnunt.contentMode = .scaleAspectFit
        // navigationController?.navigationBar.barTintColor = UIColor.redColor()
-        navigationController?.navigationBar.backItem
         anuntDetaliat.text = anunt
         guard let imageString = image else {return}
-        guard let imageURL = NSURL(string: imageString) else {return}
-        imageOfAnunt.contentMode = .ScaleAspectFill
-        imageOfAnunt.kf_setImageWithURL(imageURL, placeholderImage: UIImage(named: "noImage"), optionsInfo: nil, progressBlock: nil, completionHandler: nil)
+        guard let imageURL = URL(string: imageString) else {return}
+        imageOfAnunt.contentMode = .scaleAspectFill
+        imageOfAnunt.kf.setImage(with: imageURL)
         // Do any additional setup after loading the view.
     }
 

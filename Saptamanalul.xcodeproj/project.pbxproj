@@ -291,6 +291,7 @@
 					15EEB8C21CA80F0D006FB78C = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 4WPNK427TB;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -306,11 +307,13 @@
 					15EEB8D61CA80F0D006FB78C = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 4WPNK427TB;
+						LastSwiftMigration = 0800;
 						TestTargetID = 15EEB8C21CA80F0D006FB78C;
 					};
 					15EEB8E11CA80F0D006FB78C = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 4WPNK427TB;
+						LastSwiftMigration = 0800;
 						TestTargetID = 15EEB8C21CA80F0D006FB78C;
 					};
 				};
@@ -589,6 +592,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = yakis.Saptamanalul;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -609,6 +613,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = yakis.Saptamanalul;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -620,6 +625,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yakis.home.SaptamanalulTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Saptamanalul.app/Saptamanalul";
 			};
 			name = Debug;
@@ -632,6 +638,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yakis.home.SaptamanalulTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Saptamanalul.app/Saptamanalul";
 			};
 			name = Release;
@@ -644,6 +651,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yakis.home.SaptamanalulUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Saptamanalul;
 			};
 			name = Debug;
@@ -655,6 +663,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yakis.home.SaptamanalulUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Saptamanalul;
 			};
 			name = Release;
