@@ -40,7 +40,7 @@ class DetailsViewController: UIViewController {
     func shareTapped () {
         let vc = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
         vc?.add(detailsImageView.image!)
-        vc?.setInitialText(detailsTitleLabel.text)
+        vc?.setInitialText("\(detailsTitleLabel.text!)\n\n\(detailsBodyLabel.text!)")
         present(vc!, animated: true, completion: nil)
         
     }
