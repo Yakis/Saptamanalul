@@ -320,7 +320,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQG-Zf-1oh">
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SignIn / SignUp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBG-Ef-7XM">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SignIn / SignUp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="YBG-Ef-7XM">
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -335,13 +335,14 @@
                                 <color key="backgroundColor" red="0.031372549020000001" green="0.25098039220000001" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="G3a-3I-7Tb"/>
+                                    <constraint firstItem="EsV-aj-fzr" firstAttribute="leading" secondItem="YBG-Ef-7XM" secondAttribute="trailing" constant="20" id="dtE-Jg-CcL"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qKc-cX-8gL" customClass="MaterialView" customModule="Saptamanalul" customModuleProvider="target">
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="AZ4-h3-Up3">
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zh-Qn-9Uh">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zh-Qn-9Uh" customClass="MaterialButton" customModule="Saptamanalul" customModuleProvider="target">
                                                 <color key="backgroundColor" red="0.1998284122" green="0.51041701770000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
                                                 <state key="normal" title="Facebook">
@@ -351,7 +352,7 @@
                                                     <segue destination="zvu-bt-aXN" kind="showDetail" action="showViewController:sender:" id="Ksc-3l-t6x"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRl-Nf-LDi">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRl-Nf-LDi" customClass="MaterialButton" customModule="Saptamanalul" customModuleProvider="target">
                                                 <color key="backgroundColor" red="1" green="0.0187217119" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
                                                 <state key="normal" title="Google">
@@ -370,7 +371,7 @@
                                     <constraint firstAttribute="trailing" secondItem="AZ4-h3-Up3" secondAttribute="trailing" constant="50" id="tRG-oj-OaF"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Th-SG-ugy">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Th-SG-ugy" customClass="MaterialView" customModule="Saptamanalul" customModuleProvider="target">
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6md-gM-lWc">
                                         <string key="text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</string>
@@ -393,7 +394,7 @@
                             <constraint firstItem="YBG-Ef-7XM" firstAttribute="leading" secondItem="qKc-cX-8gL" secondAttribute="leading" id="0hW-l2-6ce"/>
                             <constraint firstAttribute="trailing" secondItem="6Th-SG-ugy" secondAttribute="trailing" constant="16" id="0nQ-OX-Vb9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qKc-cX-8gL" secondAttribute="trailing" constant="3" id="1iv-y5-IF1"/>
-                            <constraint firstItem="6Th-SG-ugy" firstAttribute="top" secondItem="qKc-cX-8gL" secondAttribute="bottom" constant="26" id="DBv-aF-0rX"/>
+                            <constraint firstItem="6Th-SG-ugy" firstAttribute="top" secondItem="qKc-cX-8gL" secondAttribute="bottom" constant="20" id="DBv-aF-0rX"/>
                             <constraint firstItem="G9p-mJ-QvB" firstAttribute="top" secondItem="6Th-SG-ugy" secondAttribute="bottom" constant="20" id="P3F-Rg-tjs"/>
                             <constraint firstItem="qKc-cX-8gL" firstAttribute="top" secondItem="EsV-aj-fzr" secondAttribute="bottom" constant="6" id="Zhu-IZ-LJl"/>
                             <constraint firstItem="EsV-aj-fzr" firstAttribute="trailing" secondItem="qKc-cX-8gL" secondAttribute="trailing" id="bXL-tO-Jjr"/>
