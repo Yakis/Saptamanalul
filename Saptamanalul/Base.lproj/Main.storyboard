@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zvu-bt-aXN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EZE-Hw-2Ef">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -230,7 +231,7 @@
                         <viewControllerLayoutGuide type="bottom" id="eKg-ey-5iM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gWP-oV-LNw" userLabel="DefaultView">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9y-XF-7At">
@@ -293,8 +294,6 @@
                             <constraint firstItem="X9y-XF-7At" firstAttribute="leading" secondItem="gWP-oV-LNw" secondAttribute="leadingMargin" constant="-20" id="uYJ-J0-uRE"/>
                         </constraints>
                     </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="1000"/>
                     <connections>
                         <outlet property="detailsBodyLabel" destination="1CW-ml-oyi" id="P60-Gc-D1P"/>
                         <outlet property="detailsImageView" destination="wBh-u1-d6a" id="A6y-TB-cCK"/>
@@ -306,6 +305,111 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VWl-Cf-dma" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1988.8" y="122.33883058470765"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Xoy-IC-uqB">
+            <objects>
+                <viewController id="EZE-Hw-2Ef" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qVY-ov-UCi"/>
+                        <viewControllerLayoutGuide type="bottom" id="G9p-mJ-QvB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FWY-fs-i5g">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQG-Zf-1oh">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SignIn / SignUp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBG-Ef-7XM">
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="saptamanalulWhite" translatesAutoresizingMaskIntoConstraints="NO" id="EsV-aj-fzr">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="XEk-RS-PTF"/>
+                                            <constraint firstAttribute="width" secondItem="EsV-aj-fzr" secondAttribute="height" multiplier="158:39" id="qPA-Bf-aRh"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.031372549020000001" green="0.25098039220000001" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="G3a-3I-7Tb"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qKc-cX-8gL" customClass="MaterialView" customModule="Saptamanalul" customModuleProvider="target">
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="AZ4-h3-Up3">
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zh-Qn-9Uh">
+                                                <color key="backgroundColor" red="0.1998284122" green="0.51041701770000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
+                                                <state key="normal" title="Facebook">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="zvu-bt-aXN" kind="showDetail" action="showViewController:sender:" id="Ksc-3l-t6x"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRl-Nf-LDi">
+                                                <color key="backgroundColor" red="1" green="0.0187217119" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
+                                                <state key="normal" title="Google">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="170" id="6cX-XG-gOu"/>
+                                    <constraint firstAttribute="bottom" secondItem="AZ4-h3-Up3" secondAttribute="bottom" constant="30" id="IgW-fL-IZK"/>
+                                    <constraint firstItem="AZ4-h3-Up3" firstAttribute="leading" secondItem="qKc-cX-8gL" secondAttribute="leading" constant="50" id="PKj-t5-Nv2"/>
+                                    <constraint firstItem="AZ4-h3-Up3" firstAttribute="top" secondItem="qKc-cX-8gL" secondAttribute="top" constant="30" id="Sqx-V9-EtI"/>
+                                    <constraint firstAttribute="trailing" secondItem="AZ4-h3-Up3" secondAttribute="trailing" constant="50" id="tRG-oj-OaF"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Th-SG-ugy">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6md-gM-lWc">
+                                        <string key="text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</string>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.031372549020000001" green="0.25098039220000001" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="6md-gM-lWc" secondAttribute="trailing" constant="20" id="BZT-NN-tpB"/>
+                                    <constraint firstItem="6md-gM-lWc" firstAttribute="leading" secondItem="6Th-SG-ugy" secondAttribute="leading" constant="20" id="EuG-W5-Nch"/>
+                                    <constraint firstItem="6md-gM-lWc" firstAttribute="top" secondItem="6Th-SG-ugy" secondAttribute="top" constant="20" id="HRr-HT-Udm"/>
+                                    <constraint firstAttribute="bottom" secondItem="6md-gM-lWc" secondAttribute="bottom" constant="20" id="Zqk-rV-kUN"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YBG-Ef-7XM" firstAttribute="leading" secondItem="qKc-cX-8gL" secondAttribute="leading" id="0hW-l2-6ce"/>
+                            <constraint firstAttribute="trailing" secondItem="6Th-SG-ugy" secondAttribute="trailing" constant="16" id="0nQ-OX-Vb9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qKc-cX-8gL" secondAttribute="trailing" constant="3" id="1iv-y5-IF1"/>
+                            <constraint firstItem="6Th-SG-ugy" firstAttribute="top" secondItem="qKc-cX-8gL" secondAttribute="bottom" constant="26" id="DBv-aF-0rX"/>
+                            <constraint firstItem="G9p-mJ-QvB" firstAttribute="top" secondItem="6Th-SG-ugy" secondAttribute="bottom" constant="20" id="P3F-Rg-tjs"/>
+                            <constraint firstItem="qKc-cX-8gL" firstAttribute="top" secondItem="EsV-aj-fzr" secondAttribute="bottom" constant="6" id="Zhu-IZ-LJl"/>
+                            <constraint firstItem="EsV-aj-fzr" firstAttribute="trailing" secondItem="qKc-cX-8gL" secondAttribute="trailing" id="bXL-tO-Jjr"/>
+                            <constraint firstItem="qKc-cX-8gL" firstAttribute="leading" secondItem="FWY-fs-i5g" secondAttribute="leadingMargin" constant="3" id="gQV-fX-OWX"/>
+                            <constraint firstItem="qKc-cX-8gL" firstAttribute="top" secondItem="qVY-ov-UCi" secondAttribute="bottom" constant="90" id="iHu-4W-Ntm"/>
+                            <constraint firstItem="6Th-SG-ugy" firstAttribute="leading" secondItem="FWY-fs-i5g" secondAttribute="leading" constant="16" id="ngh-yB-a3c"/>
+                            <constraint firstAttribute="trailing" secondItem="YQG-Zf-1oh" secondAttribute="trailing" id="rO0-ns-OoZ"/>
+                            <constraint firstItem="YQG-Zf-1oh" firstAttribute="top" secondItem="FWY-fs-i5g" secondAttribute="top" id="snd-Wm-vwN"/>
+                            <constraint firstItem="qKc-cX-8gL" firstAttribute="top" secondItem="YBG-Ef-7XM" secondAttribute="bottom" constant="21" id="vds-yW-zOR"/>
+                            <constraint firstItem="YQG-Zf-1oh" firstAttribute="leading" secondItem="FWY-fs-i5g" secondAttribute="leading" id="xv3-Qv-uOZ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8PV-2F-XCQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-632.79999999999995" y="221.73913043478262"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cGX-uw-8gB">
@@ -333,4 +437,7 @@
             <point key="canvasLocation" x="191" y="222"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="saptamanalulWhite" width="801" height="188"/>
+    </resources>
 </document>

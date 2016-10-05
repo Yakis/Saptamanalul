@@ -21,7 +21,7 @@
  @method init
  @warning This class only has class methods, no need to allocate it yourself.
  */
-- (nullable instancetype)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 /*!
  @method installationID
@@ -98,7 +98,7 @@
  @method init
  @warning You should get your instance from BatchUser, rather than instanciating yourself.
  */
-- (nullable instancetype)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 /*!
  @method setLanguage:
