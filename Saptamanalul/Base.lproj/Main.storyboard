@@ -306,10 +306,10 @@
             </objects>
             <point key="canvasLocation" x="1988.8" y="122.33883058470765"/>
         </scene>
-        <!--View Controller-->
+        <!--LoginVC-->
         <scene sceneID="Xoy-IC-uqB">
             <objects>
-                <viewController id="EZE-Hw-2Ef" sceneMemberID="viewController">
+                <viewController id="EZE-Hw-2Ef" customClass="LoginVC" customModule="Saptamanalul" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qVY-ov-UCi"/>
                         <viewControllerLayoutGuide type="bottom" id="G9p-mJ-QvB"/>
@@ -349,7 +349,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="zvu-bt-aXN" kind="showDetail" action="showViewController:sender:" id="Ksc-3l-t6x"/>
+                                                    <action selector="facebookLoginButton:" destination="EZE-Hw-2Ef" eventType="touchUpInside" id="HYE-ZL-0Qx"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRl-Nf-LDi" customClass="MaterialButton" customModule="Saptamanalul" customModuleProvider="target">

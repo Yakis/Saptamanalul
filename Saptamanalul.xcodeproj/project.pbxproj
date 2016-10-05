@@ -14,6 +14,7 @@
 		1509261B1CCB88DC00243434 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1509261A1CCB88DC00243434 /* Constants.swift */; };
 		1509261D1CCB8EB900243434 /* MaterialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1509261C1CCB8EB900243434 /* MaterialButton.swift */; };
 		1509261F1CCB978000243434 /* MaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1509261E1CCB978000243434 /* MaterialTextField.swift */; };
+		153165881DA556B500719F84 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153165871DA556B500719F84 /* LoginVC.swift */; };
 		1541A4B41D1FE57A00C5F401 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1541A4B31D1FE57A00C5F401 /* Post.swift */; };
 		1541A4B61D295DC500C5F401 /* AdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1541A4B51D295DC500C5F401 /* AdminVC.swift */; };
 		1541A4B81D2969B000C5F401 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1541A4B71D2969B000C5F401 /* GoogleService-Info.plist */; };
@@ -61,6 +62,7 @@
 		1509261A1CCB88DC00243434 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1509261C1CCB8EB900243434 /* MaterialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialButton.swift; sourceTree = "<group>"; };
 		1509261E1CCB978000243434 /* MaterialTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialTextField.swift; sourceTree = "<group>"; };
+		153165871DA556B500719F84 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		1541A4B31D1FE57A00C5F401 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		1541A4B51D295DC500C5F401 /* AdminVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminVC.swift; sourceTree = "<group>"; };
 		1541A4B71D2969B000C5F401 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				1541A4B31D1FE57A00C5F401 /* Post.swift */,
 				1541A4B51D295DC500C5F401 /* AdminVC.swift */,
 				159F280B1D452A2D00C9C19C /* Colors.swift */,
+				153165871DA556B500719F84 /* LoginVC.swift */,
 			);
 			path = Saptamanalul;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				15EEB8C91CA80F0D006FB78C /* ViewController.swift in Sources */,
 				159F280C1D452A2D00C9C19C /* Colors.swift in Sources */,
 				15EEB8C71CA80F0D006FB78C /* AppDelegate.swift in Sources */,
+				153165881DA556B500719F84 /* LoginVC.swift in Sources */,
 				1541A4B61D295DC500C5F401 /* AdminVC.swift in Sources */,
 				1509261D1CCB8EB900243434 /* MaterialButton.swift in Sources */,
 				150926191CCB885000243434 /* MaterialView.swift in Sources */,
