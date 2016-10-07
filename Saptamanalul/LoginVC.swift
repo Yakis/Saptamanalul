@@ -8,31 +8,42 @@
 
 import UIKit
 import FBSDKLoginKit
+import Firebase
 
 
-class LoginVC: UIViewController {
+class LoginVC: UIViewController, FBSDKLoginButtonDelegate {
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let userDefaults = UserDefaults.standard
-        if userDefaults.value(forKey: "fbToken") as? String != nil {
-            showDashboard()
-        }
+        let loginButton = FBSDKLoginButton()
+        loginButton.delegate = self
     }
 
     
+    
+    
+    func loginButtonWillLogin(_ loginButton: FBSDKLoginButton!) -> Bool {
+      return true
+    }
+    
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        
+    }
+    
+    
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        
+    }
+    
     @IBAction func facebookLoginButton(_ sender: AnyObject) {
         let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
-        fbLoginManager .logIn(withReadPermissions: ["email"], from: self, handler: { [weak self] (result, error) in
+        fbLoginManager.logIn(withReadPermissions: ["email"], from: self, handler: {(result, error) in
             if (error == nil){
-                let fbloginresult : FBSDKLoginManagerLoginResult = result!
-                self?.saveToUserDefaults(token: fbloginresult.token.tokenString)
-                print(UserDefaults.standard.value(forKey: "fbToken"))
-                print("ACCESS TOKEN=====", fbloginresult.token.tokenString)
-                if(fbloginresult.grantedPermissions.contains("email")) {
+                let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+                FIRAuth.auth()?.signIn(with: credential) { [weak self] (user, error) in
                     self?.getFBUserData()
-                    fbLoginManager.logOut()
                 }
             }
         })
@@ -44,7 +55,7 @@ class LoginVC: UIViewController {
             FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
                 if (error == nil){
                     guard let result = result as? Dictionary<String, AnyObject> else {return}
-                    print(result)
+                    print(result["email"])
                     self.showDashboard()
                 }
             })

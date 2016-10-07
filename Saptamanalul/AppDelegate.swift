@@ -8,6 +8,7 @@
 
 import UIKit
 import FBSDKCoreKit
+import FBSDKLoginKit
 import Batch
 import Firebase
 
@@ -29,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Batch.start(withAPIKey: "5739669F65E82D8251293A48AC8010")
         BatchPush.registerForRemoteNotifications()
        // FIRApp.configure()
-        return true
+        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
     
