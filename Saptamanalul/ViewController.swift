@@ -29,7 +29,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var mainTitleBandConstrain: NSLayoutConstraint!
     var ref = FIRDatabase.database().reference()
     var posts = [Post]()
-    
+    var comments = [Comment]()
     
     @IBAction func didTapOnImage(_ sender: AnyObject) {
         let detailsVC = self.storyboard?.instantiateViewController(withIdentifier: "detailsVC") as! DetailsViewController

@@ -12,19 +12,11 @@ import Kingfisher
 
 class DetailsViewController: UIViewController {
 
-    @IBOutlet weak var detailsImageView: UIImageView!
-    
-    @IBOutlet weak var detailsTitleLabel: UILabel!
     
     
-    @IBOutlet weak var detailsBodyLabel: UILabel!
     
+    @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var imageHeightConstrain: NSLayoutConstraint!
-    
-    @IBOutlet weak var scrollView: UIScrollView!
-    
-    @IBOutlet weak var contentWidthConstrain: NSLayoutConstraint!
     
     
     var titleValue = ""
@@ -38,24 +30,13 @@ class DetailsViewController: UIViewController {
 
 
     func shareTapped () {
-        let vc = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-        vc?.add(detailsImageView.image!)
-        vc?.setInitialText("\(detailsTitleLabel.text!)\n\n\(detailsBodyLabel.text!)")
-        present(vc!, animated: true, completion: nil)
+//        let vc = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+//        vc?.add(detailsImageView.image!)
+//        vc?.setInitialText("\(detailsTitleLabel.text!)\n\n\(detailsBodyLabel.text!)")
+//        present(vc!, animated: true, completion: nil)
         
     }
     
-    
-    func setLabelsAndImage () {
-        super.viewDidLoad()
-        view.layoutIfNeeded()
-        imageHeightConstrain.constant = (view.frame.size.height / 2) - 70
-        detailsTitleLabel.text = titleValue
-        detailsBodyLabel.text = bodyValue
-        if let imageUrl = imageName {
-            detailsImageView.kf.setImage(with: imageUrl)
-    }
-    }
     
     
     override func viewDidAppear(_ animated: Bool) {
@@ -67,13 +48,19 @@ class DetailsViewController: UIViewController {
     
     
     override func viewDidLoad() {
-        setLabelsAndImage()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(DetailsViewController.shareTapped))
+        tableView.register(UINib(nibName: "DetailCell", bundle: nil), forCellReuseIdentifier: "DetailCell")
+        tableView.register(UINib(nibName: "TitleCell", bundle: nil), forCellReuseIdentifier: "TitleCell")
+        tableView.register(UINib(nibName: "BodyCell", bundle: nil), forCellReuseIdentifier: "BodyCell")
         
-        let imageView = detailsImageView
-        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(DetailsViewController.imageTapped))
-        imageView?.isUserInteractionEnabled = true
-        imageView?.addGestureRecognizer(tapGestureRecognizer)
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 140
+        tableView.sectionHeaderHeight = 240
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(DetailsViewController.shareTapped))
+        tableView.dataSource = self
+        tableView.delegate = self
+//        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(DetailsViewController.imageTapped))
+//        imageView?.isUserInteractionEnabled = true
+//        imageView?.addGestureRecognizer(tapGestureRecognizer)
         
     }
     
@@ -86,20 +73,82 @@ class DetailsViewController: UIViewController {
 
     
     func runTimedCode() {
-        if let pubImage = self.pubImageName {
-            detailsImageView.kf.setImage(with: pubImage)
-        }
-        runTimer.invalidate()
+//        if let pubImage = self.pubImageName {
+//            detailsImageView.kf.setImage(with: pubImage)
+//        }
+//        runTimer.invalidate()
     }
     
     func stopTimedCode () {
-        if let image = imageName {
-            detailsImageView.kf.setImage(with: image)
-        
-
-        stopTimer.invalidate()
-        }
+//        if let image = imageName {
+//            detailsImageView.kf.setImage(with: image)
+//        
+//
+//        stopTimer.invalidate()
+//        }
     }
-        
+    
 
 }
+
+
+extension DetailsViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let defaultCell = UITableViewCell()
+        if indexPath.row == 0 {
+        let titleCell = tableView.dequeueReusableCell(withIdentifier: "TitleCell", for: indexPath) as! TitleCell
+            return titleCell
+        } else if indexPath.row == 1 {
+            let bodyCell = tableView.dequeueReusableCell(withIdentifier: "BodyCell", for: indexPath) as! BodyCell
+            return bodyCell
+        }
+        return defaultCell
+    }
+    
+    
+    
+    
+    
+}
+
+
+extension DetailsViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let imageView = UIImageView()
+        let image = UIImage(named: "h")
+        imageView.image = image
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        return imageView
+    }
+    
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 200
+    }
+    
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 1 {
+            return 200
+        } else {
+            return 70
+        }
+    }
+    
+    
+}
+
+

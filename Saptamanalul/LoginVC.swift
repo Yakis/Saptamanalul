@@ -9,20 +9,46 @@
 import UIKit
 import FBSDKLoginKit
 import Firebase
+import GoogleSignIn
 
 
-class LoginVC: UIViewController, FBSDKLoginButtonDelegate {
+class LoginVC: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let loginButton = FBSDKLoginButton()
         loginButton.delegate = self
+        GIDSignIn.sharedInstance().uiDelegate = self
     }
 
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
     
     
+    //MARK: - Google SignIn delegate methods
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let error = error {
+            print(error.localizedDescription)
+            return
+        }
+        
+        let authentication = user.authentication
+        let credential = FIRGoogleAuthProvider.credential(withIDToken: (authentication?.idToken)!,
+                                                          accessToken: (authentication?.accessToken)!)
+        FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+            // ...
+        }
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        
+    }
+    
+    //MARK: - Facebook LogIn delegate methods
     func loginButtonWillLogin(_ loginButton: FBSDKLoginButton!) -> Bool {
       return true
     }
@@ -62,6 +88,16 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate {
         }
         
     }
+    
+    
+    @IBAction func googleLoginButton(_ sender: AnyObject) {
+        GIDSignIn.sharedInstance().signIn()
+    }
+    
+    
+    
+    
+    
     
     
     func saveToUserDefaults (token: String) {

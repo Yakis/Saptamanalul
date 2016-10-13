@@ -26,6 +26,15 @@
 		159F280C1D452A2D00C9C19C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159F280B1D452A2D00C9C19C /* Colors.swift */; };
 		15A4354F1D1FBB2B00E378AD /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A4354E1D1FBB2B00E378AD /* Kingfisher.framework */; };
 		15CAD8441CC8C8B900F84D66 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CAD8431CC8C8B900F84D66 /* DetailsViewController.swift */; };
+		15E0A1E01DAFF56000C21D6C /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E0A1DE1DAFF56000C21D6C /* TitleCell.swift */; };
+		15E0A1E11DAFF56000C21D6C /* TitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E0A1DF1DAFF56000C21D6C /* TitleCell.xib */; };
+		15E0A1E51DAFF5E600C21D6C /* BodyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E0A1E31DAFF5E600C21D6C /* BodyCell.swift */; };
+		15E0A1E61DAFF5E600C21D6C /* BodyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E0A1E41DAFF5E600C21D6C /* BodyCell.xib */; };
+		15E0A1EA1DAFF63200C21D6C /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E0A1E81DAFF63200C21D6C /* CommentCell.swift */; };
+		15E0A1EB1DAFF63200C21D6C /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E0A1E91DAFF63200C21D6C /* CommentCell.xib */; };
+		15E0A1EE1DAFF73000C21D6C /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E0A1ED1DAFF73000C21D6C /* Comment.swift */; };
+		15E0A1F21DAFF9A800C21D6C /* ImageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E0A1F11DAFF9A800C21D6C /* ImageHeader.swift */; };
+		15E0A1F41DAFF9B900C21D6C /* ImageHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E0A1F31DAFF9B900C21D6C /* ImageHeader.xib */; };
 		15EEB8C71CA80F0D006FB78C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEB8C61CA80F0D006FB78C /* AppDelegate.swift */; };
 		15EEB8C91CA80F0D006FB78C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEB8C81CA80F0D006FB78C /* ViewController.swift */; };
 		15EEB8CC1CA80F0D006FB78C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15EEB8CA1CA80F0D006FB78C /* Main.storyboard */; };
@@ -55,6 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15040BFC1DA818AA00DE3D88 /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		150926121CCB7BE100243434 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		150926131CCB7BE100243434 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		150926141CCB7BE100243434 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
@@ -75,6 +85,15 @@
 		15A4354E1D1FBB2B00E378AD /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = "../../Library/Developer/Xcode/DerivedData/Saptamanalul-hbdevngxamnxzlegxdhyifwicbrd/Build/Products/Debug-iphoneos/Kingfisher/Kingfisher.framework"; sourceTree = "<group>"; };
 		15CAD8431CC8C8B900F84D66 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		15CF155F1CEF61CC00511C69 /* Saptamanalul.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Saptamanalul.entitlements; sourceTree = "<group>"; };
+		15E0A1DE1DAFF56000C21D6C /* TitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
+		15E0A1DF1DAFF56000C21D6C /* TitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleCell.xib; sourceTree = "<group>"; };
+		15E0A1E31DAFF5E600C21D6C /* BodyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyCell.swift; sourceTree = "<group>"; };
+		15E0A1E41DAFF5E600C21D6C /* BodyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BodyCell.xib; sourceTree = "<group>"; };
+		15E0A1E81DAFF63200C21D6C /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		15E0A1E91DAFF63200C21D6C /* CommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
+		15E0A1ED1DAFF73000C21D6C /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		15E0A1F11DAFF9A800C21D6C /* ImageHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageHeader.swift; sourceTree = "<group>"; };
+		15E0A1F31DAFF9B900C21D6C /* ImageHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageHeader.xib; sourceTree = "<group>"; };
 		15EEB8C31CA80F0D006FB78C /* Saptamanalul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Saptamanalul.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15EEB8C61CA80F0D006FB78C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15EEB8C81CA80F0D006FB78C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +159,54 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		15E0A1D81DAFF47300C21D6C /* DetailVC */ = {
+			isa = PBXGroup;
+			children = (
+				15CAD8431CC8C8B900F84D66 /* DetailsViewController.swift */,
+				15E0A1DD1DAFF4AD00C21D6C /* Image Header Cell */,
+				15E0A1E21DAFF56300C21D6C /* Title Cell */,
+				15E0A1E71DAFF5E900C21D6C /* Body Cell */,
+				15E0A1EC1DAFF63500C21D6C /* Comment Cell */,
+			);
+			name = DetailVC;
+			sourceTree = "<group>";
+		};
+		15E0A1DD1DAFF4AD00C21D6C /* Image Header Cell */ = {
+			isa = PBXGroup;
+			children = (
+				15E0A1F11DAFF9A800C21D6C /* ImageHeader.swift */,
+				15E0A1F31DAFF9B900C21D6C /* ImageHeader.xib */,
+			);
+			name = "Image Header Cell";
+			sourceTree = "<group>";
+		};
+		15E0A1E21DAFF56300C21D6C /* Title Cell */ = {
+			isa = PBXGroup;
+			children = (
+				15E0A1DE1DAFF56000C21D6C /* TitleCell.swift */,
+				15E0A1DF1DAFF56000C21D6C /* TitleCell.xib */,
+			);
+			name = "Title Cell";
+			sourceTree = "<group>";
+		};
+		15E0A1E71DAFF5E900C21D6C /* Body Cell */ = {
+			isa = PBXGroup;
+			children = (
+				15E0A1E31DAFF5E600C21D6C /* BodyCell.swift */,
+				15E0A1E41DAFF5E600C21D6C /* BodyCell.xib */,
+			);
+			name = "Body Cell";
+			sourceTree = "<group>";
+		};
+		15E0A1EC1DAFF63500C21D6C /* Comment Cell */ = {
+			isa = PBXGroup;
+			children = (
+				15E0A1E81DAFF63200C21D6C /* CommentCell.swift */,
+				15E0A1E91DAFF63200C21D6C /* CommentCell.xib */,
+			);
+			name = "Comment Cell";
+			sourceTree = "<group>";
+		};
 		15EEB8BA1CA80F0D006FB78C = {
 			isa = PBXGroup;
 			children = (
@@ -168,7 +235,7 @@
 				15CF155F1CEF61CC00511C69 /* Saptamanalul.entitlements */,
 				15EEB8C61CA80F0D006FB78C /* AppDelegate.swift */,
 				15EEB8C81CA80F0D006FB78C /* ViewController.swift */,
-				15CAD8431CC8C8B900F84D66 /* DetailsViewController.swift */,
+				15E0A1D81DAFF47300C21D6C /* DetailVC */,
 				1586D1A41CF31ED20090DD44 /* AnunturiVC.swift */,
 				15EEB8CA1CA80F0D006FB78C /* Main.storyboard */,
 				15EEB8CD1CA80F0D006FB78C /* Assets.xcassets */,
@@ -188,6 +255,8 @@
 				1541A4B51D295DC500C5F401 /* AdminVC.swift */,
 				159F280B1D452A2D00C9C19C /* Colors.swift */,
 				153165871DA556B500719F84 /* LoginVC.swift */,
+				15040BFC1DA818AA00DE3D88 /* Header.h */,
+				15E0A1ED1DAFF73000C21D6C /* Comment.swift */,
 			);
 			path = Saptamanalul;
 			sourceTree = "<group>";
@@ -346,7 +415,11 @@
 				15EEB8D11CA80F0D006FB78C /* LaunchScreen.storyboard in Resources */,
 				15EEB8CE1CA80F0D006FB78C /* Assets.xcassets in Resources */,
 				1541A4B81D2969B000C5F401 /* GoogleService-Info.plist in Resources */,
+				15E0A1E61DAFF5E600C21D6C /* BodyCell.xib in Resources */,
 				15EEB8CC1CA80F0D006FB78C /* Main.storyboard in Resources */,
+				15E0A1EB1DAFF63200C21D6C /* CommentCell.xib in Resources */,
+				15E0A1E11DAFF56000C21D6C /* TitleCell.xib in Resources */,
+				15E0A1F41DAFF9B900C21D6C /* ImageHeader.xib in Resources */,
 				154FFCC21CE5EE49004A50B4 /* MyCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,14 +498,19 @@
 				154FFCC11CE5EE49004A50B4 /* MyCell.swift in Sources */,
 				1581A40A1D0D6EE40015B63D /* DetailsAnuntViewController.swift in Sources */,
 				1541A4B41D1FE57A00C5F401 /* Post.swift in Sources */,
+				15E0A1F21DAFF9A800C21D6C /* ImageHeader.swift in Sources */,
 				1509261F1CCB978000243434 /* MaterialTextField.swift in Sources */,
 				15FC564C1D1857E300040D25 /* Anunt.swift in Sources */,
 				15EEB8C91CA80F0D006FB78C /* ViewController.swift in Sources */,
 				159F280C1D452A2D00C9C19C /* Colors.swift in Sources */,
+				15E0A1EE1DAFF73000C21D6C /* Comment.swift in Sources */,
 				15EEB8C71CA80F0D006FB78C /* AppDelegate.swift in Sources */,
 				153165881DA556B500719F84 /* LoginVC.swift in Sources */,
+				15E0A1E01DAFF56000C21D6C /* TitleCell.swift in Sources */,
 				1541A4B61D295DC500C5F401 /* AdminVC.swift in Sources */,
 				1509261D1CCB8EB900243434 /* MaterialButton.swift in Sources */,
+				15E0A1EA1DAFF63200C21D6C /* CommentCell.swift in Sources */,
+				15E0A1E51DAFF5E600C21D6C /* BodyCell.swift in Sources */,
 				150926191CCB885000243434 /* MaterialView.swift in Sources */,
 				15CAD8441CC8C8B900F84D66 /* DetailsViewController.swift in Sources */,
 				1509261B1CCB88DC00243434 /* Constants.swift in Sources */,

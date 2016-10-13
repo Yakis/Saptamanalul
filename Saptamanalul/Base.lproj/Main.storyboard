@@ -124,11 +124,11 @@
                                 <rect key="frame" x="0.0" y="136" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8T7-YI-0vu" id="aYO-wN-6XJ">
-                                    <frame key="frameInset" width="375" height="69.5"/>
+                                    <frame key="frameInset" width="375" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Vey-VF-eCl">
-                                            <frame key="frameInset" minX="15" width="345" height="69.5"/>
+                                            <frame key="frameInset" minX="15" width="345" height="69"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -234,77 +234,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9y-XF-7At">
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v4F-Ud-oDQ">
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wBh-u1-d6a">
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="500" id="zLE-3z-lIF">
-                                                        <variation key="heightClass=regular-widthClass=compact" constant="200"/>
-                                                        <variation key="heightClass=regular-widthClass=regular" constant="500"/>
-                                                    </constraint>
-                                                </constraints>
-                                            </imageView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9bN-Tk-x6M">
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scandal mare, iscat dupa ce fabrica de alcool de la Radauti, s-a inchis in conditii suspecte" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="C0D-A9-o0J">
-                                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="20"/>
-                                                        <color key="textColor" red="0.20784313730000001" green="0.49019607840000001" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" layoutMarginsFollowReadableWidth="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1CW-ml-oyi">
-                                                        <string key="text">Incendiul care a mistuit biserica din comuna Burla a modificat prioritatile Primariei. Daca in ultimii patru ani administratia comunei a racordat localitatea la reteaua de apa si canalizare, a construit o scoala noua, o cladire multifuntionala, a asfaltat drumuri si a amenajat locuri de joaca pentru copii, in urmatoarele luni toata atentia este indreptata spre construirea unei biserici si a unei clopotnite. inca marcat de incidetul care a dus la mistuirea bisericii, primarul comunei, Viorel Pintiliuc, spune ca nu va avea liniste pana nu va construi si va sfinti o biserica noua. Pentru comuna Burla incendiul prin care am pierdut biserica ortodoxa a fost o mare tragedie. O mare tragedie a fost si pentru mine. Cum credeti ca m-am simtit eu cand vedeam cum arde biserica in care am fost botezat, biserica in care am fost cununat? Ganditi-va ca la nici zece metri de biserica sunt mornintele tatalui meu si ale bunicilor mei, iar eu priveam neputincios cum focul distruge tot. Atunci, in acea noapte, am stiut ca nu voi mai avea liniste pana nu construiesc si sfintesc o biserica noua.
-</string>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="19"/>
-                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="9bN-Tk-x6M" firstAttribute="top" secondItem="wBh-u1-d6a" secondAttribute="bottom" constant="8" id="3Mm-rh-qz1"/>
-                                            <constraint firstAttribute="trailing" secondItem="wBh-u1-d6a" secondAttribute="trailing" constant="8" id="GJM-gP-Jdh"/>
-                                            <constraint firstItem="wBh-u1-d6a" firstAttribute="top" secondItem="v4F-Ud-oDQ" secondAttribute="top" constant="-55" id="JpX-Yi-BEO"/>
-                                            <constraint firstAttribute="trailing" secondItem="9bN-Tk-x6M" secondAttribute="trailing" constant="8" id="cq5-wO-YZU"/>
-                                            <constraint firstItem="wBh-u1-d6a" firstAttribute="centerX" secondItem="v4F-Ud-oDQ" secondAttribute="centerX" id="hSB-Mn-5Kr"/>
-                                            <constraint firstAttribute="bottom" secondItem="9bN-Tk-x6M" secondAttribute="bottom" constant="20" id="j8L-7b-07J"/>
-                                            <constraint firstItem="9bN-Tk-x6M" firstAttribute="leading" secondItem="v4F-Ud-oDQ" secondAttribute="leading" constant="8" id="jBF-uX-9jF"/>
-                                            <constraint firstItem="wBh-u1-d6a" firstAttribute="leading" secondItem="v4F-Ud-oDQ" secondAttribute="leading" constant="8" id="n9E-Od-9tY"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="v4F-Ud-oDQ" secondAttribute="trailing" id="1MT-s3-9mX"/>
-                                    <constraint firstItem="v4F-Ud-oDQ" firstAttribute="leading" secondItem="X9y-XF-7At" secondAttribute="leading" id="6wi-ac-0lC"/>
-                                    <constraint firstAttribute="bottom" secondItem="v4F-Ud-oDQ" secondAttribute="bottom" id="KoB-79-QdT"/>
-                                    <constraint firstItem="v4F-Ud-oDQ" firstAttribute="top" secondItem="X9y-XF-7At" secondAttribute="top" id="fjZ-Z6-dv7"/>
-                                </constraints>
-                            </scrollView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="86" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BAf-KM-OL6">
+                                <frame key="frameInset" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailCell" id="iKI-d7-u8a">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="86"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iKI-d7-u8a" id="2nC-4A-U6n">
+                                            <frame key="frameInset" width="375" height="86"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="eKg-ey-5iM" firstAttribute="top" secondItem="X9y-XF-7At" secondAttribute="bottom" id="8HI-Yp-JoA"/>
-                            <constraint firstAttribute="width" secondItem="v4F-Ud-oDQ" secondAttribute="width" id="IoS-Tw-51H"/>
-                            <constraint firstItem="X9y-XF-7At" firstAttribute="top" secondItem="ZBo-F2-wJj" secondAttribute="bottom" id="KhY-y3-qzu"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="X9y-XF-7At" secondAttribute="trailing" constant="-20" id="bp3-Dw-Jkj"/>
-                            <constraint firstItem="X9y-XF-7At" firstAttribute="leading" secondItem="gWP-oV-LNw" secondAttribute="leadingMargin" constant="-20" id="uYJ-J0-uRE"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="detailsBodyLabel" destination="1CW-ml-oyi" id="P60-Gc-D1P"/>
-                        <outlet property="detailsImageView" destination="wBh-u1-d6a" id="A6y-TB-cCK"/>
-                        <outlet property="detailsTitleLabel" destination="C0D-A9-o0J" id="pWk-3Q-PDi"/>
-                        <outlet property="imageHeightConstrain" destination="zLE-3z-lIF" id="sZC-RI-QvV"/>
-                        <outlet property="scrollView" destination="X9y-XF-7At" id="uon-HV-hpM"/>
+                        <outlet property="tableView" destination="BAf-KM-OL6" id="cGF-zG-uFR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VWl-Cf-dma" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1988.8" y="122.33883058470765"/>
+            <point key="canvasLocation" x="1988" y="121.88905547226388"/>
         </scene>
         <!--LoginVC-->
         <scene sceneID="Xoy-IC-uqB">
@@ -358,6 +312,9 @@
                                                 <state key="normal" title="Google">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="googleLoginButton:" destination="EZE-Hw-2Ef" eventType="touchUpInside" id="HuO-te-uSU"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -417,7 +374,7 @@
             <objects>
                 <navigationController storyboardIdentifier="navVC" automaticallyAdjustsScrollViewInsets="NO" id="zvu-bt-aXN" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="v9G-OV-Tx1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="v9G-OV-Tx1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
