@@ -8,13 +8,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewCommentVC" customModule="Saptamanalul" customModuleProvider="target">
             <connections>
+                <outlet property="publishButtonOutlet" destination="gQ0-9Q-fZo" id="LS8-up-hpu"/>
                 <outlet property="textView" destination="j6z-Q9-ZCp" id="1CB-a7-8Ji"/>
                 <outlet property="userName" destination="4xC-Wh-eF4" id="uZQ-gr-5ua"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="316"/>
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -36,12 +37,9 @@
                         <constraint firstAttribute="width" constant="120" id="nnp-e3-C8l"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
-                    <state key="normal" title="Publică">
+                    <state key="normal" title="Publica">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <action selector="publishComment:" destination="-1" eventType="touchUpInside" id="OI4-in-6iw"/>
-                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>

@@ -11,6 +11,7 @@ import Social
 import Kingfisher
 import Firebase
 
+
 class DetailsViewController: UIViewController {
 
     
@@ -28,7 +29,11 @@ class DetailsViewController: UIViewController {
     
     var runTimer: Timer!
     var stopTimer: Timer!
-    var comments = [Comment]()
+    var comments = [Comment]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     var ref = FIRDatabase.database().reference()
     
     
@@ -68,13 +73,7 @@ class DetailsViewController: UIViewController {
 //        imageView?.addGestureRecognizer(tapGestureRecognizer)
         
         
-        let firstComment = Comment(userName: "Attila", text: "Un comentariu destul de urat la adresa primarelui din Vatra Moldovitei, care se pare ca a fost gasit in stare de ebrietate impreuna cu seful de post chiar in ziua de hram. Modarfakar de primare, ce bulangiu, nu putea sa bea si el noaptea ca tot omu, ca sa nu-l vada nimeni prin sat, iaca acuma are probleme in campanie!", autoID: "123444", userID: "123444")
-        let secondComment = Comment(userName: "Bulgaras2016", text: "Bai! voi nu vedeti ca asta fura??? Cine naiba l-a pus pe asta in functie, ca din 2004 si-a umplut buzunarele cu bani si nu a facut nimic pentru comuna noastra, parca e tampit!!!", autoID: "123442", userID: "123442")
-        let thirdComment = Comment(userName: "Yakis", text: "La WWDC, s-au prezentat articole interesanta care mai de care, in special despre interface builder si navigation controller. Mai mult de atat, au fost prezentate toate modificarile in trecerea la de Swift 2 la Swift 3.", autoID: "123447", userID: "123447")
         
-        comments.append(firstComment)
-        comments.append(secondComment)
-        comments.insert(thirdComment, at: 1)
         getComments()
     }
     
@@ -88,7 +87,7 @@ class DetailsViewController: UIViewController {
             let autoID = snapshot.key
             guard let userID = value["userID"] as? String else {return}
             let commentFour = Comment(userName: userName, text: text, autoID: autoID, userID: userID)
-            self.comments.insert(commentFour, at: 0)
+            self.comments.append(commentFour)
         })
     }
     
@@ -118,19 +117,36 @@ class DetailsViewController: UIViewController {
     }
     
 
-    
-    func commentButtonTapped () {
+    func getSubviewFrame () -> CGRect {
         let screenSize = UIScreen.main.bounds.size
         let width = screenSize.width - 40
         let height = screenSize.height / 2
         let xOrigin = (screenSize.width - width) / 2
         let yOrigin = (screenSize.height - height) / 2
         let frame = CGRect(x: xOrigin, y: yOrigin, width: width, height: height)
+        return frame
+    }
+    
+    
+    func publishAction () {
+        
+//        let subView = NewCommentVC(nibName: "NewCommentVC", bundle: nil)
+//        let commentsRef = ref.child("comments")
+//        guard let currentUser = FIRAuth.auth()?.currentUser else {return}
+//        let userName = currentUser.displayName!
+//        let userID = currentUser.uid as String
+//        let text = subView.textView.text as String
+//        let post = ["text": text, "userName": userName, "userID": userID] as NSDictionary
+//        commentsRef.childByAutoId().setValue(post)
+    }
+    
+    
+    func newCommentButtonTapped () {
         let newComment = NewCommentVC(nibName: "NewCommentVC", bundle: nil)
-        guard let newCommentView = newComment.view else {return}
-        newCommentView.frame = frame
-        self.view.addSubview(newCommentView)
-        print("Write, motherfucker!")
+        newComment.view.frame = getSubviewFrame()
+        self.view.addSubview(newComment.view)
+        newComment.publishButtonOutlet.addTarget(self, action: #selector(DetailsViewController.publishAction), for: .touchUpInside)
+        
     }
     
     
@@ -159,34 +175,22 @@ extension DetailsViewController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-        if indexPath.row == 0 {
-        let titleCell = tableView.dequeueReusableCell(withIdentifier: "TitleCell", for: indexPath) as! TitleCell
-            return titleCell
-        } else if indexPath.row == 1 {
-            let bodyCell = tableView.dequeueReusableCell(withIdentifier: "BodyCell", for: indexPath) as! BodyCell
-            return bodyCell
+        switch (indexPath.section, indexPath.row) {
+        case (0, 0):
+                let titleCell = tableView.dequeueReusableCell(withIdentifier: DetailsCell.titleIdentifier, for: indexPath) as! TitleCell
+                return titleCell
+        case (0, 1):
+                let bodyCell = tableView.dequeueReusableCell(withIdentifier: DetailsCell.bodyIdentifier, for: indexPath) as! BodyCell
+                return bodyCell
+        case (1, _): let commentCell = tableView.dequeueReusableCell(withIdentifier: DetailsCell.commentIdentifier, for: indexPath) as! CommentCell
+                let comment = comments[indexPath.row]
+                commentCell.userName.text = comment.userName
+                commentCell.bodyLabel.text = comment.text
+                return commentCell
+        default: return UITableViewCell()
         }
-        } else if indexPath.section == 1 {
-            let commentCell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentCell
-            let comment = comments[indexPath.row]
-            commentCell.userName.text = comment.userName
-            commentCell.bodyLabel.text = comment.text
-            return commentCell
-        }
-        return UITableViewCell()
+        
     }
-    
-    
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 1 {
-            return "Comentarii"
-        } else {
-            return nil
-        }
-    }
-    
     
     
 }
@@ -197,16 +201,16 @@ extension DetailsViewController: UITableViewDelegate {
     
     func setupCommentsHeader () -> UIView {
         let frame: CGRect = UIScreen.main.bounds
-        let doneButton: UIButton = UIButton(frame: CGRect(x: frame.width-40, y: 5, width: 30, height: 30))
-        doneButton.setImage(UIImage(named: "newComment"), for: .normal)
-        doneButton.addTarget(self, action: #selector(DetailsViewController.commentButtonTapped), for: .touchUpInside)
+        let newCommentButton: UIButton = UIButton(frame: CGRect(x: frame.width-40, y: 5, width: 30, height: 30))
+        newCommentButton.setImage(UIImage(named: "newComment"), for: .normal)
+        newCommentButton.addTarget(self, action: #selector(DetailsViewController.newCommentButtonTapped), for: .touchUpInside)
         let headerView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         headerView.backgroundColor = blueSaptamanalul
         let label = UILabel(frame: CGRect(x: 10, y: 0, width: 100, height: 40))
-        label.text = "Comentarii"
+        label.text = DetailsCell.commentHeader
         label.textColor = UIColor.white
         headerView.addSubview(label)
-        headerView.addSubview(doneButton)
+        headerView.addSubview(newCommentButton)
         return headerView
     }
     

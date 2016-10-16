@@ -20,6 +20,11 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
         let loginButton = FBSDKLoginButton()
         loginButton.delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
+        if let uid = FIRAuth.auth()?.currentUser?.uid {
+            print(uid)
+            let dashboardVC = ViewController(nibName: "ViewController", bundle: nil)
+            show(dashboardVC, sender: nil)
+        }
     }
 
     
@@ -81,7 +86,6 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
             FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
                 if (error == nil){
                     guard let result = result as? Dictionary<String, AnyObject> else {return}
-                    print(result["email"])
                     self.showDashboard()
                 }
             })
