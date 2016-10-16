@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewCommentVC" customModule="Saptamanalul" customModuleProvider="target">
+            <connections>
+                <outlet property="textView" destination="j6z-Q9-ZCp" id="1CB-a7-8Ji"/>
+                <outlet property="userName" destination="4xC-Wh-eF4" id="uZQ-gr-5ua"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="316"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.55000000000000004" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="j6z-Q9-ZCp">
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
+                </textView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4xC-Wh-eF4">
+                    <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" red="0.0046617654149999996" green="0.41991913320000002" blue="0.61531943079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQ0-9Q-fZo">
+                    <color key="backgroundColor" red="0.0046617654149999996" green="0.41991913320000002" blue="0.61531943079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="MfX-ab-smT"/>
+                        <constraint firstAttribute="width" constant="120" id="nnp-e3-C8l"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                    <state key="normal" title="Publică">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="publishComment:" destination="-1" eventType="touchUpInside" id="OI4-in-6iw"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="j6z-Q9-ZCp" firstAttribute="top" secondItem="4xC-Wh-eF4" secondAttribute="bottom" constant="8" id="F0B-bi-WB0"/>
+                <constraint firstItem="j6z-Q9-ZCp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="gfF-Bh-Mfe"/>
+                <constraint firstItem="4xC-Wh-eF4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="h1g-rm-QGw"/>
+                <constraint firstAttribute="bottom" secondItem="gQ0-9Q-fZo" secondAttribute="bottom" constant="20" id="h72-Ar-MCK"/>
+                <constraint firstItem="4xC-Wh-eF4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="14" id="jSc-jq-uC1"/>
+                <constraint firstAttribute="trailing" secondItem="j6z-Q9-ZCp" secondAttribute="trailing" constant="20" id="l05-Hv-BhY"/>
+                <constraint firstAttribute="trailing" secondItem="4xC-Wh-eF4" secondAttribute="trailing" constant="20" id="nsO-U9-ss0"/>
+                <constraint firstItem="gQ0-9Q-fZo" firstAttribute="top" secondItem="j6z-Q9-ZCp" secondAttribute="bottom" constant="22" id="sOW-MY-Onm"/>
+                <constraint firstItem="gQ0-9Q-fZo" firstAttribute="centerX" secondItem="j6z-Q9-ZCp" secondAttribute="centerX" id="uXb-0n-SGe"/>
+                <constraint firstItem="4xC-Wh-eF4" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ufj-qX-4Go"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="25.5" y="263"/>
+        </view>
+    </objects>
+</document>

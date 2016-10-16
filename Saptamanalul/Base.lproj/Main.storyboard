@@ -234,9 +234,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="86" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BAf-KM-OL6">
-                                <frame key="frameInset" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="86" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BAf-KM-OL6">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailCell" id="iKI-d7-u8a">
@@ -251,6 +249,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="eKg-ey-5iM" firstAttribute="top" secondItem="BAf-KM-OL6" secondAttribute="bottom" id="3sc-cp-J6I"/>
+                            <constraint firstItem="BAf-KM-OL6" firstAttribute="top" secondItem="gWP-oV-LNw" secondAttribute="top" id="Jg9-37-30R"/>
+                            <constraint firstItem="BAf-KM-OL6" firstAttribute="leading" secondItem="gWP-oV-LNw" secondAttribute="leading" id="SW1-zB-GMi"/>
+                            <constraint firstAttribute="trailing" secondItem="BAf-KM-OL6" secondAttribute="trailing" id="V6y-Bc-FZN"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="BAf-KM-OL6" id="cGF-zG-uFR"/>
@@ -374,7 +378,7 @@
             <objects>
                 <navigationController storyboardIdentifier="navVC" automaticallyAdjustsScrollViewInsets="NO" id="zvu-bt-aXN" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="v9G-OV-Tx1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="v9G-OV-Tx1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

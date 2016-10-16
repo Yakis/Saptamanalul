@@ -16,10 +16,13 @@
 		1509261F1CCB978000243434 /* MaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1509261E1CCB978000243434 /* MaterialTextField.swift */; };
 		153165881DA556B500719F84 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153165871DA556B500719F84 /* LoginVC.swift */; };
 		1541A4B41D1FE57A00C5F401 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1541A4B31D1FE57A00C5F401 /* Post.swift */; };
-		1541A4B61D295DC500C5F401 /* AdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1541A4B51D295DC500C5F401 /* AdminVC.swift */; };
 		1541A4B81D2969B000C5F401 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1541A4B71D2969B000C5F401 /* GoogleService-Info.plist */; };
 		154FFCC11CE5EE49004A50B4 /* MyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154FFCBF1CE5EE49004A50B4 /* MyCell.swift */; };
 		154FFCC21CE5EE49004A50B4 /* MyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 154FFCC01CE5EE49004A50B4 /* MyCell.xib */; };
+		1569DD431DB373F300DA1D53 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1569DD421DB373F300DA1D53 /* User.swift */; };
+		156B97851DB2B33700EEEEA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 156B97841DB2B33700EEEEA3 /* Assets.xcassets */; };
+		156B978D1DB2B5A200EEEEA3 /* NewCommentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156B978B1DB2B5A200EEEEA3 /* NewCommentVC.swift */; };
+		156B978E1DB2B5A200EEEEA3 /* NewCommentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 156B978C1DB2B5A200EEEEA3 /* NewCommentVC.xib */; };
 		1581A40A1D0D6EE40015B63D /* DetailsAnuntViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581A4091D0D6EE40015B63D /* DetailsAnuntViewController.swift */; };
 		1586D1A51CF31ED20090DD44 /* AnunturiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1586D1A41CF31ED20090DD44 /* AnunturiVC.swift */; };
 		1587E3E81CE6295600E8D355 /* PopoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587E3E71CE6295600E8D355 /* PopoverVC.swift */; };
@@ -38,7 +41,6 @@
 		15EEB8C71CA80F0D006FB78C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEB8C61CA80F0D006FB78C /* AppDelegate.swift */; };
 		15EEB8C91CA80F0D006FB78C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEB8C81CA80F0D006FB78C /* ViewController.swift */; };
 		15EEB8CC1CA80F0D006FB78C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15EEB8CA1CA80F0D006FB78C /* Main.storyboard */; };
-		15EEB8CE1CA80F0D006FB78C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15EEB8CD1CA80F0D006FB78C /* Assets.xcassets */; };
 		15EEB8D11CA80F0D006FB78C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15EEB8CF1CA80F0D006FB78C /* LaunchScreen.storyboard */; };
 		15EEB8DC1CA80F0D006FB78C /* SaptamanalulTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEB8DB1CA80F0D006FB78C /* SaptamanalulTests.swift */; };
 		15EEB8E71CA80F0D006FB78C /* SaptamanalulUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEB8E61CA80F0D006FB78C /* SaptamanalulUITests.swift */; };
@@ -74,10 +76,13 @@
 		1509261E1CCB978000243434 /* MaterialTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialTextField.swift; sourceTree = "<group>"; };
 		153165871DA556B500719F84 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		1541A4B31D1FE57A00C5F401 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		1541A4B51D295DC500C5F401 /* AdminVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminVC.swift; sourceTree = "<group>"; };
 		1541A4B71D2969B000C5F401 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		154FFCBF1CE5EE49004A50B4 /* MyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCell.swift; sourceTree = "<group>"; };
 		154FFCC01CE5EE49004A50B4 /* MyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCell.xib; sourceTree = "<group>"; };
+		1569DD421DB373F300DA1D53 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		156B97841DB2B33700EEEEA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		156B978B1DB2B5A200EEEEA3 /* NewCommentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCommentVC.swift; sourceTree = "<group>"; };
+		156B978C1DB2B5A200EEEEA3 /* NewCommentVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewCommentVC.xib; sourceTree = "<group>"; };
 		1581A4091D0D6EE40015B63D /* DetailsAnuntViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsAnuntViewController.swift; sourceTree = "<group>"; };
 		1586D1A41CF31ED20090DD44 /* AnunturiVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnunturiVC.swift; sourceTree = "<group>"; };
 		1587E3E71CE6295600E8D355 /* PopoverVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverVC.swift; sourceTree = "<group>"; };
@@ -98,7 +103,6 @@
 		15EEB8C61CA80F0D006FB78C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15EEB8C81CA80F0D006FB78C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		15EEB8CB1CA80F0D006FB78C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		15EEB8CD1CA80F0D006FB78C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15EEB8D01CA80F0D006FB78C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		15EEB8D21CA80F0D006FB78C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15EEB8D71CA80F0D006FB78C /* SaptamanalulTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SaptamanalulTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,6 +163,109 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		1569DD381DB366FE00DA1D53 /* AnunturiVC */ = {
+			isa = PBXGroup;
+			children = (
+				1586D1A41CF31ED20090DD44 /* AnunturiVC.swift */,
+			);
+			name = AnunturiVC;
+			sourceTree = "<group>";
+		};
+		1569DD391DB3671800DA1D53 /* AppResources */ = {
+			isa = PBXGroup;
+			children = (
+				15040BFC1DA818AA00DE3D88 /* Header.h */,
+				156B97841DB2B33700EEEEA3 /* Assets.xcassets */,
+				15CF155F1CEF61CC00511C69 /* Saptamanalul.entitlements */,
+				15EEB8CA1CA80F0D006FB78C /* Main.storyboard */,
+				15EEB8CF1CA80F0D006FB78C /* LaunchScreen.storyboard */,
+			);
+			name = AppResources;
+			sourceTree = "<group>";
+		};
+		1569DD3A1DB3674100DA1D53 /* AppMain */ = {
+			isa = PBXGroup;
+			children = (
+				15EEB8D21CA80F0D006FB78C /* Info.plist */,
+				1541A4B71D2969B000C5F401 /* GoogleService-Info.plist */,
+				15EEB8C61CA80F0D006FB78C /* AppDelegate.swift */,
+			);
+			name = AppMain;
+			sourceTree = "<group>";
+		};
+		1569DD3B1DB3675E00DA1D53 /* MainVC */ = {
+			isa = PBXGroup;
+			children = (
+				1569DD3C1DB3677C00DA1D53 /* NewsCell */,
+				15EEB8C81CA80F0D006FB78C /* ViewController.swift */,
+			);
+			name = MainVC;
+			sourceTree = "<group>";
+		};
+		1569DD3C1DB3677C00DA1D53 /* NewsCell */ = {
+			isa = PBXGroup;
+			children = (
+				154FFCBF1CE5EE49004A50B4 /* MyCell.swift */,
+				154FFCC01CE5EE49004A50B4 /* MyCell.xib */,
+			);
+			name = NewsCell;
+			sourceTree = "<group>";
+		};
+		1569DD3D1DB367A700DA1D53 /* CustomizeViews */ = {
+			isa = PBXGroup;
+			children = (
+				150926181CCB885000243434 /* MaterialView.swift */,
+				1509261C1CCB8EB900243434 /* MaterialButton.swift */,
+				1509261E1CCB978000243434 /* MaterialTextField.swift */,
+			);
+			name = CustomizeViews;
+			sourceTree = "<group>";
+		};
+		1569DD3E1DB367C700DA1D53 /* DetailsAnuntVC */ = {
+			isa = PBXGroup;
+			children = (
+				1581A4091D0D6EE40015B63D /* DetailsAnuntViewController.swift */,
+			);
+			name = DetailsAnuntVC;
+			sourceTree = "<group>";
+		};
+		1569DD3F1DB367FA00DA1D53 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				15FC564B1D1857E300040D25 /* Anunt.swift */,
+				1541A4B31D1FE57A00C5F401 /* Post.swift */,
+				15E0A1ED1DAFF73000C21D6C /* Comment.swift */,
+				1569DD421DB373F300DA1D53 /* User.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		1569DD401DB3681D00DA1D53 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1509261A1CCB88DC00243434 /* Constants.swift */,
+				159F280B1D452A2D00C9C19C /* Colors.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		1569DD411DB3682800DA1D53 /* LoginVC */ = {
+			isa = PBXGroup;
+			children = (
+				153165871DA556B500719F84 /* LoginVC.swift */,
+			);
+			name = LoginVC;
+			sourceTree = "<group>";
+		};
+		156B97881DB2B45700EEEEA3 /* NewComment */ = {
+			isa = PBXGroup;
+			children = (
+				156B978B1DB2B5A200EEEEA3 /* NewCommentVC.swift */,
+				156B978C1DB2B5A200EEEEA3 /* NewCommentVC.xib */,
+			);
+			name = NewComment;
+			sourceTree = "<group>";
+		};
 		15E0A1D81DAFF47300C21D6C /* DetailVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +274,7 @@
 				15E0A1E21DAFF56300C21D6C /* Title Cell */,
 				15E0A1E71DAFF5E900C21D6C /* Body Cell */,
 				15E0A1EC1DAFF63500C21D6C /* Comment Cell */,
+				156B97881DB2B45700EEEEA3 /* NewComment */,
 			);
 			name = DetailVC;
 			sourceTree = "<group>";
@@ -232,31 +340,17 @@
 		15EEB8C51CA80F0D006FB78C /* Saptamanalul */ = {
 			isa = PBXGroup;
 			children = (
-				15CF155F1CEF61CC00511C69 /* Saptamanalul.entitlements */,
-				15EEB8C61CA80F0D006FB78C /* AppDelegate.swift */,
-				15EEB8C81CA80F0D006FB78C /* ViewController.swift */,
+				1569DD391DB3671800DA1D53 /* AppResources */,
+				1569DD3A1DB3674100DA1D53 /* AppMain */,
+				1569DD411DB3682800DA1D53 /* LoginVC */,
+				1569DD3B1DB3675E00DA1D53 /* MainVC */,
 				15E0A1D81DAFF47300C21D6C /* DetailVC */,
-				1586D1A41CF31ED20090DD44 /* AnunturiVC.swift */,
-				15EEB8CA1CA80F0D006FB78C /* Main.storyboard */,
-				15EEB8CD1CA80F0D006FB78C /* Assets.xcassets */,
-				15EEB8CF1CA80F0D006FB78C /* LaunchScreen.storyboard */,
-				15EEB8D21CA80F0D006FB78C /* Info.plist */,
-				1541A4B71D2969B000C5F401 /* GoogleService-Info.plist */,
-				150926181CCB885000243434 /* MaterialView.swift */,
-				1509261A1CCB88DC00243434 /* Constants.swift */,
-				1509261C1CCB8EB900243434 /* MaterialButton.swift */,
-				1509261E1CCB978000243434 /* MaterialTextField.swift */,
-				154FFCBF1CE5EE49004A50B4 /* MyCell.swift */,
-				154FFCC01CE5EE49004A50B4 /* MyCell.xib */,
+				1569DD381DB366FE00DA1D53 /* AnunturiVC */,
+				1569DD3E1DB367C700DA1D53 /* DetailsAnuntVC */,
+				1569DD3D1DB367A700DA1D53 /* CustomizeViews */,
+				1569DD401DB3681D00DA1D53 /* Utils */,
+				1569DD3F1DB367FA00DA1D53 /* Models */,
 				1587E3E71CE6295600E8D355 /* PopoverVC.swift */,
-				1581A4091D0D6EE40015B63D /* DetailsAnuntViewController.swift */,
-				15FC564B1D1857E300040D25 /* Anunt.swift */,
-				1541A4B31D1FE57A00C5F401 /* Post.swift */,
-				1541A4B51D295DC500C5F401 /* AdminVC.swift */,
-				159F280B1D452A2D00C9C19C /* Colors.swift */,
-				153165871DA556B500719F84 /* LoginVC.swift */,
-				15040BFC1DA818AA00DE3D88 /* Header.h */,
-				15E0A1ED1DAFF73000C21D6C /* Comment.swift */,
 			);
 			path = Saptamanalul;
 			sourceTree = "<group>";
@@ -413,13 +507,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				15EEB8D11CA80F0D006FB78C /* LaunchScreen.storyboard in Resources */,
-				15EEB8CE1CA80F0D006FB78C /* Assets.xcassets in Resources */,
 				1541A4B81D2969B000C5F401 /* GoogleService-Info.plist in Resources */,
 				15E0A1E61DAFF5E600C21D6C /* BodyCell.xib in Resources */,
 				15EEB8CC1CA80F0D006FB78C /* Main.storyboard in Resources */,
 				15E0A1EB1DAFF63200C21D6C /* CommentCell.xib in Resources */,
 				15E0A1E11DAFF56000C21D6C /* TitleCell.xib in Resources */,
 				15E0A1F41DAFF9B900C21D6C /* ImageHeader.xib in Resources */,
+				156B978E1DB2B5A200EEEEA3 /* NewCommentVC.xib in Resources */,
+				156B97851DB2B33700EEEEA3 /* Assets.xcassets in Resources */,
 				154FFCC21CE5EE49004A50B4 /* MyCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -503,17 +598,18 @@
 				15FC564C1D1857E300040D25 /* Anunt.swift in Sources */,
 				15EEB8C91CA80F0D006FB78C /* ViewController.swift in Sources */,
 				159F280C1D452A2D00C9C19C /* Colors.swift in Sources */,
+				1569DD431DB373F300DA1D53 /* User.swift in Sources */,
 				15E0A1EE1DAFF73000C21D6C /* Comment.swift in Sources */,
 				15EEB8C71CA80F0D006FB78C /* AppDelegate.swift in Sources */,
 				153165881DA556B500719F84 /* LoginVC.swift in Sources */,
 				15E0A1E01DAFF56000C21D6C /* TitleCell.swift in Sources */,
-				1541A4B61D295DC500C5F401 /* AdminVC.swift in Sources */,
 				1509261D1CCB8EB900243434 /* MaterialButton.swift in Sources */,
 				15E0A1EA1DAFF63200C21D6C /* CommentCell.swift in Sources */,
 				15E0A1E51DAFF5E600C21D6C /* BodyCell.swift in Sources */,
 				150926191CCB885000243434 /* MaterialView.swift in Sources */,
 				15CAD8441CC8C8B900F84D66 /* DetailsViewController.swift in Sources */,
 				1509261B1CCB88DC00243434 /* Constants.swift in Sources */,
+				156B978D1DB2B5A200EEEEA3 /* NewCommentVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

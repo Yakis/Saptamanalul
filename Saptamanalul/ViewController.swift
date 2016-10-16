@@ -54,14 +54,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func butonAnunturi(_ sender: AnyObject) {
         
-        let anunturiVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "anunturiVC") as! AdminVC
+        let anunturiVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "anunturiVC") as! AnunturiVC
         self.navigationController?.present(anunturiVC, animated: true, completion: nil)
         
     }
     
     
     
-    //HEAD: Cloudkit Implementation
+    //HEAD: Firebase Implementation
     
     func getPosts () {
         posts = []
