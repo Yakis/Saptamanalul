@@ -38,11 +38,18 @@ class NewCommentVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.userName.text = FIRAuth.auth()?.currentUser?.displayName
+        setUserNameOnView()
 //        publishButtonOutlet.addTarget(self, action: #selector(NewCommentVC.publishComment), for: .touchUpInside)
 
     }
 
+    
+    func setUserNameOnView () {
+        if let userName = FIRAuth.auth()?.currentUser?.displayName {
+            self.userName.text = "Postezi cu numele: \(userName)"
+        }
+    }
+    
     
     func methodOfReceivedNotification(){
         print("God damned!")

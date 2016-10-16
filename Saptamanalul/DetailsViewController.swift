@@ -35,8 +35,8 @@ class DetailsViewController: UIViewController {
         }
     }
     var ref = FIRDatabase.database().reference()
-    
-    
+    var newCommentVC: NewCommentVC!
+    var textView: UITextView!
     
     func shareTapped () {
 //        let vc = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
@@ -80,7 +80,7 @@ class DetailsViewController: UIViewController {
     
     func getComments () {
         let commentsRef = ref.child("comments")
-        commentsRef.observeSingleEvent(of: .childAdded, with: { (snapshot) in
+        commentsRef.observe(.childAdded, with: { (snapshot) in
             guard let value = snapshot.value as? NSDictionary else {return}
             guard let userName = value["userName"] as? String else {return}
             guard let text = value["text"] as? String else {return}
@@ -129,23 +129,23 @@ class DetailsViewController: UIViewController {
     
     
     func publishAction () {
-        
-//        let subView = NewCommentVC(nibName: "NewCommentVC", bundle: nil)
-//        let commentsRef = ref.child("comments")
-//        guard let currentUser = FIRAuth.auth()?.currentUser else {return}
-//        let userName = currentUser.displayName!
-//        let userID = currentUser.uid as String
-//        let text = subView.textView.text as String
-//        let post = ["text": text, "userName": userName, "userID": userID] as NSDictionary
-//        commentsRef.childByAutoId().setValue(post)
+        let commentsRef = ref.child("comments")
+        guard let currentUser = FIRAuth.auth()?.currentUser else {return}
+        let userName = currentUser.displayName!
+        let userID = currentUser.uid as String
+        let text = textView.text as String
+        let post = ["text": text, "userName": userName, "userID": userID] as NSDictionary
+        commentsRef.childByAutoId().setValue(post)
+        newCommentVC = nil
     }
     
     
     func newCommentButtonTapped () {
-        let newComment = NewCommentVC(nibName: "NewCommentVC", bundle: nil)
-        newComment.view.frame = getSubviewFrame()
-        self.view.addSubview(newComment.view)
-        newComment.publishButtonOutlet.addTarget(self, action: #selector(DetailsViewController.publishAction), for: .touchUpInside)
+        newCommentVC = NewCommentVC(nibName: "NewCommentVC", bundle: nil)
+        newCommentVC.view.frame = getSubviewFrame()
+        self.view.addSubview(newCommentVC.view)
+        newCommentVC.publishButtonOutlet.addTarget(self, action: #selector(DetailsViewController.publishAction), for: .touchUpInside)
+        self.textView = newCommentVC.textView
         
     }
     
