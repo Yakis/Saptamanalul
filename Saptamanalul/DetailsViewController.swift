@@ -66,20 +66,10 @@ class DetailsViewController: UIViewController {
 //        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(DetailsViewController.imageTapped))
 //        imageView?.isUserInteractionEnabled = true
 //        imageView?.addGestureRecognizer(tapGestureRecognizer)
-        
-        
-        
         getComments()
     }
     
-    
-//    func getComments () {
-//        let commentsRef = ref.child("comments")
-//        commentsRef.observe(.childAdded, with: { (snapshot) in
-//            let commentFour = Comment(snapshot: snapshot)
-//            self.comments.append(commentFour)
-//        })
-//    }
+ 
     
     
     func getComments() {
@@ -133,7 +123,8 @@ class DetailsViewController: UIViewController {
         let text = textView.text as String
         let post = ["text": text, "userName": userName, "userID": userID] as NSDictionary
         commentsRef.childByAutoId().setValue(post)
-        newCommentVC = nil
+        dismissSubviewAnimated()
+       // newCommentVC.view.removeFromSuperview()
     }
     
     
@@ -148,17 +139,22 @@ class DetailsViewController: UIViewController {
     
     
     
+    func dismissSubviewAnimated () {
+        UIView.animateKeyframes(withDuration: 0.5, delay: 0.1, options: .beginFromCurrentState, animations: {
+            self.newCommentVC.view.alpha = 0
+            }) { (Bool) in
+                self.newCommentVC.view.removeFromSuperview()
+        }
+    }
+    
+    
 }
 
 
 extension DetailsViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if comments.count > 0 {
-            return 2
-        } else {
-            return 1
-        }
+        return 2
     }
     
     
