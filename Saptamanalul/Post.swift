@@ -7,25 +7,26 @@
 //
 
 import Foundation
-
+import Firebase
 
 class Post {
     
     var title: String
     var body: String
     var image: String
-    var pubImage: String = ""
-    var postDate: String = ""
+    var pubImage: String
+    var postDate: String
     var pubUrl: String
     
     
-    init (title: String, body: String, image: String, pubImage: String, postDate: String, pubUrl: String) {
-        self.title = title
-        self.body = body
-        self.image = image
-        self.pubImage = pubImage
-        self.postDate = postDate
-        self.pubUrl = pubUrl
+    init (snapshot: FIRDataSnapshot) {
+        let value = snapshot.value as? Dictionary<String, AnyObject> ?? nil
+        title = value?["title"] as? String ?? ""
+        body = value?["body"] as? String ?? ""
+        image = value?["image"] as? String ?? ""
+        pubImage = value?["pubImage"] as? String ?? ""
+        postDate = value?["date"] as? String ?? ""
+        pubUrl = value?["pubUrl"] as? String ?? ""
     }
     
 }

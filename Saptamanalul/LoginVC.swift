@@ -26,10 +26,12 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if CurrentUser.shared.isLoggedIn() == true {
-            showDashboard()
-        }
+//        if CurrentUser.shared.isLoggedIn() == true {
+//            showDashboard()
+//        }
     }
+    
+    
     
     
     //MARK: - Google SignIn delegate methods

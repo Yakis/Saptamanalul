@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FIRApp.configure()
         let settings: UIUserNotificationSettings =
@@ -37,6 +36,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         Batch.start(withAPIKey: "5739669F65E82D8251293A48AC8010")
         BatchPush.registerForRemoteNotifications()
 
+        if CurrentUser.shared.isLoggedIn() == true {
+            let mainView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "navVC") as! UINavigationController
+            self.window?.rootViewController = mainView
+            self.window?.makeKeyAndVisible()
+        }
+        
+        
         return true
     }
     

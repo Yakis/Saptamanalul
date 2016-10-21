@@ -13,13 +13,15 @@ import Kingfisher
 import FirebaseDatabase
 
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController {
 
+    
+    //MARK: - Outlets
     @IBOutlet weak var openPostImageView: UIImageView!
     
     @IBOutlet weak var openPostLabel: UILabel!
     
-    var refresher: UIRefreshControl!
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var mainImageHeightConstrain: NSLayoutConstraint!
@@ -27,10 +29,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var bandView: UIView!
     
     @IBOutlet weak var mainTitleBandConstrain: NSLayoutConstraint!
-    var ref = FIRDatabase.database().reference()
+    
+    
+    //MARK: - Variables
+    var refresher: UIRefreshControl!
     var posts = [Post]()
     var comments = [Comment]()
-    
+    let postRef = FIRDatabase.database().reference().child("posts")
     
     
     
@@ -39,13 +44,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let detailsVC = self.storyboard?.instantiateViewController(withIdentifier: "detailsVC") as! DetailsViewController
         self.navigationController?.show(detailsVC, sender: navigationController)
         detailsVC.post = post
-        }
+    }
 
     
     
     
     @IBAction func butonAnunturi(_ sender: AnyObject) {
-        
         let anunturiVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "anunturiVC") as! AnunturiVC
         self.navigationController?.present(anunturiVC, animated: true, completion: nil)
         
@@ -57,42 +61,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func getPosts () {
         posts = []
-        let postRef = self.ref.child("posts")
-        postRef.observe(.childAdded) { (snapshot: FIRDataSnapshot) in
-               // let key = snap.key
-            let value = snapshot.value as? NSDictionary
-                guard let title = value?["title"] as? String else {return}
-                guard let body = value?["body"] as? String else {return}
-                guard let image = value?["image"] as? String else {return}
-                let pubImage = value?["pubImage"] as? String ?? ""
-                let postDate = value?["date"] as? String ?? ""
-                let pubUrl = value?["pubUrl"] as? String ?? ""
-                let post = Post(title: title, body: body, image: image, pubImage: pubImage, postDate: postDate, pubUrl: pubUrl)
-                self.posts.append(post)
-                DispatchQueue.main.async {
-                    SVProgressHUD.dismiss()
-                    self.bandView.alpha = 0.7
-                    self.setOpenPost()
-                    self.tableView.reloadData()
-                    if self.refresher != nil {
-                        self.refresher.endRefreshing()
-                    
-                    }
+        DataRetriever.shared.getPosts(reference: postRef) { [weak self] (snapshot) in
+            let post = Post(snapshot: snapshot)
+            self?.posts.append(post)
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
+                self?.bandView.alpha = 0.7
+                self?.setOpenPost()
+                self?.tableView.reloadData()
+                if self?.refresher != nil {
+                    self?.refresher.endRefreshing()
+                }
             }
         }
     }
     
-
-
-
     
     
     func loadLogoToNavigationBar () {
-        if let img: UIImage = UIImage(named: "saptamanalulWhite.png") {
-           // let imgView: UIImageView = UIImageView(frame: CGRectMake(0, 50, 150, 45))
+        if let img: UIImage = UIImage(named: "saptamanalulWhite") {
             let imgView: UIImageView = UIImageView(frame: CGRect(x: 400, y: 200, width: 120, height: 30))
             imgView.image = img
-            // setContent mode aspect fit
             imgView.contentMode = .scaleAspectFit
             self.navigationItem.titleView = imgView
         }
@@ -150,7 +139,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // self.navigationController?.navigationBar.translucent = false
         self.bandView.alpha = 0
         setImageViewToHalfScreenOfDevice()
         setTapRecognizerOnImage()
@@ -170,25 +158,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         present(alert, animated: true, completion: nil)
     }
     
+ 
+}
+
+
+
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.posts.count 
+        return self.posts.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MyCell
         let post = posts[(indexPath as NSIndexPath).row]
-            let title = post.title
+        let title = post.title
         let file = post.image
-            let imageUrl = URL(string: file)
+        let imageUrl = URL(string: file)
         cell.myImageView.kf.setImage(with: imageUrl!)
-                cell.myTitleView.text = title
+        cell.myTitleView.text = title
         cell.timeStampLabel.text = post.postDate
         
         return cell
     }
-    
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -197,11 +191,4 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let post = posts[(indexPath as NSIndexPath).row]
         detailsVC.post = post
     }
-    
-
-
-
-
-    
 }
-
