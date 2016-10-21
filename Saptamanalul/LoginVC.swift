@@ -20,17 +20,15 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
         let loginButton = FBSDKLoginButton()
         loginButton.delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
-        if let uid = FIRAuth.auth()?.currentUser?.uid {
-            print(uid)
-            let dashboardVC = ViewController(nibName: "ViewController", bundle: nil)
-            show(dashboardVC, sender: nil)
-        }
     }
 
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        if CurrentUser.shared.isLoggedIn() == true {
+            showDashboard()
+        }
     }
     
     
@@ -74,6 +72,8 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
             if (error == nil){
                 let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
                 FIRAuth.auth()?.signIn(with: credential) { [weak self] (user, error) in
+                    guard let uid = user?.uid else {return}
+                    CurrentUser.shared.token = uid
                     self?.getFBUserData()
                 }
             }
@@ -85,7 +85,7 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
         if((FBSDKAccessToken.current()) != nil){
             FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
                 if (error == nil){
-                    guard let result = result as? Dictionary<String, AnyObject> else {return}
+                    guard let _ = result as? Dictionary<String, AnyObject> else {return}
                     self.showDashboard()
                 }
             })
@@ -98,16 +98,6 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().signIn()
     }
     
-    
-    
-    
-    
-    
-    
-    func saveToUserDefaults (token: String) {
-        let userDefaults = UserDefaults.standard
-        userDefaults.set(token, forKey: "fbToken")
-    }
     
     
     func showDashboard () {

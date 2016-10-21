@@ -20,12 +20,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     
-    
-    var titleValue = ""
-    var imageName: URL?
-    var bodyValue = ""
-    var pubImageName: URL?
-    var pubUrl: URL?
+    var post: Post!
     
     var runTimer: Timer!
     var stopTimer: Timer!
@@ -49,7 +44,7 @@ class DetailsViewController: UIViewController {
     
     
     override func viewDidAppear(_ animated: Bool) {
-        if pubImageName?.absoluteString != "" {
+        if post.pubImage != "" {
         runTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
         stopTimer = Timer.scheduledTimer(timeInterval: 8, target: self, selector: #selector(stopTimedCode), userInfo: nil, repeats: true)
     }
@@ -95,7 +90,7 @@ class DetailsViewController: UIViewController {
     
     
     func imageTapped () {
-        guard let url = self.pubUrl else {return}
+        guard let url = URL(string: post.pubUrl) else {return}
         UIApplication.shared.openURL(url)
     }
 

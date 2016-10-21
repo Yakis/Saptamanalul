@@ -14,6 +14,7 @@
 		1509261B1CCB88DC00243434 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1509261A1CCB88DC00243434 /* Constants.swift */; };
 		1509261D1CCB8EB900243434 /* MaterialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1509261C1CCB8EB900243434 /* MaterialButton.swift */; };
 		1509261F1CCB978000243434 /* MaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1509261E1CCB978000243434 /* MaterialTextField.swift */; };
+		1511DA011DBA2F0C0024A7E3 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1511DA001DBA2F0C0024A7E3 /* CurrentUser.swift */; };
 		153165881DA556B500719F84 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153165871DA556B500719F84 /* LoginVC.swift */; };
 		1541A4B41D1FE57A00C5F401 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1541A4B31D1FE57A00C5F401 /* Post.swift */; };
 		1541A4B81D2969B000C5F401 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1541A4B71D2969B000C5F401 /* GoogleService-Info.plist */; };
@@ -74,6 +75,7 @@
 		1509261A1CCB88DC00243434 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1509261C1CCB8EB900243434 /* MaterialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialButton.swift; sourceTree = "<group>"; };
 		1509261E1CCB978000243434 /* MaterialTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialTextField.swift; sourceTree = "<group>"; };
+		1511DA001DBA2F0C0024A7E3 /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		153165871DA556B500719F84 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		1541A4B31D1FE57A00C5F401 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		1541A4B71D2969B000C5F401 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				1541A4B31D1FE57A00C5F401 /* Post.swift */,
 				15E0A1ED1DAFF73000C21D6C /* Comment.swift */,
 				1569DD421DB373F300DA1D53 /* User.swift */,
+				1511DA001DBA2F0C0024A7E3 /* CurrentUser.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -590,6 +593,7 @@
 			files = (
 				1587E3E81CE6295600E8D355 /* PopoverVC.swift in Sources */,
 				1586D1A51CF31ED20090DD44 /* AnunturiVC.swift in Sources */,
+				1511DA011DBA2F0C0024A7E3 /* CurrentUser.swift in Sources */,
 				154FFCC11CE5EE49004A50B4 /* MyCell.swift in Sources */,
 				1581A40A1D0D6EE40015B63D /* DetailsAnuntViewController.swift in Sources */,
 				1541A4B41D1FE57A00C5F401 /* Post.swift in Sources */,

@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // Override point for customization after application launch.
         Batch.start(withAPIKey: "5739669F65E82D8251293A48AC8010")
         BatchPush.registerForRemoteNotifications()
-       // FIRApp.configure()
+
         return true
     }
     

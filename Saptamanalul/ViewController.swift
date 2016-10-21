@@ -31,22 +31,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var posts = [Post]()
     var comments = [Comment]()
     
+    
+    
+    
     @IBAction func didTapOnImage(_ sender: AnyObject) {
+        guard let post = posts.first else {return}
         let detailsVC = self.storyboard?.instantiateViewController(withIdentifier: "detailsVC") as! DetailsViewController
         self.navigationController?.show(detailsVC, sender: navigationController)
-        let post = posts[0]
-        let title = post.title
-            detailsVC.titleValue = title
-            let file = post.image
-        guard let imageUrl = URL(string: file) else {return}
-                detailsVC.imageName = imageUrl
-                let body = post.body
-                    detailsVC.bodyValue = body
-        let filePub = post.pubImage
-        guard let pubImageUrl = URL(string: filePub) else {return}
-                        detailsVC.pubImageName = pubImageUrl
-        guard let pubUrl = URL(string: post.pubUrl) else {return}
-        detailsVC.pubUrl = pubUrl
+        detailsVC.post = post
         }
 
     
@@ -203,18 +195,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let detailsVC = self.storyboard?.instantiateViewController(withIdentifier: "detailsVC") as! DetailsViewController
         self.navigationController?.show(detailsVC, sender: navigationController)
         let post = posts[(indexPath as NSIndexPath).row]
-        let title = post.title
-        detailsVC.titleValue = title
-        let file = post.image
-        let imageUrl = URL(string: file)
-        detailsVC.imageName = imageUrl
-        let body = post.body
-        detailsVC.bodyValue = body
-        let filePub = post.pubImage
-        let pubImageUrl = URL(string: filePub)
-        detailsVC.pubImageName = pubImageUrl
-        let pubUrl = URL(string: post.pubUrl)
-        detailsVC.pubUrl = pubUrl
+        detailsVC.post = post
     }
     
 
