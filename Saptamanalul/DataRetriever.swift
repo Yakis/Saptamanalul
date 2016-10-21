@@ -14,7 +14,7 @@ class DataRetriever: NSObject {
     
     static let shared = DataRetriever()
     
-    func getPosts (reference: FIRDatabaseReference, completion: @escaping (FIRDataSnapshot) -> ()) {
+    func getData(reference: FIRDatabaseReference, completion: @escaping (FIRDataSnapshot) -> ()) {
         reference.observe(.childAdded) { (snapshot: FIRDataSnapshot) in
             completion(snapshot)
         }

@@ -7,9 +7,9 @@
 //
 
 import Foundation
+import Firebase
 
-
-class Comment: NSObject {
+class Comment {
     
     var userName: String
     var text: String
@@ -17,11 +17,12 @@ class Comment: NSObject {
     var userID: String
     
     
-    init(userName: String, text: String, autoID: String, userID: String) {
-        self.userName = userName
-        self.text = text
-        self.autoID = autoID
-        self.userID = userID
+    init(snapshot: FIRDataSnapshot) {
+        let value = snapshot.value as? Dictionary<String, AnyObject> ?? nil
+        autoID = snapshot.key
+        userName = value?["userName"] as? String ?? ""
+        text = value?["text"] as? String ?? ""
+        userID = value?["userID"] as? String ?? ""
     }
     
     

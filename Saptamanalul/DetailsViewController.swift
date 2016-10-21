@@ -29,7 +29,7 @@ class DetailsViewController: UIViewController {
             tableView.reloadData()
         }
     }
-    var ref = FIRDatabase.database().reference()
+    var commentsRef = FIRDatabase.database().reference().child("comments")
     var newCommentVC: NewCommentVC!
     var textView: UITextView!
     
@@ -73,19 +73,22 @@ class DetailsViewController: UIViewController {
     }
     
     
-    func getComments () {
-        let commentsRef = ref.child("comments")
-        commentsRef.observe(.childAdded, with: { (snapshot) in
-            guard let value = snapshot.value as? NSDictionary else {return}
-            guard let userName = value["userName"] as? String else {return}
-            guard let text = value["text"] as? String else {return}
-            let autoID = snapshot.key
-            guard let userID = value["userID"] as? String else {return}
-            let commentFour = Comment(userName: userName, text: text, autoID: autoID, userID: userID)
-            self.comments.append(commentFour)
-        })
-    }
+//    func getComments () {
+//        let commentsRef = ref.child("comments")
+//        commentsRef.observe(.childAdded, with: { (snapshot) in
+//            let commentFour = Comment(snapshot: snapshot)
+//            self.comments.append(commentFour)
+//        })
+//    }
     
+    
+    func getComments() {
+        self.comments = []
+        DataRetriever.shared.getData(reference: commentsRef) { (snapshot) in
+            let comment = Comment(snapshot: snapshot)
+            self.comments.append(comment)
+        }
+    }
     
     
     
@@ -124,7 +127,6 @@ class DetailsViewController: UIViewController {
     
     
     func publishAction () {
-        let commentsRef = ref.child("comments")
         guard let currentUser = FIRAuth.auth()?.currentUser else {return}
         let userName = currentUser.displayName!
         let userID = currentUser.uid as String

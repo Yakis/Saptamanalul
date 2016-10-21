@@ -61,7 +61,7 @@ class ViewController: UIViewController {
     
     func getPosts () {
         posts = []
-        DataRetriever.shared.getPosts(reference: postRef) { [weak self] (snapshot) in
+        DataRetriever.shared.getData(reference: postRef) { [weak self] (snapshot) in
             let post = Post(snapshot: snapshot)
             self?.posts.append(post)
             DispatchQueue.main.async {
@@ -191,4 +191,13 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let post = posts[(indexPath as NSIndexPath).row]
         detailsVC.post = post
     }
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let screenHeight = UIScreen.main.bounds.height
+        let rowHeight = screenHeight / 7
+        return rowHeight
+    }
+    
+    
 }
