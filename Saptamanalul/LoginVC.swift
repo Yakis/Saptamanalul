@@ -25,28 +25,23 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-//        if CurrentUser.shared.isLoggedIn() == true {
-//            showDashboard()
-//        }
+
     }
     
     
     
-    
     //MARK: - Google SignIn delegate methods
+    
+    
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let error = error {
             print(error.localizedDescription)
             return
         }
         
-        let authentication = user.authentication
-        let credential = FIRGoogleAuthProvider.credential(withIDToken: (authentication?.idToken)!,
-                                                          accessToken: (authentication?.accessToken)!)
-        FIRAuth.auth()?.signIn(with: credential) { (user, error) in
-            // ...
-        }
+        
+        
+        
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
@@ -74,8 +69,7 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
             if (error == nil){
                 let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
                 FIRAuth.auth()?.signIn(with: credential) { [weak self] (user, error) in
-                    guard let uid = user?.uid else {return}
-                    CurrentUser.shared.token = uid
+                    Authenticator.shared.firebaseSignIn(credential: credential)
                     self?.getFBUserData()
                 }
             }
@@ -88,7 +82,6 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
             FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
                 if (error == nil){
                     guard let _ = result as? Dictionary<String, AnyObject> else {return}
-                    self.showDashboard()
                 }
             })
         }
@@ -101,11 +94,6 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
     }
     
     
-    
-    func showDashboard () {
-        let mainView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "navVC") as! UINavigationController
-        present(mainView, animated: true, completion: nil)
-    }
     
     
 }

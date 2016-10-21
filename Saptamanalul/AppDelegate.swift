@@ -67,13 +67,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
 
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+        if url.absoluteString.contains("fb") {
+            return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+        } else {
+            return GIDSignIn.sharedInstance().handle(url,
+                                                     sourceApplication: sourceApplication,
+                                                     annotation: annotation)
+        }
     }
     
     
     public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if (error == nil)
         {
+            print("=======GOOGLE SIGNED IN=======")
+            let authentication = user.authentication
+            let credential = FIRGoogleAuthProvider.credential(withIDToken: (authentication?.idToken)!,
+                                                              accessToken: (authentication?.accessToken)!)
+            Authenticator.shared.firebaseSignIn(credential: credential)
             // Perform any operations on signed in user here.
 //            let userId = user.userID // For client-side use only!
 //            let idToken = user.authentication.idToken //Safe to send to the server
