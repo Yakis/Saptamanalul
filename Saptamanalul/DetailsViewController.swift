@@ -52,12 +52,7 @@ class DetailsViewController: UIViewController {
     
     
     override func viewDidLoad() {
-        tableView.register(UINib(nibName: "DetailCell", bundle: nil), forCellReuseIdentifier: "DetailCell")
-        tableView.register(UINib(nibName: "TitleCell", bundle: nil), forCellReuseIdentifier: "TitleCell")
-        tableView.register(UINib(nibName: "BodyCell", bundle: nil), forCellReuseIdentifier: "BodyCell")
-        tableView.register(UINib(nibName: "CommentCell", bundle: nil), forCellReuseIdentifier: "CommentCell")
-        
-        
+        registerCells()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(DetailsViewController.shareTapped))
@@ -69,7 +64,18 @@ class DetailsViewController: UIViewController {
         getComments()
     }
     
+    
+    func registerCells() {
+        tableView.register(UINib(nibName: "DetailCell", bundle: nil), forCellReuseIdentifier: "DetailCell")
+        tableView.register(UINib(nibName: "TitleCell", bundle: nil), forCellReuseIdentifier: "TitleCell")
+        tableView.register(UINib(nibName: "BodyCell", bundle: nil), forCellReuseIdentifier: "BodyCell")
+        tableView.register(UINib(nibName: "CommentCell", bundle: nil), forCellReuseIdentifier: "CommentCell")
+    }
+    
  
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        textView.resignFirstResponder()
+    }
     
     
     func getComments() {
@@ -131,12 +137,19 @@ class DetailsViewController: UIViewController {
     func newCommentButtonTapped () {
         newCommentVC = NewCommentVC(nibName: "NewCommentVC", bundle: nil)
         newCommentVC.view.frame = getSubviewFrame()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        self.view.addGestureRecognizer(tapGesture)
         self.view.addSubview(newCommentVC.view)
         newCommentVC.publishButtonOutlet.addTarget(self, action: #selector(DetailsViewController.publishAction), for: .touchUpInside)
         self.textView = newCommentVC.textView
         
     }
     
+    
+    
+    func hideKeyboard() {
+        newCommentVC.view.endEditing(true)
+    }
     
     
     func dismissSubviewAnimated () {

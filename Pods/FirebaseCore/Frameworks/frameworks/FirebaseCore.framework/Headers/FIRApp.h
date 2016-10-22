@@ -77,7 +77,7 @@ typedef void (^FIRAppVoidBoolCallback)(BOOL success);
  * FIRFirebaseApp instances should not be initialized directly. Call |FIRApp configure|, or
  * |FIRApp configureWithOptions:|, or |FIRApp configureWithNames:options| directly.
  */
-- (nullable instancetype)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 /**
  * Gets the name of this app.
