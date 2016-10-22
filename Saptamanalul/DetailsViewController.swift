@@ -153,7 +153,7 @@ class DetailsViewController: UIViewController {
     
     
     func dismissSubviewAnimated () {
-        UIView.animateKeyframes(withDuration: 0.5, delay: 0.1, options: .beginFromCurrentState, animations: {
+        UIView.animateKeyframes(withDuration: 1, delay: 0.0, options: .beginFromCurrentState, animations: {
             self.newCommentVC.view.alpha = 0
             }) { (Bool) in
                 self.newCommentVC.view.removeFromSuperview()

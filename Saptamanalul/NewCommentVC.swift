@@ -46,7 +46,7 @@ class NewCommentVC: UIViewController {
     
     func setUserNameOnView () {
         if let userName = FIRAuth.auth()?.currentUser?.displayName {
-            self.userName.text = "Postezi cu numele: \(userName)"
+            self.userName.text = userName
         }
     }
     
