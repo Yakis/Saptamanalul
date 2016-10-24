@@ -10,6 +10,12 @@ import UIKit
 
 class BodyCell: UITableViewCell {
 
+    
+    @IBOutlet weak var bodyLabel: UILabel!
+    
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

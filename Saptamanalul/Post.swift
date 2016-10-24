@@ -17,6 +17,7 @@ class Post {
     var pubImage: String
     var postDate: String
     var pubUrl: String
+    var autoID: String
     
     
     init (snapshot: FIRDataSnapshot) {
@@ -27,6 +28,7 @@ class Post {
         pubImage = value?["pubImage"] as? String ?? ""
         postDate = value?["date"] as? String ?? ""
         pubUrl = value?["pubUrl"] as? String ?? ""
+        autoID = snapshot.key
     }
     
 }

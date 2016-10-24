@@ -29,7 +29,8 @@ class DetailsViewController: UIViewController {
             tableView.reloadData()
         }
     }
-    var commentsRef = FIRDatabase.database().reference().child("comments")
+    
+    
     var newCommentVC: NewCommentVC!
     var textView: UITextView!
     
@@ -79,6 +80,7 @@ class DetailsViewController: UIViewController {
     
     
     func getComments() {
+        let commentsRef = FIRDatabase.database().reference().child("posts").child(post.autoID).child("comments")
         self.comments = []
         DataRetriever.shared.getData(reference: commentsRef) { (snapshot) in
             let comment = Comment(snapshot: snapshot)
@@ -123,6 +125,7 @@ class DetailsViewController: UIViewController {
     
     
     func publishAction () {
+        let commentsRef = FIRDatabase.database().reference().child("posts").child(self.post.autoID).child("comments")
         guard let currentUser = FIRAuth.auth()?.currentUser else {return}
         let userName = currentUser.displayName!
         let userID = currentUser.uid as String
@@ -130,7 +133,6 @@ class DetailsViewController: UIViewController {
         let post = ["text": text, "userName": userName, "userID": userID] as NSDictionary
         commentsRef.childByAutoId().setValue(post)
         dismissSubviewAnimated()
-       // newCommentVC.view.removeFromSuperview()
     }
     
     
@@ -184,9 +186,11 @@ extension DetailsViewController: UITableViewDataSource {
         switch (indexPath.section, indexPath.row) {
         case (0, 0):
                 let titleCell = tableView.dequeueReusableCell(withIdentifier: DetailsCell.titleIdentifier, for: indexPath) as! TitleCell
+                titleCell.titleLabel.text = post.title
                 return titleCell
         case (0, 1):
                 let bodyCell = tableView.dequeueReusableCell(withIdentifier: DetailsCell.bodyIdentifier, for: indexPath) as! BodyCell
+                bodyCell.bodyLabel.text = post.body
                 return bodyCell
         case (1, _): let commentCell = tableView.dequeueReusableCell(withIdentifier: DetailsCell.commentIdentifier, for: indexPath) as! CommentCell
                 let comment = comments[indexPath.row]
@@ -223,8 +227,8 @@ extension DetailsViewController: UITableViewDelegate {
     
     func setupPostHeader () -> UIView {
         let imageView = UIImageView()
-        let image = UIImage(named: "h")
-        imageView.image = image
+        guard let url = URL(string: post.image) else {return UIView()}
+        imageView.kf.setImage(with: url)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView

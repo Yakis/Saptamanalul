@@ -28,6 +28,9 @@
                     <constraint firstAttribute="bottom" secondItem="EPr-1i-ESH" secondAttribute="bottom" id="inM-ro-IOA"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="titleLabel" destination="EPr-1i-ESH" id="FUi-mc-zFF"/>
+            </connections>
             <point key="canvasLocation" x="32" y="57"/>
         </tableViewCell>
     </objects>
