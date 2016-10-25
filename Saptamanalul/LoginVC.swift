@@ -15,6 +15,7 @@ import GoogleSignIn
 class LoginVC: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let loginButton = FBSDKLoginButton()
@@ -91,6 +92,12 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
     
     @IBAction func googleLoginButton(_ sender: AnyObject) {
         GIDSignIn.sharedInstance().signIn()
+    }
+    
+    
+    
+    @IBAction func skipButton(_ sender: AnyObject) {
+        Utils.showDashboard()
     }
     
     

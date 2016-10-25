@@ -18,4 +18,22 @@ class Utils {
         window?.makeKeyAndVisible()
     }
     
+    
+    
+    static func showAlert (title: String, message: String, controller: UIViewController) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+        }
+        alertController.addAction(cancelAction)
+        let OKAction = UIAlertAction(title: "Login", style: .default) { (action) in
+            let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "loginVC") as! LoginVC
+            controller.present(loginVC, animated: true, completion: nil)
+        }
+        alertController.addAction(OKAction)
+        controller.present(alertController, animated: true) {
+            
+        }
+    }
+    
+    
 }

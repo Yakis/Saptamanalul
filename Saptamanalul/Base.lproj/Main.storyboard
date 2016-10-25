@@ -340,12 +340,23 @@
                                         <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zte-UB-tIp">
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                                        <state key="normal" title="Skip&gt;&gt;">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="skipButton:" destination="EZE-Hw-2Ef" eventType="touchUpInside" id="f3i-61-Ezv"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.031372549020000001" green="0.25098039220000001" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="6md-gM-lWc" secondAttribute="trailing" constant="20" id="BZT-NN-tpB"/>
                                     <constraint firstItem="6md-gM-lWc" firstAttribute="leading" secondItem="6Th-SG-ugy" secondAttribute="leading" constant="20" id="EuG-W5-Nch"/>
-                                    <constraint firstItem="6md-gM-lWc" firstAttribute="top" secondItem="6Th-SG-ugy" secondAttribute="top" constant="20" id="HRr-HT-Udm"/>
+                                    <constraint firstItem="6md-gM-lWc" firstAttribute="top" secondItem="6Th-SG-ugy" secondAttribute="top" constant="108" id="HRr-HT-Udm"/>
+                                    <constraint firstItem="Zte-UB-tIp" firstAttribute="centerX" secondItem="6Th-SG-ugy" secondAttribute="centerX" id="OyG-ea-ShQ"/>
+                                    <constraint firstItem="6md-gM-lWc" firstAttribute="top" secondItem="Zte-UB-tIp" secondAttribute="bottom" constant="28" id="Rys-zl-A1A"/>
                                     <constraint firstAttribute="bottom" secondItem="6md-gM-lWc" secondAttribute="bottom" constant="20" id="Zqk-rV-kUN"/>
                                 </constraints>
                             </view>
@@ -378,7 +389,7 @@
             <objects>
                 <navigationController storyboardIdentifier="navVC" automaticallyAdjustsScrollViewInsets="NO" id="zvu-bt-aXN" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="v9G-OV-Tx1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="v9G-OV-Tx1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

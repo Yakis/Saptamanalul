@@ -30,15 +30,18 @@ class DetailsViewController: UIViewController {
         }
     }
     
+    var imageView: UIImageView?
     
     var newCommentVC: NewCommentVC!
     var textView: UITextView!
     
     func shareTapped () {
-//        let vc = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-//        vc?.add(detailsImageView.image!)
-//        vc?.setInitialText("\(detailsTitleLabel.text!)\n\n\(detailsBodyLabel.text!)")
-//        present(vc!, animated: true, completion: nil)
+        let vc = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+        guard let imageUrl = URL(string: post.image) else {return}
+        imageView?.kf.setImage(with: imageUrl)
+        vc?.add(imageView?.image)
+        vc?.setInitialText("\(post.title)\n\n\(post.body)")
+        present(vc!, animated: true, completion: nil)
         
     }
     
@@ -59,10 +62,13 @@ class DetailsViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(DetailsViewController.shareTapped))
         tableView.dataSource = self
         tableView.delegate = self
-//        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(DetailsViewController.imageTapped))
-//        imageView?.isUserInteractionEnabled = true
-//        imageView?.addGestureRecognizer(tapGestureRecognizer)
         getComments()
+    }
+    
+    
+    
+    @IBAction func singleTap(gestureRecognizer: UITapGestureRecognizer) {
+            print("=====Tap working====")
     }
     
     
@@ -137,6 +143,10 @@ class DetailsViewController: UIViewController {
     
     
     func newCommentButtonTapped () {
+        guard let currentUser = FIRAuth.auth()?.currentUser else {
+            Utils.showAlert(title: "Please Login", message: "You can't comment unless you're logged in, so, please!", controller: self)
+            return
+        }
         newCommentVC = NewCommentVC(nibName: "NewCommentVC", bundle: nil)
         newCommentVC.view.frame = getSubviewFrame()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
@@ -237,7 +247,12 @@ extension DetailsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
-        return setupPostHeader()
+            let view = setupPostHeader()
+            let singleTap = UITapGestureRecognizer(target: self, action: #selector(DetailsViewController.singleTap(gestureRecognizer:)))
+            singleTap.numberOfTouchesRequired = 1
+            singleTap.numberOfTapsRequired = 1
+            view.addGestureRecognizer(singleTap)
+        return view
         } else {
            return setupCommentsHeader()
         }
