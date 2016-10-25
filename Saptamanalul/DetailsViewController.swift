@@ -135,16 +135,20 @@ class DetailsViewController: UIViewController {
         guard let currentUser = FIRAuth.auth()?.currentUser else {return}
         let userName = currentUser.displayName!
         let userID = currentUser.uid as String
-        let text = textView.text as String
-        let post = ["text": text, "userName": userName, "userID": userID] as NSDictionary
-        commentsRef.childByAutoId().setValue(post)
-        dismissSubviewAnimated()
+        if textView.text != "" {
+            let text = textView.text as String
+            let post = ["text": text, "userName": userName, "userID": userID] as NSDictionary
+            commentsRef.childByAutoId().setValue(post)
+            dismissSubviewAnimated()
+        } else {
+            dismissSubviewAnimated()
+        }
     }
     
     
     func newCommentButtonTapped () {
-        guard let currentUser = FIRAuth.auth()?.currentUser else {
-            Utils.showAlert(title: "Please Login", message: "You can't comment unless you're logged in, so, please!", controller: self)
+        guard FIRAuth.auth()?.currentUser != nil else {
+            Utils.showAlert(title: "Informare", message: "Nu poti posta comentarii fara sa fii autentificat!", controller: self)
             return
         }
         newCommentVC = NewCommentVC(nibName: "NewCommentVC", bundle: nil)

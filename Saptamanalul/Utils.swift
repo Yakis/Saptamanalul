@@ -22,10 +22,10 @@ class Utils {
     
     static func showAlert (title: String, message: String, controller: UIViewController) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+        let cancelAction = UIAlertAction(title: "Anuleaza", style: .cancel) { (action) in
         }
         alertController.addAction(cancelAction)
-        let OKAction = UIAlertAction(title: "Login", style: .default) { (action) in
+        let OKAction = UIAlertAction(title: "Autentificare", style: .default) { (action) in
             let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "loginVC") as! LoginVC
             controller.present(loginVC, animated: true, completion: nil)
         }
