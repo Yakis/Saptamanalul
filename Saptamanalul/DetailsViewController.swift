@@ -35,7 +35,7 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate, UISc
     var newCommentVC: NewCommentVC!
     var textView: UITextView!
     
-    private let kTableHeaderHeight: CGFloat = UIScreen.main.bounds.height / 2.5
+    private let kTableHeaderHeight: CGFloat = UIScreen.main.bounds.height / 2
     
     
     func shareTapped () {
@@ -61,7 +61,7 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate, UISc
     override func viewDidLoad() {
         registerCells()
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 140
+        tableView.estimatedRowHeight = 200
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(DetailsViewController.shareTapped))
         tableView.dataSource = self
         tableView.delegate = self
@@ -69,19 +69,26 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate, UISc
         getComments()
         
         headerView = tableView.tableHeaderView
-        headerView.frame.size.height = UIScreen.main.bounds.height / 2.5
         tableView.tableHeaderView = nil
         tableView.addSubview(headerView)
         tableView.contentInset = UIEdgeInsets(top: kTableHeaderHeight, left: 0, bottom: 0, right: 0)
         tableView.contentOffset = CGPoint(x: 0, y: -kTableHeaderHeight)
         updateHeaderView()
         setupPostHeader()
+        
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(DetailsViewController.tapOnImage))
+        singleTap.numberOfTouchesRequired = 1
+        singleTap.numberOfTapsRequired = 1
+        singleTap.delegate = self
+        headerView?.isUserInteractionEnabled = true
+        headerView?.addGestureRecognizer(singleTap)
+        
         self.navigationController?.navigationBar.isTranslucent = false
     }
     
     
     func updateHeaderView() {
-        var headerRect = CGRect(x: 0, y: -kTableHeaderHeight, width: tableView.bounds.width, height: kTableHeaderHeight)
+        var headerRect = CGRect(x: 0, y: -kTableHeaderHeight, width: UIScreen.main.bounds.width, height: kTableHeaderHeight)
         if tableView.contentOffset.y < -kTableHeaderHeight {
             headerRect.origin.y = tableView.contentOffset.y
             headerRect.size.height = -tableView.contentOffset.y
@@ -97,6 +104,7 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate, UISc
     
     
     @IBAction func tapOnImage() {
+        print("++++++++PULA++++++++")
         guard let url = URL(string: post.pubUrl) else {return}
         UIApplication.shared.openURL(url)
     }
@@ -270,15 +278,9 @@ extension DetailsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
-            let singleTap = UITapGestureRecognizer(target: self, action: #selector(DetailsViewController.tapOnImage))
-            singleTap.numberOfTouchesRequired = 1
-            singleTap.numberOfTapsRequired = 1
-            singleTap.delegate = self
-            imageView?.isUserInteractionEnabled = true
-            imageView?.addGestureRecognizer(singleTap)
-        return self.headerView
+            return headerView
         } else {
-           return setupCommentsHeader()
+            return setupCommentsHeader()
         }
     }
     
