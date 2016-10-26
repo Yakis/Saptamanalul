@@ -62,6 +62,7 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(DetailsViewController.shareTapped))
         tableView.dataSource = self
         tableView.delegate = self
+        setupPostHeader()
         getComments()
     }
     
@@ -99,7 +100,6 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate {
     func runTimedCode() {
         if let pubImageUrl = URL(string: post.pubImage) {
             imageView?.kf.setImage(with: pubImageUrl)
-            self.tableView.reloadData()
         }
         runTimer.invalidate()
     }
@@ -107,7 +107,6 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate {
     func stopTimedCode () {
         if let image = URL(string: post.image) {
             imageView?.kf.setImage(with: image)
-            self.tableView.reloadData()
         stopTimer.invalidate()
         }
     }
@@ -233,13 +232,12 @@ extension DetailsViewController: UITableViewDelegate {
     }
     
     
-    func setupPostHeader () -> UIView {
+    func setupPostHeader() {
         imageView = UIImageView()
-        guard let url = URL(string: post.image) else {return UIView()}
+        guard let url = URL(string: post.image) else {return}
         imageView?.kf.setImage(with: url)
         imageView?.contentMode = .scaleAspectFill
         imageView?.clipsToBounds = true
-        return imageView!
     }
     
     
