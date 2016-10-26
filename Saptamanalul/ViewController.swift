@@ -126,8 +126,8 @@ class ViewController: UIViewController {
     
     func setImageViewToHalfScreenOfDevice () {
         view.layoutIfNeeded()
-        mainImageHeightConstrain.constant = view.frame.size.height / 2
-        mainTitleBandConstrain.constant = view.frame.size.height / 11
+        mainImageHeightConstrain.constant = UIScreen.main.bounds.height / 2
+        mainTitleBandConstrain.constant = UIScreen.main.bounds.height / 11
     }
     
     
@@ -194,9 +194,9 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let screenHeight = UIScreen.main.bounds.height
-        let rowHeight = screenHeight / 7
-        return rowHeight
+//        let screenHeight = UIScreen.main.bounds.height
+//        let rowHeight = screenHeight / 7
+        return 80
     }
     
     

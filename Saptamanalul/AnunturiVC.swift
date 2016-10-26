@@ -82,6 +82,9 @@ class AnunturiVC: UITableViewController, UISearchBarDelegate {
         super.viewDidLoad()
         searchBar.delegate = self
         getAnunturi()
+        if anunturi.count == 0 {
+            searchBar.placeholder = "Momentan nu exista anunturi"
+        }
         self.navigationItem.title = "Mica publicitate"
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

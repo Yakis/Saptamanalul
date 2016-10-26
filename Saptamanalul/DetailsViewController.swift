@@ -278,7 +278,7 @@ extension DetailsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
-            return 240
+            return UIScreen.main.bounds.height / 2.3
         } else {
             return 40
         }
