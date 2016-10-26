@@ -22,9 +22,9 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="EPr-1i-ESH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="KZi-2c-2gh"/>
+                    <constraint firstItem="EPr-1i-ESH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="KZi-2c-2gh"/>
                     <constraint firstItem="EPr-1i-ESH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="RXs-LK-nQC"/>
-                    <constraint firstAttribute="trailing" secondItem="EPr-1i-ESH" secondAttribute="trailing" constant="8" id="hWg-QN-VpO"/>
+                    <constraint firstAttribute="trailing" secondItem="EPr-1i-ESH" secondAttribute="trailing" constant="15" id="hWg-QN-VpO"/>
                     <constraint firstAttribute="bottom" secondItem="EPr-1i-ESH" secondAttribute="bottom" id="inM-ro-IOA"/>
                 </constraints>
             </tableViewCellContentView>

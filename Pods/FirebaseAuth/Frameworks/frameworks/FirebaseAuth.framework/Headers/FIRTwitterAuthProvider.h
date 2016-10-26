@@ -32,7 +32,7 @@ extern NSString *const FIRTwitterAuthProviderID;
 /** @fn init
     @brief This class is not meant to be initialized.
  */
-- (instancetype)init NS_UNAVAILABLE;
+- (nullable instancetype)init NS_UNAVAILABLE;
 
 @end
 

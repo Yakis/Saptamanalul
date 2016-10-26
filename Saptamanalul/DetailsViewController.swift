@@ -12,7 +12,7 @@ import Kingfisher
 import Firebase
 
 
-class DetailsViewController: UIViewController {
+class DetailsViewController: UIViewController, UIGestureRecognizerDelegate {
 
     
     
@@ -67,8 +67,9 @@ class DetailsViewController: UIViewController {
     
     
     
-    @IBAction func singleTap(gestureRecognizer: UITapGestureRecognizer) {
-            print("=====Tap working====")
+    @IBAction func tapOnImage() {
+        guard let url = URL(string: post.pubUrl) else {return}
+        UIApplication.shared.openURL(url)
     }
     
     
@@ -93,29 +94,22 @@ class DetailsViewController: UIViewController {
             self.comments.append(comment)
         }
     }
-    
-    
-    
-    func imageTapped () {
-        guard let url = URL(string: post.pubUrl) else {return}
-        UIApplication.shared.openURL(url)
-    }
 
     
     func runTimedCode() {
-//        if let pubImage = self.pubImageName {
-//            detailsImageView.kf.setImage(with: pubImage)
-//        }
-//        runTimer.invalidate()
+        if let pubImageUrl = URL(string: post.pubImage) {
+            imageView?.kf.setImage(with: pubImageUrl)
+            self.tableView.reloadData()
+        }
+        runTimer.invalidate()
     }
     
     func stopTimedCode () {
-//        if let image = imageName {
-//            detailsImageView.kf.setImage(with: image)
-//        
-//
-//        stopTimer.invalidate()
-//        }
+        if let image = URL(string: post.image) {
+            imageView?.kf.setImage(with: image)
+            self.tableView.reloadData()
+        stopTimer.invalidate()
+        }
     }
     
 
@@ -148,7 +142,7 @@ class DetailsViewController: UIViewController {
     
     func newCommentButtonTapped () {
         guard FIRAuth.auth()?.currentUser != nil else {
-            Utils.showAlert(title: "Informare", message: "Nu poti posta comentarii fara sa fii autentificat!", controller: self)
+            Utils.showAlert(title: Login.title, message: Login.message, controller: self)
             return
         }
         newCommentVC = NewCommentVC(nibName: "NewCommentVC", bundle: nil)
@@ -240,22 +234,24 @@ extension DetailsViewController: UITableViewDelegate {
     
     
     func setupPostHeader () -> UIView {
-        let imageView = UIImageView()
+        imageView = UIImageView()
         guard let url = URL(string: post.image) else {return UIView()}
-        imageView.kf.setImage(with: url)
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        return imageView
+        imageView?.kf.setImage(with: url)
+        imageView?.contentMode = .scaleAspectFill
+        imageView?.clipsToBounds = true
+        return imageView!
     }
     
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
-            let view = setupPostHeader()
-            let singleTap = UITapGestureRecognizer(target: self, action: #selector(DetailsViewController.singleTap(gestureRecognizer:)))
+            let view = imageView
+            let singleTap = UITapGestureRecognizer(target: self, action: #selector(DetailsViewController.tapOnImage))
             singleTap.numberOfTouchesRequired = 1
             singleTap.numberOfTapsRequired = 1
-            view.addGestureRecognizer(singleTap)
+            singleTap.delegate = self
+            view?.isUserInteractionEnabled = true
+            view?.addGestureRecognizer(singleTap)
         return view
         } else {
            return setupCommentsHeader()

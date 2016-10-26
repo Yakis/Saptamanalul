@@ -33,7 +33,7 @@ extern NSString *const FIRGoogleAuthProviderID;
 /** @fn init
     @brief This class should not be initialized.
  */
-- (instancetype)init NS_UNAVAILABLE;
+- (nullable instancetype)init NS_UNAVAILABLE;
 
 @end
 

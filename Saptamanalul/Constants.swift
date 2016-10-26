@@ -23,3 +23,9 @@ struct DetailsCell {
     static let commentIdentifier = "CommentCell"
     static let commentHeader = "Comentarii"
 }
+
+
+struct Login {
+    static let title = "Informare"
+    static let message = "Nu poti posta comentarii fara sa fii autentificat!"
+}

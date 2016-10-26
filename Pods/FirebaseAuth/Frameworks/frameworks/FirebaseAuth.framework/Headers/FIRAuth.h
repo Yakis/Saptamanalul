@@ -94,7 +94,7 @@ typedef void (^FIRSendPasswordResetCallback)(NSError *_Nullable error);
 /** @fn init
     @brief Please access auth instances using @c FIRAuth.auth and @c FIRAuth.authForApp:.
  */
-- (instancetype)init NS_UNAVAILABLE;
+- (nullable instancetype)init NS_UNAVAILABLE;
 
 /** @fn fetchProvidersForEmail:completion:
     @brief Fetches the list of IdPs that can be used for signing in with the provided email address.

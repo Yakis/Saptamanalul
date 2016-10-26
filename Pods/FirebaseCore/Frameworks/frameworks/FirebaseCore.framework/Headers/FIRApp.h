@@ -5,6 +5,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/** A block that takes a BOOL and has no return value. */
 typedef void (^FIRAppVoidBoolCallback)(BOOL success);
 
 /**
