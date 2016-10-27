@@ -130,7 +130,6 @@ class ViewController: UIViewController {
     func setImageViewToHalfScreenOfDevice () {
         view.layoutIfNeeded()
         mainImageHeightConstrain.constant = UIScreen.main.bounds.height / 2.5
-        mainTitleBandConstrain.constant = UIScreen.main.bounds.height / 11
     }
     
     
@@ -181,7 +180,17 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let title = post.title
         let file = post.image
         let imageUrl = URL(string: file)
-        cell.myImageView.kf.setImage(with: imageUrl)
+        cell.activityIndicator.startAnimating()
+        cell.myImageView.kf.setImage(with: imageUrl,
+                                     placeholder: nil,
+                                     options: [.transition(ImageTransition.fade(1))],
+                                     progressBlock: { receivedSize, totalSize in
+                                        print("\(indexPath.row + 1): \(receivedSize)/\(totalSize)")
+        },
+                                     completionHandler: { image, error, cacheType, imageURL in
+                                       cell.activityIndicator.stopAnimating()
+        })
+        
         cell.myTitleView.text = title
         cell.timeStampLabel.text = post.postDate
         
