@@ -31,6 +31,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var mainTitleBandConstrain: NSLayoutConstraint!
     
     
+    
+    
+    
     //MARK: - Variables
     var refresher: UIRefreshControl!
     var posts = [Post]()
@@ -126,7 +129,7 @@ class ViewController: UIViewController {
     
     func setImageViewToHalfScreenOfDevice () {
         view.layoutIfNeeded()
-        mainImageHeightConstrain.constant = UIScreen.main.bounds.height / 2
+        mainImageHeightConstrain.constant = UIScreen.main.bounds.height / 2.5
         mainTitleBandConstrain.constant = UIScreen.main.bounds.height / 11
     }
     
@@ -173,16 +176,20 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MyCell
+        typealias blitzFunc = () -> ()
         let post = posts[(indexPath as NSIndexPath).row]
         let title = post.title
         let file = post.image
         let imageUrl = URL(string: file)
-        cell.myImageView.kf.setImage(with: imageUrl!)
+        cell.myImageView.kf.setImage(with: imageUrl)
         cell.myTitleView.text = title
         cell.timeStampLabel.text = post.postDate
         
         return cell
     }
+    
+    
+    
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

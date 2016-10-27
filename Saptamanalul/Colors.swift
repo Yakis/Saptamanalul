@@ -9,4 +9,4 @@
 import Foundation
 import UIKit
 
-let friendlyBlue = UIColor(colorLiteralRed: 53/255, green: 125/255, blue: 201/255, alpha: 0.7)
+let friendlyBlue = UIColor(colorLiteralRed: 53/255, green: 125/255, blue: 201/255, alpha: 1.0)

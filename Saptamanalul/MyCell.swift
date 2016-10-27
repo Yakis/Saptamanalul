@@ -16,6 +16,7 @@ class MyCell: UITableViewCell {
     
     @IBOutlet weak var timeStampLabel: UILabel!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
     override func awakeFromNib() {

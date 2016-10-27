@@ -104,7 +104,6 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate, UISc
     
     
     @IBAction func tapOnImage() {
-        print("++++++++PULA++++++++")
         guard let url = URL(string: post.pubUrl) else {return}
         UIApplication.shared.openURL(url)
     }
@@ -176,7 +175,7 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate, UISc
     
     
     func newCommentButtonTapped () {
-        guard FIRAuth.auth()?.currentUser != nil else {
+        guard CurrentUser.shared.isLoggedIn() else {
             Utils.showAlert(title: Login.title, message: Login.message, controller: self)
             return
         }
