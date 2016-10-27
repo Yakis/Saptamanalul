@@ -1,0 +1,3 @@
+Code converted to Swift 3;
+Performance improvements;
+Bug fixes.

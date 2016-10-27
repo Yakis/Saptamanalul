@@ -82,7 +82,6 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate, UISc
         singleTap.delegate = self
         headerView?.isUserInteractionEnabled = true
         headerView?.addGestureRecognizer(singleTap)
-        
         self.navigationController?.navigationBar.isTranslucent = false
     }
     
@@ -152,7 +151,7 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate, UISc
         let width = screenSize.width - 40
         let height = screenSize.height / 2
         let xOrigin = (screenSize.width - width) / 2
-        let yOrigin = (screenSize.height - height) / 2
+        let yOrigin = (screenSize.height - height) / 10
         let frame = CGRect(x: xOrigin, y: yOrigin, width: width, height: height)
         return frame
     }
