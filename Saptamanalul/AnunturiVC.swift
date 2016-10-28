@@ -19,6 +19,7 @@ class AnunturiVC: UITableViewController, UISearchBarDelegate {
     
     var anunturi: [Anunt] = [] {
         didSet {
+            hideSeparatorIfNoContent()
             self.tableView.reloadData()
         }
     }
@@ -78,8 +79,8 @@ class AnunturiVC: UITableViewController, UISearchBarDelegate {
     
     
     func hideSeparatorIfNoContent () {
-        if anunturi.count == 0 {
             tableView.tableFooterView = UIView()
+        if anunturi.count == 0 {
             let label = UILabel(frame: (tableView.frame))
             label.text = "Momentan nu există anunțuri"
             label.textAlignment = .center
@@ -97,7 +98,7 @@ class AnunturiVC: UITableViewController, UISearchBarDelegate {
         getAnunturi()
         self.navigationItem.title = "Mica publicitate"
         
-        self.hideSeparatorIfNoContent()
+       // self.hideSeparatorIfNoContent()
     }
 
     
