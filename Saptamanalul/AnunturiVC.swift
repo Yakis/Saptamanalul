@@ -70,7 +70,7 @@ class AnunturiVC: UITableViewController, UISearchBarDelegate {
     
     func getAnunturi () {
         anunturi = []
-        let anunturiRef = self.ref.child("anunturi")
+        let anunturiRef = self.ref.child("testAnunturi")
         DataRetriever.shared.getData(reference: anunturiRef) { [weak self] snapshot in
             let anunt = Anunt(snapshot: snapshot)
             self?.anunturi.append(anunt)

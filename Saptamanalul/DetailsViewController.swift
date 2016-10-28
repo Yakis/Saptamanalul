@@ -34,6 +34,9 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate, UISc
         
     var newCommentVC: NewCommentVC!
     var textView: UITextView!
+    var newCommentButton: UIButton!
+    
+    
     
     private let kTableHeaderHeight: CGFloat = UIScreen.main.bounds.height / 2
     
@@ -170,6 +173,7 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate, UISc
         } else {
             dismissSubviewAnimated()
         }
+        newCommentButton.isUserInteractionEnabled = true
     }
     
     
@@ -185,6 +189,7 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate, UISc
         self.view.addSubview(newCommentVC.view)
         newCommentVC.publishButtonOutlet.addTarget(self, action: #selector(DetailsViewController.publishAction), for: .touchUpInside)
         self.textView = newCommentVC.textView
+        newCommentButton.isUserInteractionEnabled = false
         
     }
     
@@ -252,7 +257,7 @@ extension DetailsViewController: UITableViewDelegate {
     
     func setupCommentsHeader () -> UIView {
         let frame: CGRect = UIScreen.main.bounds
-        let newCommentButton: UIButton = UIButton(frame: CGRect(x: frame.width-40, y: 5, width: 30, height: 30))
+        newCommentButton = UIButton(frame: CGRect(x: frame.width-40, y: 5, width: 30, height: 30))
         newCommentButton.setImage(UIImage(named: "newComment"), for: .normal)
         newCommentButton.addTarget(self, action: #selector(DetailsViewController.newCommentButtonTapped), for: .touchUpInside)
         let commentHeader: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
