@@ -136,7 +136,12 @@ class AnunturiVC: UITableViewController, UISearchBarDelegate {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailsAnuntVC = self.storyboard?.instantiateViewController(withIdentifier: "detailsAnuntVC") as! DetailsAnuntViewController
+        if UIDevice.current.userInterfaceIdiom == .phone {
         self.navigationController?.show(detailsAnuntVC, sender: navigationController)
+        } else {
+            detailsAnuntVC.modalPresentationStyle = .formSheet
+            self.present(detailsAnuntVC, animated: true, completion: nil)
+        }
         // This is for modalviewcontroller
         if searchActive {
             detailsAnuntVC.anunt = filteredItems[(indexPath as NSIndexPath).row]

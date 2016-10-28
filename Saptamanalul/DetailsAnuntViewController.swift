@@ -10,7 +10,7 @@ import UIKit
 import Kingfisher
 
 
-class DetailsAnuntViewController: UIViewController {
+class DetailsAnuntViewController: UIViewController, UIGestureRecognizerDelegate {
 
     var anunt: Anunt?
     
@@ -19,23 +19,60 @@ class DetailsAnuntViewController: UIViewController {
     @IBOutlet weak var imageOfAnunt: UIImageView!
     
     
+    var tapBGGesture: UITapGestureRecognizer!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        tapBGGesture = UITapGestureRecognizer(target: self, action: #selector(DetailsAnuntViewController.settingsBGTapped(sender:)))
+        tapBGGesture.delegate = self
+        tapBGGesture.numberOfTapsRequired = 1
+        tapBGGesture.cancelsTouchesInView = false
+        self.view.window!.addGestureRecognizer(tapBGGesture)
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         imageOfAnunt.image = UIImage(named: "noImage")
         imageOfAnunt.contentMode = .scaleAspectFit
-       // navigationController?.navigationBar.barTintColor = UIColor.redColor()
         anuntDetaliat.text = anunt?.body
         guard let imageString = anunt?.image else {return}
         guard let imageURL = URL(string: imageString) else {return}
         imageOfAnunt.contentMode = .scaleAspectFill
         imageOfAnunt.kf.setImage(with: imageURL)
-        // Do any additional setup after loading the view.
+    }
+    
+    
+    
+    func settingsBGTapped(sender: UITapGestureRecognizer) {
+        
+        if sender.state == .ended {
+            let rootView = self.view.window!.rootViewController!.view
+            let location = sender.location(in: rootView)
+            if !self.view.point(inside: self.view.convert(location, from: rootView), with: nil) {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
 
-   
+
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
     
     
+    override func viewWillDisappear(_ animated: Bool) {
+        self.view.window!.removeGestureRecognizer(tapBGGesture)
+    }
     
     
 }

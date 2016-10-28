@@ -192,17 +192,17 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="UVR-Q7-gZo" firstAttribute="top" secondItem="nmk-WA-cwH" secondAttribute="top" constant="10" id="Dcr-6A-oLW"/>
-                                    <constraint firstItem="UVR-Q7-gZo" firstAttribute="leading" secondItem="nmk-WA-cwH" secondAttribute="leading" constant="10" id="ESa-9g-QQI"/>
-                                    <constraint firstAttribute="trailing" secondItem="UVR-Q7-gZo" secondAttribute="trailing" constant="10" id="LYC-mn-FLY"/>
-                                    <constraint firstAttribute="bottom" secondItem="UVR-Q7-gZo" secondAttribute="bottom" constant="10" id="Vuh-0q-Hcx"/>
+                                    <constraint firstAttribute="bottom" secondItem="UVR-Q7-gZo" secondAttribute="bottom" constant="10" id="Dcu-9j-gLT"/>
+                                    <constraint firstItem="UVR-Q7-gZo" firstAttribute="top" secondItem="nmk-WA-cwH" secondAttribute="top" constant="10" id="EPX-Vf-g4a"/>
+                                    <constraint firstAttribute="trailing" secondItem="UVR-Q7-gZo" secondAttribute="trailing" constant="10" id="isb-12-tIG"/>
+                                    <constraint firstItem="UVR-Q7-gZo" firstAttribute="leading" secondItem="nmk-WA-cwH" secondAttribute="leading" constant="10" id="qwe-XW-ixA"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yFT-qG-kFX" userLabel="LabelView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2sC-yo-Pcc">
-                                        <rect key="frame" x="10" y="8" width="355" height="282"/>
+                                        <rect key="frame" x="10" y="10" width="355" height="280"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -210,23 +210,23 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.20784313730000001" green="0.49019607840000001" blue="0.78823529410000004" alpha="0.59983836206896557" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="2sC-yo-Pcc" firstAttribute="top" secondItem="yFT-qG-kFX" secondAttribute="top" constant="8" id="BST-Ft-i0H"/>
-                                    <constraint firstAttribute="trailing" secondItem="2sC-yo-Pcc" secondAttribute="trailing" constant="10" id="gjp-xP-Xbm"/>
-                                    <constraint firstItem="2sC-yo-Pcc" firstAttribute="leading" secondItem="yFT-qG-kFX" secondAttribute="leading" constant="10" id="iXx-y4-Kdt"/>
-                                    <constraint firstAttribute="bottom" secondItem="2sC-yo-Pcc" secondAttribute="bottom" constant="10" id="l2h-w4-H9X"/>
+                                    <constraint firstAttribute="bottom" secondItem="2sC-yo-Pcc" secondAttribute="bottom" constant="10" id="GBk-up-k66"/>
+                                    <constraint firstAttribute="trailing" secondItem="2sC-yo-Pcc" secondAttribute="trailing" constant="10" id="Hdz-FJ-G7v"/>
+                                    <constraint firstItem="2sC-yo-Pcc" firstAttribute="leading" secondItem="yFT-qG-kFX" secondAttribute="leading" constant="10" id="QDq-AG-C5I"/>
+                                    <constraint firstItem="2sC-yo-Pcc" firstAttribute="top" secondItem="yFT-qG-kFX" secondAttribute="top" constant="10" id="mhb-0M-Rdw"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="yFT-qG-kFX" firstAttribute="top" secondItem="IoY-1A-HD7" secondAttribute="top" id="1og-27-n3j"/>
-                            <constraint firstItem="yFT-qG-kFX" firstAttribute="leading" secondItem="IoY-1A-HD7" secondAttribute="leading" id="2kZ-5i-fYD"/>
-                            <constraint firstItem="yFT-qG-kFX" firstAttribute="leading" secondItem="nmk-WA-cwH" secondAttribute="leading" id="34X-Zy-6lc"/>
-                            <constraint firstItem="nmk-WA-cwH" firstAttribute="top" secondItem="IoY-1A-HD7" secondAttribute="top" constant="300" id="3U8-C3-Fh0"/>
-                            <constraint firstItem="nmk-WA-cwH" firstAttribute="bottom" secondItem="FFZ-kE-CBV" secondAttribute="top" id="HTJ-g5-otc"/>
-                            <constraint firstAttribute="trailing" secondItem="yFT-qG-kFX" secondAttribute="trailing" id="quf-aP-dHy"/>
-                            <constraint firstItem="yFT-qG-kFX" firstAttribute="trailing" secondItem="nmk-WA-cwH" secondAttribute="trailing" id="sZu-JM-7mT"/>
-                            <constraint firstItem="nmk-WA-cwH" firstAttribute="top" secondItem="yFT-qG-kFX" secondAttribute="bottom" id="zhh-AQ-IzW"/>
+                            <constraint firstItem="FFZ-kE-CBV" firstAttribute="top" secondItem="nmk-WA-cwH" secondAttribute="bottom" id="2TU-7P-rxr"/>
+                            <constraint firstItem="nmk-WA-cwH" firstAttribute="top" secondItem="yFT-qG-kFX" secondAttribute="bottom" id="91y-mz-Ldm"/>
+                            <constraint firstItem="yFT-qG-kFX" firstAttribute="top" secondItem="IoY-1A-HD7" secondAttribute="top" id="FQx-ZJ-xLl"/>
+                            <constraint firstItem="nmk-WA-cwH" firstAttribute="top" secondItem="IoY-1A-HD7" secondAttribute="top" constant="300" id="NpM-M4-nby"/>
+                            <constraint firstAttribute="trailing" secondItem="nmk-WA-cwH" secondAttribute="trailing" id="X2C-4l-i2k"/>
+                            <constraint firstItem="yFT-qG-kFX" firstAttribute="leading" secondItem="IoY-1A-HD7" secondAttribute="leading" id="gMX-3e-aZM"/>
+                            <constraint firstAttribute="trailing" secondItem="yFT-qG-kFX" secondAttribute="trailing" id="npS-9T-ByZ"/>
+                            <constraint firstItem="nmk-WA-cwH" firstAttribute="leading" secondItem="IoY-1A-HD7" secondAttribute="leading" id="xN2-j7-Buh"/>
                         </constraints>
                     </view>
                     <connections>
@@ -315,7 +315,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Autentificare" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="YBG-Ef-7XM">
-                                        <rect key="frame" x="19" y="63" width="111" height="26"/>
+                                        <rect key="frame" x="19" y="63" width="110.5" height="26"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
