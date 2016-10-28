@@ -7,15 +7,18 @@
 //
 
 import Foundation
+import Firebase
+
 
 class Anunt {
     
-    var anunt: String?
-    var image: String?
+    var body: String
+    var image: String
     
-    init (anunt: String, image: String) {
-        self.anunt = anunt
-        self.image = image
+    init (snapshot: FIRDataSnapshot) {
+        let value = snapshot.value as? Dictionary<String, AnyObject> ?? nil
+        body = value?["body"] as? String ?? ""
+        image = value?["image"] as? String ?? ""
     }
     
     

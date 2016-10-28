@@ -258,7 +258,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v6H-tj-dfB">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="310"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -266,7 +266,7 @@
                                         <constraint firstItem="v6H-tj-dfB" firstAttribute="leading" secondItem="IVR-Sk-akB" secondAttribute="leading" id="NI4-TI-1wp"/>
                                         <constraint firstItem="v6H-tj-dfB" firstAttribute="top" secondItem="IVR-Sk-akB" secondAttribute="top" id="Q3p-wn-38p"/>
                                         <constraint firstAttribute="trailing" secondItem="v6H-tj-dfB" secondAttribute="trailing" id="g7k-8v-qS3"/>
-                                        <constraint firstAttribute="bottom" secondItem="v6H-tj-dfB" secondAttribute="bottom" id="gLk-ee-4so"/>
+                                        <constraint firstAttribute="bottom" secondItem="v6H-tj-dfB" secondAttribute="bottom" constant="-10" id="gLk-ee-4so"/>
                                     </constraints>
                                 </view>
                                 <prototypes>

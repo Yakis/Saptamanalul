@@ -17,10 +17,19 @@ class AnunturiVC: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     
     
-    var anunturi: [Anunt] = []
+    var anunturi: [Anunt] = [] {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     var ref = FIRDatabase.database().reference()
     var searchActive: Bool = false
-    var filteredItems: [Anunt] = []
+    var filteredItems: [Anunt] = [] {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+
     
     
     
@@ -44,7 +53,7 @@ class AnunturiVC: UITableViewController, UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         filteredItems = anunturi.filter({ (text) -> Bool in
-            let tmp: NSString = text.anunt! as NSString
+            let tmp: NSString = text.body as NSString
             let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
             return range.location != NSNotFound
         })
@@ -56,41 +65,39 @@ class AnunturiVC: UITableViewController, UISearchBarDelegate {
         self.tableView.reloadData()
         
     }
-    
+
     
     func getAnunturi () {
         anunturi = []
-        let anunturiRef = self.ref.child("anunturi")
-        anunturiRef.observe(.value, with: { (snapshot) in
-            let value = snapshot.value as? NSDictionary
-            guard let body = value?["body"] as? String else {return}
-                guard let image = value?["image"] as? String else {return}
-                let anunt = Anunt(anunt: body, image: image)
-                self.anunturi.append(anunt)
-            
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            })
+        let anunturiRef = self.ref.child("testAnunturi")
+        DataRetriever.shared.getData(reference: anunturiRef) { [weak self] snapshot in
+            let anunt = Anunt(snapshot: snapshot)
+            self?.anunturi.append(anunt)
+        }
     }
-
-
-
+    
+    
+    func hideSeparatorIfNoContent () {
+        if anunturi.count == 0 {
+            tableView.tableFooterView = UIView()
+            let label = UILabel(frame: (tableView.frame))
+            label.text = "Momentan nu există anunțuri"
+            label.textAlignment = .center
+            label.layer.frame.origin.y -= searchBar.frame.size.height * 2
+            label.textColor = UIColor.black
+            label.font = UIFont(name: "HelveticaNeue-Light", size: 16)
+            tableView.tableFooterView?.addSubview(label)
+        }
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
         getAnunturi()
-        if anunturi.count == 0 {
-            searchBar.placeholder = "Momentan nu exista anunturi"
-        }
         self.navigationItem.title = "Mica publicitate"
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        self.hideSeparatorIfNoContent()
     }
 
     
@@ -116,9 +123,9 @@ class AnunturiVC: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "anunturiCell", for: indexPath)
         if searchActive {
-            cell.textLabel?.text = filteredItems[(indexPath as NSIndexPath).row].anunt
+            cell.textLabel?.text = filteredItems[(indexPath as NSIndexPath).row].body
         } else {
-            cell.textLabel?.text = anunturi[(indexPath as NSIndexPath).row].anunt
+            cell.textLabel?.text = anunturi[(indexPath as NSIndexPath).row].body
         }
 
         return cell
@@ -132,10 +139,10 @@ class AnunturiVC: UITableViewController, UISearchBarDelegate {
         self.navigationController?.show(detailsAnuntVC, sender: navigationController)
         // This is for modalviewcontroller
         if searchActive {
-            detailsAnuntVC.anunt = filteredItems[(indexPath as NSIndexPath).row].anunt
+            detailsAnuntVC.anunt = filteredItems[(indexPath as NSIndexPath).row].body
             detailsAnuntVC.image = filteredItems[(indexPath as NSIndexPath).row].image
         } else {
-            detailsAnuntVC.anunt = anunturi[(indexPath as NSIndexPath).row].anunt
+            detailsAnuntVC.anunt = anunturi[(indexPath as NSIndexPath).row].body
             detailsAnuntVC.image = anunturi[(indexPath as NSIndexPath).row].image
         }
     }
