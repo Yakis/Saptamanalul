@@ -110,7 +110,6 @@ class AnunturiVC: UITableViewController, UISearchBarDelegate {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         if searchActive {
             return filteredItems.count
         } else if !searchActive {
@@ -140,11 +139,9 @@ class AnunturiVC: UITableViewController, UISearchBarDelegate {
         self.navigationController?.show(detailsAnuntVC, sender: navigationController)
         // This is for modalviewcontroller
         if searchActive {
-            detailsAnuntVC.anunt = filteredItems[(indexPath as NSIndexPath).row].body
-            detailsAnuntVC.image = filteredItems[(indexPath as NSIndexPath).row].image
+            detailsAnuntVC.anunt = filteredItems[(indexPath as NSIndexPath).row]
         } else {
-            detailsAnuntVC.anunt = anunturi[(indexPath as NSIndexPath).row].body
-            detailsAnuntVC.image = anunturi[(indexPath as NSIndexPath).row].image
+            detailsAnuntVC.anunt = anunturi[(indexPath as NSIndexPath).row]
         }
     }
     

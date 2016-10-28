@@ -202,7 +202,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2sC-yo-Pcc">
-                                        <rect key="frame" x="10" y="70" width="355" height="220"/>
+                                        <rect key="frame" x="10" y="8" width="355" height="282"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -210,7 +210,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.20784313730000001" green="0.49019607840000001" blue="0.78823529410000004" alpha="0.59983836206896557" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="2sC-yo-Pcc" firstAttribute="top" secondItem="yFT-qG-kFX" secondAttribute="top" constant="70" id="BST-Ft-i0H"/>
+                                    <constraint firstItem="2sC-yo-Pcc" firstAttribute="top" secondItem="yFT-qG-kFX" secondAttribute="top" constant="8" id="BST-Ft-i0H"/>
                                     <constraint firstAttribute="trailing" secondItem="2sC-yo-Pcc" secondAttribute="trailing" constant="10" id="gjp-xP-Xbm"/>
                                     <constraint firstItem="2sC-yo-Pcc" firstAttribute="leading" secondItem="yFT-qG-kFX" secondAttribute="leading" constant="10" id="iXx-y4-Kdt"/>
                                     <constraint firstAttribute="bottom" secondItem="2sC-yo-Pcc" secondAttribute="bottom" constant="10" id="l2h-w4-H9X"/>
@@ -434,7 +434,7 @@
             <objects>
                 <navigationController storyboardIdentifier="navVC" automaticallyAdjustsScrollViewInsets="NO" id="zvu-bt-aXN" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="v9G-OV-Tx1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="v9G-OV-Tx1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

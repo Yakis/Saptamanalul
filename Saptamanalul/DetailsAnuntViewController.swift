@@ -12,10 +12,7 @@ import Kingfisher
 
 class DetailsAnuntViewController: UIViewController {
 
-    
-    var anunt: String?
-    var image: String?
-    
+    var anunt: Anunt?
     
     @IBOutlet weak var anuntDetaliat: UILabel!
     
@@ -28,8 +25,8 @@ class DetailsAnuntViewController: UIViewController {
         imageOfAnunt.image = UIImage(named: "noImage")
         imageOfAnunt.contentMode = .scaleAspectFit
        // navigationController?.navigationBar.barTintColor = UIColor.redColor()
-        anuntDetaliat.text = anunt
-        guard let imageString = image else {return}
+        anuntDetaliat.text = anunt?.body
+        guard let imageString = anunt?.image else {return}
         guard let imageURL = URL(string: imageString) else {return}
         imageOfAnunt.contentMode = .scaleAspectFill
         imageOfAnunt.kf.setImage(with: imageURL)
