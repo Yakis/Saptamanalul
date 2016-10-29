@@ -28,7 +28,7 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate, UISc
     var stopTimer: Timer!
     var comments = [Comment]() {
         didSet {
-            tableView.reloadData()
+        tableView.reloadData()
         }
     }
         
@@ -127,9 +127,9 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate, UISc
     func getComments() {
         let commentsRef = FIRDatabase.database().reference().child("posts").child(post.autoID).child("comments")
         self.comments = []
-        DataRetriever.shared.getData(reference: commentsRef) { (snapshot) in
+        DataRetriever.shared.getData(reference: commentsRef) { [weak self] (snapshot) in
             let comment = Comment(snapshot: snapshot)
-            self.comments.append(comment)
+            self?.comments.append(comment)
         }
     }
 
@@ -167,7 +167,7 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate, UISc
         let userID = currentUser.uid as String
         if textView.text != "" {
             let text = textView.text as String
-            let post = ["text": text, "userName": userName, "userID": userID] as NSDictionary
+            let post = ["text": text, "userName": userName, "userID": userID, "timestamp": FIRServerValue.timestamp()] as NSDictionary
             commentsRef.childByAutoId().setValue(post)
             dismissSubviewAnimated()
         } else {
@@ -242,10 +242,50 @@ extension DetailsViewController: UITableViewDataSource {
                 let comment = comments[indexPath.row]
                 commentCell.userName.text = comment.userName
                 commentCell.bodyLabel.text = comment.text
+        commentCell.dateLabel.text = comment.date.romaniaTime()
                 return commentCell
         default: return UITableViewCell()
         }
         
+    }
+    
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        switch indexPath.section {
+        case 1:
+            if CurrentUser.shared.token == comments[indexPath.row].userID {
+            return true
+            } else {
+                return false
+            }
+        default:
+            return false
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 1:
+            if CurrentUser.shared.token == comments[indexPath.row].userID {
+                // Sterge comentariul
+                deleteComment(editingStyle: editingStyle, indexPath: indexPath)
+            } else {
+                // Nu sterge
+            }
+        default:
+            break
+        }
+    }
+    
+    
+    func deleteComment (editingStyle: UITableViewCellEditingStyle, indexPath: IndexPath) {
+        let commentsRef = FIRDatabase.database().reference().child("posts").child(post.autoID).child("comments")
+        let comment = comments[indexPath.row]
+        if editingStyle == .delete {
+            comments.remove(at: indexPath.row)
+            //tableView.deleteRows(at: [indexPath], with: .fade)
+            commentsRef.child(comment.autoID).removeValue()
+        }
     }
     
     
@@ -314,6 +354,8 @@ extension DetailsViewController: UITableViewDelegate {
             return 40
         }
     }
+    
+    
     
     
 }

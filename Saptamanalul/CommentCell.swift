@@ -16,6 +16,7 @@ class CommentCell: UITableViewCell {
     
     @IBOutlet weak var bodyLabel: UILabel!
     
+    @IBOutlet weak var dateLabel: UILabel!
     
     
     

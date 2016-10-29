@@ -34,6 +34,7 @@
 		159F280C1D452A2D00C9C19C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159F280B1D452A2D00C9C19C /* Colors.swift */; };
 		15A4354F1D1FBB2B00E378AD /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A4354E1D1FBB2B00E378AD /* Kingfisher.framework */; };
 		15CAD8441CC8C8B900F84D66 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CAD8431CC8C8B900F84D66 /* DetailsViewController.swift */; };
+		15E00F3D1DC510AA0076570B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E00F3C1DC510AA0076570B /* Extensions.swift */; };
 		15E0A1E01DAFF56000C21D6C /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E0A1DE1DAFF56000C21D6C /* TitleCell.swift */; };
 		15E0A1E11DAFF56000C21D6C /* TitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E0A1DF1DAFF56000C21D6C /* TitleCell.xib */; };
 		15E0A1E51DAFF5E600C21D6C /* BodyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E0A1E31DAFF5E600C21D6C /* BodyCell.swift */; };
@@ -100,6 +101,7 @@
 		15A4354E1D1FBB2B00E378AD /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = "../../Library/Developer/Xcode/DerivedData/Saptamanalul-hbdevngxamnxzlegxdhyifwicbrd/Build/Products/Debug-iphoneos/Kingfisher/Kingfisher.framework"; sourceTree = "<group>"; };
 		15CAD8431CC8C8B900F84D66 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		15CF155F1CEF61CC00511C69 /* Saptamanalul.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Saptamanalul.entitlements; sourceTree = "<group>"; };
+		15E00F3C1DC510AA0076570B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		15E0A1DE1DAFF56000C21D6C /* TitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
 		15E0A1DF1DAFF56000C21D6C /* TitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleCell.xib; sourceTree = "<group>"; };
 		15E0A1E31DAFF5E600C21D6C /* BodyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyCell.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				1511DA021DBA792D0024A7E3 /* DataRetriever.swift */,
 				1511DA041DBA903D0024A7E3 /* Authenticator.swift */,
 				1511DA061DBA90820024A7E3 /* Utils.swift */,
+				15E00F3C1DC510AA0076570B /* Extensions.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -630,6 +633,7 @@
 				15CAD8441CC8C8B900F84D66 /* DetailsViewController.swift in Sources */,
 				1509261B1CCB88DC00243434 /* Constants.swift in Sources */,
 				156B978D1DB2B5A200EEEEA3 /* NewCommentVC.swift in Sources */,
+				15E00F3D1DC510AA0076570B /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

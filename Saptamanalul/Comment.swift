@@ -15,6 +15,7 @@ class Comment {
     var text: String
     var autoID: String
     var userID: String
+    var date: Date
     
     
     init(snapshot: FIRDataSnapshot) {
@@ -23,6 +24,8 @@ class Comment {
         userName = value?["userName"] as? String ?? ""
         text = value?["text"] as? String ?? ""
         userID = value?["userID"] as? String ?? ""
+        let timestamp = value?["timestamp"] as? TimeInterval
+        date = Date(timeIntervalSince1970: timestamp! / 1000)
     }
     
     
