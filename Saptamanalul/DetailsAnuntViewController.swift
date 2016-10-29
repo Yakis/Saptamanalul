@@ -14,7 +14,8 @@ class DetailsAnuntViewController: UIViewController, UIGestureRecognizerDelegate 
 
     var anunt: Anunt?
     
-    @IBOutlet weak var anuntDetaliat: UILabel!
+    
+    @IBOutlet weak var anuntDetaliat: UITextView!
     
     @IBOutlet weak var imageOfAnunt: UIImageView!
     
@@ -42,7 +43,9 @@ class DetailsAnuntViewController: UIViewController, UIGestureRecognizerDelegate 
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        imageOfAnunt.image = UIImage(named: "noImage")
+        if let placeholderURL = URL(string: "https://unsplash.it/\(imageOfAnunt.frame.size.width)/\(imageOfAnunt.frame.size.height)/?random") {
+            imageOfAnunt.kf.setImage(with: placeholderURL)
+        }
         imageOfAnunt.contentMode = .scaleAspectFit
         anuntDetaliat.text = anunt?.body
         guard let imageString = anunt?.image else {return}

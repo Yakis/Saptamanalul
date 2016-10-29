@@ -183,60 +183,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nmk-WA-cwH" userLabel="ImageView">
-                                <rect key="frame" x="0.0" y="300" width="375" height="367"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UVR-Q7-gZo">
-                                        <rect key="frame" x="10" y="10" width="355" height="347"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="UVR-Q7-gZo" secondAttribute="bottom" constant="10" id="Dcu-9j-gLT"/>
-                                    <constraint firstItem="UVR-Q7-gZo" firstAttribute="top" secondItem="nmk-WA-cwH" secondAttribute="top" constant="10" id="EPX-Vf-g4a"/>
-                                    <constraint firstAttribute="trailing" secondItem="UVR-Q7-gZo" secondAttribute="trailing" constant="10" id="isb-12-tIG"/>
-                                    <constraint firstItem="UVR-Q7-gZo" firstAttribute="leading" secondItem="nmk-WA-cwH" secondAttribute="leading" constant="10" id="qwe-XW-ixA"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yFT-qG-kFX" userLabel="LabelView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2sC-yo-Pcc">
-                                        <rect key="frame" x="10" y="10" width="355" height="280"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="740" translatesAutoresizingMaskIntoConstraints="NO" id="UVR-Q7-gZo" customClass="MaterialImageView" customModule="Saptamanalul" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="20" width="335" height="254"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="254" id="KnV-0W-Z4k"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="m6z-zM-Bvd">
+                                        <rect key="frame" x="20" y="282" width="335" height="377"/>
+                                        <mutableString key="text">Există o mulţime de variaţii disponibile ale pasajelor Lorem Ipsum, dar majoritatea lor au suferit alterări într-o oarecare măsură prin infiltrare de elemente de umor, sau de cuvinte luate aleator, care nu sunt câtuşi de puţin credibile. Daca vreţi să folosiţi un pasaj de Lorem Ipsum, trebuie să vă asiguraţi că nu conţine nimic stânjenitor ascuns printre randuri.</mutableString>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES"/>
+                                    </textView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.20784313730000001" green="0.49019607840000001" blue="0.78823529410000004" alpha="0.59983836206896557" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.41568627450980389" green="0.56862745098039214" blue="0.68627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="2sC-yo-Pcc" secondAttribute="bottom" constant="10" id="GBk-up-k66"/>
-                                    <constraint firstAttribute="trailing" secondItem="2sC-yo-Pcc" secondAttribute="trailing" constant="10" id="Hdz-FJ-G7v"/>
-                                    <constraint firstItem="2sC-yo-Pcc" firstAttribute="leading" secondItem="yFT-qG-kFX" secondAttribute="leading" constant="10" id="QDq-AG-C5I"/>
-                                    <constraint firstItem="2sC-yo-Pcc" firstAttribute="top" secondItem="yFT-qG-kFX" secondAttribute="top" constant="10" id="mhb-0M-Rdw"/>
+                                    <constraint firstItem="UVR-Q7-gZo" firstAttribute="leading" secondItem="yFT-qG-kFX" secondAttribute="leading" constant="20" id="BeV-Ih-O0G"/>
+                                    <constraint firstAttribute="trailing" secondItem="UVR-Q7-gZo" secondAttribute="trailing" constant="20" id="SwU-kb-QUD"/>
+                                    <constraint firstAttribute="trailing" secondItem="m6z-zM-Bvd" secondAttribute="trailing" constant="20" id="USh-SX-zWA"/>
+                                    <constraint firstItem="UVR-Q7-gZo" firstAttribute="top" secondItem="yFT-qG-kFX" secondAttribute="top" constant="20" id="WeB-Fi-Zbm"/>
+                                    <constraint firstItem="m6z-zM-Bvd" firstAttribute="top" secondItem="UVR-Q7-gZo" secondAttribute="bottom" constant="8" id="i8l-Yq-ig1"/>
+                                    <constraint firstAttribute="bottom" secondItem="m6z-zM-Bvd" secondAttribute="bottom" constant="8" id="qcD-3F-hJy"/>
+                                    <constraint firstItem="m6z-zM-Bvd" firstAttribute="leading" secondItem="yFT-qG-kFX" secondAttribute="leading" constant="20" id="zEv-mO-WXh"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="FFZ-kE-CBV" firstAttribute="top" secondItem="nmk-WA-cwH" secondAttribute="bottom" id="2TU-7P-rxr"/>
-                            <constraint firstItem="nmk-WA-cwH" firstAttribute="top" secondItem="yFT-qG-kFX" secondAttribute="bottom" id="91y-mz-Ldm"/>
-                            <constraint firstItem="yFT-qG-kFX" firstAttribute="top" secondItem="IoY-1A-HD7" secondAttribute="top" id="FQx-ZJ-xLl"/>
-                            <constraint firstItem="nmk-WA-cwH" firstAttribute="top" secondItem="IoY-1A-HD7" secondAttribute="top" constant="300" id="NpM-M4-nby"/>
-                            <constraint firstAttribute="trailing" secondItem="nmk-WA-cwH" secondAttribute="trailing" id="X2C-4l-i2k"/>
-                            <constraint firstItem="yFT-qG-kFX" firstAttribute="leading" secondItem="IoY-1A-HD7" secondAttribute="leading" id="gMX-3e-aZM"/>
-                            <constraint firstAttribute="trailing" secondItem="yFT-qG-kFX" secondAttribute="trailing" id="npS-9T-ByZ"/>
-                            <constraint firstItem="nmk-WA-cwH" firstAttribute="leading" secondItem="IoY-1A-HD7" secondAttribute="leading" id="xN2-j7-Buh"/>
+                            <constraint firstItem="yFT-qG-kFX" firstAttribute="top" secondItem="IoY-1A-HD7" secondAttribute="top" id="HHY-fQ-CBk"/>
+                            <constraint firstItem="yFT-qG-kFX" firstAttribute="leading" secondItem="IoY-1A-HD7" secondAttribute="leading" id="TYe-Er-5JJ"/>
+                            <constraint firstAttribute="trailing" secondItem="yFT-qG-kFX" secondAttribute="trailing" id="XhO-uF-sWe"/>
+                            <constraint firstItem="FFZ-kE-CBV" firstAttribute="top" secondItem="yFT-qG-kFX" secondAttribute="bottom" id="bXZ-iC-o6I"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="anuntDetaliat" destination="2sC-yo-Pcc" id="ipd-Oa-Oo2"/>
+                        <outlet property="anuntDetaliat" destination="m6z-zM-Bvd" id="7iN-RW-6L2"/>
                         <outlet property="imageOfAnunt" destination="UVR-Q7-gZo" id="JTu-Re-qNf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FX1-nh-LO3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1668" y="923"/>
+            <point key="canvasLocation" x="1668" y="922.48875562218893"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="cmv-C2-7Ek">
@@ -315,7 +307,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Autentificare" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="YBG-Ef-7XM">
-                                        <rect key="frame" x="19" y="63" width="110.5" height="26"/>
+                                        <rect key="frame" x="19" y="63" width="111" height="26"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
