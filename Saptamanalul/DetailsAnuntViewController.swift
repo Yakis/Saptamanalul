@@ -8,12 +8,12 @@
 
 import UIKit
 import Kingfisher
-
+import Firebase
 
 class DetailsAnuntViewController: UIViewController, UIGestureRecognizerDelegate {
 
     var anunt: Anunt?
-    
+    var adsUrl: [String] = []
     
     @IBOutlet weak var anuntDetaliat: UITextView!
     
@@ -21,7 +21,7 @@ class DetailsAnuntViewController: UIViewController, UIGestureRecognizerDelegate 
     
     
     var tapBGGesture: UITapGestureRecognizer!
-    
+    var adsRef = FIRDatabase.database().reference().child("publicitate")
     
     
     override func viewDidLoad() {
@@ -41,10 +41,11 @@ class DetailsAnuntViewController: UIViewController, UIGestureRecognizerDelegate 
     }
     
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let placeholderURL = URL(string: "https://unsplash.it/\(imageOfAnunt.frame.size.width)/\(imageOfAnunt.frame.size.height)/?random") {
-            imageOfAnunt.kf.setImage(with: placeholderURL)
+        if anunt?.image == "" {
+        getRandomAd()
         }
         imageOfAnunt.contentMode = .scaleAspectFit
         anuntDetaliat.text = anunt?.body
@@ -56,8 +57,26 @@ class DetailsAnuntViewController: UIViewController, UIGestureRecognizerDelegate 
     
     
     
+    func getRandomAd () {
+        adsRef.observe(.childAdded) { [weak self] (snapshot: FIRDataSnapshot) in
+            guard let adUrl = snapshot.value as? String else {return}
+            self?.adsUrl.append(adUrl)
+            DispatchQueue.main.async {
+                self?.setAdIfNoImage()
+            }
+        }
+    }
+    
+    
+    func setAdIfNoImage () {
+        let randomNumber = Int(arc4random_uniform(UInt32(adsUrl.count)))
+        if let placeholderURL = URL(string: adsUrl[randomNumber]) {
+            imageOfAnunt.kf.setImage(with: placeholderURL)
+        }
+    }
+    
+    
     func settingsBGTapped(sender: UITapGestureRecognizer) {
-        
         if sender.state == .ended {
             let rootView = self.view.window!.rootViewController!.view
             let location = sender.location(in: rootView)
