@@ -184,9 +184,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         cell.myImageView.kf.setImage(with: imageUrl,
                                      placeholder: nil,
                                      options: [.transition(ImageTransition.fade(1))],
-                                     progressBlock: { receivedSize, totalSize in
-                                        print("\(indexPath.row + 1): \(receivedSize)/\(totalSize)")
-        },
+                                     progressBlock: nil,
                                      completionHandler: { image, error, cacheType, imageURL in
                                        cell.activityIndicator.stopAnimating()
         })

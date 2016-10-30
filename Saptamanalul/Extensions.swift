@@ -14,7 +14,7 @@ extension Date {
     func romaniaTime () -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "d MMM, HH:mm"
-        formatter.timeZone = TimeZone(secondsFromGMT: 10800)
+        formatter.timeZone = TimeZone(secondsFromGMT: 7200)
         formatter.locale = Locale(identifier: "ro_RO")
         return formatter.string(from: self)
     }
