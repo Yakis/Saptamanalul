@@ -12,6 +12,8 @@ import FBSDKLoginKit
 import Batch
 import Firebase
 import GoogleSignIn
+import Fabric
+import Crashlytics
 
 
 @UIApplicationMain
@@ -28,7 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         application.registerForRemoteNotifications()
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-        
+        Fabric.with([Answers.self, Crashlytics.self])
+        Fabric.sharedSDK().debug = true
         
         GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self

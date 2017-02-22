@@ -18,6 +18,7 @@
 		1511DA031DBA792D0024A7E3 /* DataRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1511DA021DBA792D0024A7E3 /* DataRetriever.swift */; };
 		1511DA051DBA903D0024A7E3 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1511DA041DBA903D0024A7E3 /* Authenticator.swift */; };
 		1511DA071DBA90820024A7E3 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1511DA061DBA90820024A7E3 /* Utils.swift */; };
+		1523412E1E30DB2800921187 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1523412D1E30DB2800921187 /* DataManager.swift */; };
 		153165881DA556B500719F84 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153165871DA556B500719F84 /* LoginVC.swift */; };
 		1541A4B41D1FE57A00C5F401 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1541A4B31D1FE57A00C5F401 /* Post.swift */; };
 		1541A4B81D2969B000C5F401 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1541A4B71D2969B000C5F401 /* GoogleService-Info.plist */; };
@@ -28,6 +29,8 @@
 		156B97851DB2B33700EEEEA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 156B97841DB2B33700EEEEA3 /* Assets.xcassets */; };
 		156B978D1DB2B5A200EEEEA3 /* NewCommentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156B978B1DB2B5A200EEEEA3 /* NewCommentVC.swift */; };
 		156B978E1DB2B5A200EEEEA3 /* NewCommentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 156B978C1DB2B5A200EEEEA3 /* NewCommentVC.xib */; };
+		1573E3891E06837C0078B005 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1573E3871E06837C0078B005 /* Fabric.framework */; };
+		1573E38C1E06842F0078B005 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1573E38B1E06842F0078B005 /* Crashlytics.framework */; };
 		1581A40A1D0D6EE40015B63D /* DetailsAnuntViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581A4091D0D6EE40015B63D /* DetailsAnuntViewController.swift */; };
 		1586D1A51CF31ED20090DD44 /* AnunturiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1586D1A41CF31ED20090DD44 /* AnunturiVC.swift */; };
 		1587E3E81CE6295600E8D355 /* PopoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587E3E71CE6295600E8D355 /* PopoverVC.swift */; };
@@ -84,6 +87,7 @@
 		1511DA021DBA792D0024A7E3 /* DataRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataRetriever.swift; sourceTree = "<group>"; };
 		1511DA041DBA903D0024A7E3 /* Authenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		1511DA061DBA90820024A7E3 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		1523412D1E30DB2800921187 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		153165871DA556B500719F84 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		1541A4B31D1FE57A00C5F401 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		1541A4B71D2969B000C5F401 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -94,6 +98,8 @@
 		156B97841DB2B33700EEEEA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		156B978B1DB2B5A200EEEEA3 /* NewCommentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCommentVC.swift; sourceTree = "<group>"; };
 		156B978C1DB2B5A200EEEEA3 /* NewCommentVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewCommentVC.xib; sourceTree = "<group>"; };
+		1573E3871E06837C0078B005 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		1573E38B1E06842F0078B005 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		1581A4091D0D6EE40015B63D /* DetailsAnuntViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsAnuntViewController.swift; sourceTree = "<group>"; };
 		1586D1A41CF31ED20090DD44 /* AnunturiVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnunturiVC.swift; sourceTree = "<group>"; };
 		1587E3E71CE6295600E8D355 /* PopoverVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverVC.swift; sourceTree = "<group>"; };
@@ -141,6 +147,8 @@
 				150926151CCB7BE100243434 /* FBSDKCoreKit.framework in Frameworks */,
 				150926161CCB7BE100243434 /* FBSDKLoginKit.framework in Frameworks */,
 				15A4354F1D1FBB2B00E378AD /* Kingfisher.framework in Frameworks */,
+				1573E3891E06837C0078B005 /* Fabric.framework in Frameworks */,
+				1573E38C1E06842F0078B005 /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +218,7 @@
 			children = (
 				1569DD3C1DB3677C00DA1D53 /* NewsCell */,
 				15EEB8C81CA80F0D006FB78C /* ViewController.swift */,
+				1523412D1E30DB2800921187 /* DataManager.swift */,
 			);
 			name = MainVC;
 			sourceTree = "<group>";
@@ -336,6 +345,8 @@
 		15EEB8BA1CA80F0D006FB78C = {
 			isa = PBXGroup;
 			children = (
+				1573E38B1E06842F0078B005 /* Crashlytics.framework */,
+				1573E3871E06837C0078B005 /* Fabric.framework */,
 				15EEB8C51CA80F0D006FB78C /* Saptamanalul */,
 				15EEB8DA1CA80F0D006FB78C /* SaptamanalulTests */,
 				15EEB8E51CA80F0D006FB78C /* SaptamanalulUITests */,
@@ -413,6 +424,7 @@
 				15EEB8C11CA80F0D006FB78C /* Resources */,
 				E69440142ADF48AC1F306433 /* [CP] Embed Pods Frameworks */,
 				87B51F371268D875B057913C /* [CP] Copy Pods Resources */,
+				1573E3861E06836D0078B005 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -466,7 +478,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = yakis;
 				TargetAttributes = {
 					15EEB8C21CA80F0D006FB78C = {
@@ -554,6 +566,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1573E3861E06836D0078B005 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 0a574778e8f9b77c91bd6fbbfd4e7ed0b265ffe2 25df8199828136e0a3d49a153b6e699a170b6a3213c6340433364af0b414f31c";
+		};
 		5244A12CD9222C526DCEE47F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -606,6 +631,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1523412E1E30DB2800921187 /* DataManager.swift in Sources */,
 				1511DA031DBA792D0024A7E3 /* DataRetriever.swift in Sources */,
 				1587E3E81CE6295600E8D355 /* PopoverVC.swift in Sources */,
 				1586D1A51CF31ED20090DD44 /* AnunturiVC.swift in Sources */,
@@ -710,7 +736,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;

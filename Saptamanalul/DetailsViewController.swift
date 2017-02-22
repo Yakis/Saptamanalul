@@ -137,6 +137,7 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate, UISc
     func runTimedCode() {
         if let pubImageUrl = URL(string: post.pubImage) {
             imageView?.kf.setImage(with: pubImageUrl)
+            imageView?.contentMode = .scaleAspectFit
         }
         runTimer.invalidate()
     }
@@ -144,6 +145,7 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate, UISc
     func stopTimedCode () {
         if let image = URL(string: post.image) {
             imageView?.kf.setImage(with: image)
+            imageView?.contentMode = .scaleAspectFill
         stopTimer.invalidate()
         }
     }

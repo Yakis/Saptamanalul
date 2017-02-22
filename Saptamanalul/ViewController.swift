@@ -11,6 +11,7 @@ import SVProgressHUD
 import CloudKit
 import Kingfisher
 import FirebaseDatabase
+import Crashlytics
 
 
 class ViewController: UIViewController {
@@ -35,15 +36,12 @@ class ViewController: UIViewController {
     
     
     //MARK: - Variables
-    var refresher: UIRefreshControl!
-    var posts = [Post]()
-    var comments = [Comment]()
-    let postRef = FIRDatabase.database().reference().child("posts")
+    
     
     
     
     @IBAction func didTapOnImage(_ sender: AnyObject) {
-        guard let post = posts.first else {return}
+        guard let post = DataManager.posts.first else {return}
         let detailsVC = self.storyboard?.instantiateViewController(withIdentifier: "detailsVC") as! DetailsViewController
         self.navigationController?.show(detailsVC, sender: navigationController)
         detailsVC.post = post
@@ -63,17 +61,17 @@ class ViewController: UIViewController {
     //HEAD: Firebase Implementation
     
     func getPosts () {
-        posts = []
-        DataRetriever.shared.getData(reference: postRef) { [weak self] (snapshot) in
+        DataManager.posts = []
+        DataRetriever.shared.getData(reference: DataManager.postRef) { [weak self] (snapshot) in
             let post = Post(snapshot: snapshot)
-            self?.posts.append(post)
+            DataManager.posts.append(post)
             DispatchQueue.main.async {
                 SVProgressHUD.dismiss()
                 self?.bandView.alpha = 0.7
                 self?.setOpenPost()
                 self?.tableView.reloadData()
-                if self?.refresher != nil {
-                    self?.refresher.endRefreshing()
+                if DataManager.refresher != nil {
+                   DataManager.refresher.endRefreshing()
                 }
             }
         }
@@ -93,10 +91,10 @@ class ViewController: UIViewController {
     }
    
     func setOpenPost () {
-        let file = posts[0].image
-           let imageUrl = URL(string: file)
-                    self.openPostLabel.text = posts[0].title
-        self.openPostImageView.kf.setImage(with: imageUrl!)
+        guard let file = DataManager.posts.first?.image else {return}
+        guard let imageUrl = URL(string: file) else {return}
+                    self.openPostLabel.text = DataManager.posts[0].title
+        self.openPostImageView.kf.setImage(with: imageUrl)
                     self.openPostLabel.backgroundColor = UIColor(red: 8/255, green: 64/255, blue: 109/255, alpha: 0.6)
                     self.openPostLabel.textColor = UIColor.white
     }
@@ -115,11 +113,11 @@ class ViewController: UIViewController {
     
     
     func refreshNews() {
-        refresher = UIRefreshControl()
-        refresher.tintColor = friendlyBlue
-        refresher.attributedTitle = NSAttributedString(string: "Refresh...")
-        refresher.addTarget(self, action: #selector(ViewController.executeRefreshNews), for: UIControlEvents.valueChanged)
-        self.tableView.addSubview(refresher)
+        DataManager.refresher = UIRefreshControl()
+        DataManager.refresher.tintColor = friendlyBlue
+        DataManager.refresher.attributedTitle = NSAttributedString(string: "Refresh...")
+        DataManager.refresher.addTarget(self, action: #selector(ViewController.executeRefreshNews), for: UIControlEvents.valueChanged)
+        self.tableView.addSubview(DataManager.refresher)
     }
     
     
@@ -153,6 +151,10 @@ class ViewController: UIViewController {
     }
     
     
+  
+
+    
+    
     func showErrorAlert (_ title: String, msg: String) {
         let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
@@ -169,14 +171,14 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.posts.count
+        return DataManager.posts.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MyCell
         typealias blitzFunc = () -> ()
-        let post = posts[(indexPath as NSIndexPath).row]
+        let post = DataManager.posts[(indexPath as NSIndexPath).row]
         let title = post.title
         let file = post.image
         let imageUrl = URL(string: file)
@@ -202,7 +204,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailsVC = self.storyboard?.instantiateViewController(withIdentifier: "detailsVC") as! DetailsViewController
         self.navigationController?.show(detailsVC, sender: navigationController)
-        let post = posts[(indexPath as NSIndexPath).row]
+        let post = DataManager.posts[(indexPath as NSIndexPath).row]
         detailsVC.post = post
     }
     
