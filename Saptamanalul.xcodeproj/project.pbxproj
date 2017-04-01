@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14DEE6A869D8ED27A9279DF7 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C0173E7A09E0B0D88114AA5 /* CoreTelephony.framework */; };
 		150926151CCB7BE100243434 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 150926121CCB7BE100243434 /* FBSDKCoreKit.framework */; };
 		150926161CCB7BE100243434 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 150926131CCB7BE100243434 /* FBSDKLoginKit.framework */; };
 		150926171CCB7BE100243434 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 150926141CCB7BE100243434 /* FBSDKShareKit.framework */; };
@@ -54,7 +55,15 @@
 		15EEB8DC1CA80F0D006FB78C /* SaptamanalulTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEB8DB1CA80F0D006FB78C /* SaptamanalulTests.swift */; };
 		15EEB8E71CA80F0D006FB78C /* SaptamanalulUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEB8E61CA80F0D006FB78C /* SaptamanalulUITests.swift */; };
 		15FC564C1D1857E300040D25 /* Anunt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FC564B1D1857E300040D25 /* Anunt.swift */; };
+		17A565A1491621C41DE1632C /* BuddyBuildSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B214341CC504B7AC7A2315C7 /* BuddyBuildSDK.framework */; };
+		3293E8577FB86C2D2D1B5A78 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 565304704ECC61D9F2C41F09 /* CoreMedia.framework */; };
+		491C097B1DCCF02F5E05EE6E /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A948BE90198AF2F30915A17B /* CoreText.framework */; };
+		64A104ED18CA7B7C5D8B96AD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E412CD45A140A3302033440 /* SystemConfiguration.framework */; };
 		8CA3259C3559F3372A15CD79 /* Pods_Saptamanalul.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4A2E9DC5B23C000844199BB /* Pods_Saptamanalul.framework */; };
+		9E1E0554AF49046510F912EF /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D270889728D58FD4579C1EDD /* AssetsLibrary.framework */; };
+		A1C3EB571F3432BA19158A4E /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F3131BE610591BC1F403A3C /* CoreVideo.framework */; };
+		A1F925392A9FAD4B1E62D65B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A847A278D073924BEBFC9409 /* QuartzCore.framework */; };
+		C126160BFA083ED20423CC51 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 820BFEA6221A7FDF4F3E7F04 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,9 +140,19 @@
 		15EEB8E81CA80F0D006FB78C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15FC564B1D1857E300040D25 /* Anunt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Anunt.swift; sourceTree = "<group>"; };
 		18BBAFB55C430EC42B5F5F7F /* Pods-Saptamanalul.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saptamanalul.release.xcconfig"; path = "Pods/Target Support Files/Pods-Saptamanalul/Pods-Saptamanalul.release.xcconfig"; sourceTree = "<group>"; };
+		2F3131BE610591BC1F403A3C /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		3E412CD45A140A3302033440 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		565304704ECC61D9F2C41F09 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		565BD93C8A7411F6622865E4 /* Pods-Saptamanalul.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saptamanalul.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Saptamanalul/Pods-Saptamanalul.debug.xcconfig"; sourceTree = "<group>"; };
+		820BFEA6221A7FDF4F3E7F04 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		9C0173E7A09E0B0D88114AA5 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		A77673BA6CD631D8D67766CD /* Pods_SaptamanalulUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaptamanalulUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A847A278D073924BEBFC9409 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A948BE90198AF2F30915A17B /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		B214341CC504B7AC7A2315C7 /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BuddyBuildSDK.framework; path = BuddyBuildSDK.framework; sourceTree = "<group>"; };
+		D270889728D58FD4579C1EDD /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		E4A2E9DC5B23C000844199BB /* Pods_Saptamanalul.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Saptamanalul.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDB14F5E2E00F41E288CFC22 /* Bridging-Header.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		F97D5F4EE22600F64D402508 /* Pods_SaptamanalulTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaptamanalulTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -149,6 +168,15 @@
 				15A4354F1D1FBB2B00E378AD /* Kingfisher.framework in Frameworks */,
 				1573E3891E06837C0078B005 /* Fabric.framework in Frameworks */,
 				1573E38C1E06842F0078B005 /* Crashlytics.framework in Frameworks */,
+				17A565A1491621C41DE1632C /* BuddyBuildSDK.framework in Frameworks */,
+				9E1E0554AF49046510F912EF /* AssetsLibrary.framework in Frameworks */,
+				491C097B1DCCF02F5E05EE6E /* CoreText.framework in Frameworks */,
+				14DEE6A869D8ED27A9279DF7 /* CoreTelephony.framework in Frameworks */,
+				64A104ED18CA7B7C5D8B96AD /* SystemConfiguration.framework in Frameworks */,
+				A1F925392A9FAD4B1E62D65B /* QuartzCore.framework in Frameworks */,
+				C126160BFA083ED20423CC51 /* AVFoundation.framework in Frameworks */,
+				3293E8577FB86C2D2D1B5A78 /* CoreMedia.framework in Frameworks */,
+				A1C3EB571F3432BA19158A4E /* CoreVideo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,6 +207,15 @@
 				E4A2E9DC5B23C000844199BB /* Pods_Saptamanalul.framework */,
 				F97D5F4EE22600F64D402508 /* Pods_SaptamanalulTests.framework */,
 				A77673BA6CD631D8D67766CD /* Pods_SaptamanalulUITests.framework */,
+				B214341CC504B7AC7A2315C7 /* BuddyBuildSDK.framework */,
+				D270889728D58FD4579C1EDD /* AssetsLibrary.framework */,
+				A948BE90198AF2F30915A17B /* CoreText.framework */,
+				9C0173E7A09E0B0D88114AA5 /* CoreTelephony.framework */,
+				3E412CD45A140A3302033440 /* SystemConfiguration.framework */,
+				A847A278D073924BEBFC9409 /* QuartzCore.framework */,
+				820BFEA6221A7FDF4F3E7F04 /* AVFoundation.framework */,
+				565304704ECC61D9F2C41F09 /* CoreMedia.framework */,
+				2F3131BE610591BC1F403A3C /* CoreVideo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -353,6 +390,7 @@
 				15EEB8C41CA80F0D006FB78C /* Products */,
 				AB293269194F6EADEC1DDD46 /* Pods */,
 				07C12A01A34703A14F013712 /* Frameworks */,
+				EDB14F5E2E00F41E288CFC22 /* Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -823,6 +861,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = yakis.Saptamanalul;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -846,6 +885,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = yakis.Saptamanalul;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
