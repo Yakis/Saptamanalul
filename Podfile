@@ -14,4 +14,5 @@ pod 'FBSDKCoreKit'
 pod 'FBSDKShareKit'
 pod 'FBSDKLoginKit'
 pod 'GoogleSignIn'
+pod 'Nuke', '~> 5.0'
 end
