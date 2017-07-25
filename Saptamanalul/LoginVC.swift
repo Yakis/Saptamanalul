@@ -69,8 +69,8 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
         fbLoginManager.logIn(withReadPermissions: ["email"], from: self, handler: {(result, error) in
             if (error == nil){
                 guard let accessToken = result?.token else {return}
-                let credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
-                FIRAuth.auth()?.signIn(with: credential) { [weak self] (user, error) in
+                let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
+                Auth.auth().signIn(with: credential) { [weak self] (user, error) in
                     Authenticator.shared.firebaseSignIn(credential: credential)
                     self?.getFBUserData()
                 }

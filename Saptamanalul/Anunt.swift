@@ -15,10 +15,9 @@ class Anunt {
     var body: String
     var image: String
     
-    init (snapshot: FIRDataSnapshot) {
-        let value = snapshot.value as? Dictionary<String, AnyObject> ?? nil
-        body = value?["body"] as? String ?? ""
-        image = value?["image"] as? String ?? ""
+    init (json: JSON) {
+        body = json["body"] as? String ?? ""
+        image = json["image"] as? String ?? ""
     }
     
     

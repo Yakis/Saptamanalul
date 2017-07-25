@@ -17,18 +17,17 @@ class Post {
     var pubImage: String
     var postDate: String
     var pubUrl: String
-    var autoID: String
+    var autoID: Int
     
     
-    init (snapshot: FIRDataSnapshot) {
-        let value = snapshot.value as? Dictionary<String, AnyObject> ?? nil
-        title = value?["title"] as? String ?? ""
-        body = value?["body"] as? String ?? ""
-        image = value?["image"] as? String ?? ""
-        pubImage = value?["pubImage"] as? String ?? ""
-        postDate = value?["date"] as? String ?? ""
-        pubUrl = value?["pubUrl"] as? String ?? ""
-        autoID = snapshot.key
+    init (json: JSON) {
+        title = json["title"] as? String ?? ""
+        body = json["body"] as? String ?? ""
+        image = json["image"] as? String ?? ""
+        pubImage = json["pub_image"] as? String ?? ""
+        postDate = json["created_at"] as? String ?? ""
+        pubUrl = json["pub_url"] as? String ?? ""
+        autoID = json["id"] as? Int ?? 0
     }
     
 }

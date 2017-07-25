@@ -44,6 +44,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Nuke.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Saptamanalul.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,6 +67,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>1FB3581F4855FB816F0C4899ED1A6026</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>44CAD6CE523055ED339E87154473A254</key>
 		<dict>
 			<key>primary</key>
@@ -72,12 +82,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B1C4AAFAF49036C7007633DAA3C806AD</key>
+		<key>8EC9ADA0B3301EB9125BABEE4D5D9807</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B7AB3939652A77A2C25C7A0C9B90B378</key>
+		<key>B1C4AAFAF49036C7007633DAA3C806AD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,12 +107,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E396A93E4C79B22B7816E9F02F62ECED</key>
+		<key>CA6B11BF59552581D8769C92CAFF92C8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EC32961B060554DCA24B73553D584D2E</key>
+		<key>E396A93E4C79B22B7816E9F02F62ECED</key>
 		<dict>
 			<key>primary</key>
 			<true/>

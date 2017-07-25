@@ -10,9 +10,8 @@ import UIKit
 import SVProgressHUD
 import CloudKit
 import Kingfisher
-import FirebaseDatabase
 import Crashlytics
-
+import Nuke
 
 class ViewController: UIViewController {
 
@@ -60,18 +59,21 @@ class ViewController: UIViewController {
     
     //HEAD: Firebase Implementation
     
-    func getPosts () {
-        DataManager.posts = []
-        DataRetriever.shared.getData(reference: DataManager.postRef) { [weak self] (snapshot) in
-            let post = Post(snapshot: snapshot)
-            DataManager.posts.append(post)
-            DispatchQueue.main.async {
-                SVProgressHUD.dismiss()
-                self?.bandView.alpha = 0.7
-                self?.setOpenPost()
-                self?.tableView.reloadData()
-                if DataManager.refresher != nil {
-                   DataManager.refresher.endRefreshing()
+    
+    func getPosts() {
+        let postsUrl = "\(Endpoints.posts)\(Endpoints.formatSuffix)"
+        RestApiManager.shared.getData(url: postsUrl) { [weak self] (json) in
+            for object in json {
+                let post = Post(json: object)
+                DataManager.posts.insert(post, at: 0)
+                DispatchQueue.main.async {
+                    SVProgressHUD.dismiss()
+                    self?.bandView.alpha = 0.7
+                    self?.setOpenPost()
+                    self?.tableView.reloadData()
+                    if DataManager.refresher != nil {
+                        DataManager.refresher.endRefreshing()
+                    }
                 }
             }
         }
@@ -94,7 +96,8 @@ class ViewController: UIViewController {
         guard let file = DataManager.posts.first?.image else {return}
         guard let imageUrl = URL(string: file) else {return}
                     self.openPostLabel.text = DataManager.posts[0].title
-        self.openPostImageView.kf.setImage(with: imageUrl)
+        Nuke.loadImage(with: imageUrl, into: openPostImageView)
+       // self.openPostImageView.kf.setImage(with: imageUrl)
                     self.openPostLabel.backgroundColor = UIColor(red: 8/255, green: 64/255, blue: 109/255, alpha: 0.6)
                     self.openPostLabel.textColor = UIColor.white
     }
@@ -105,9 +108,9 @@ class ViewController: UIViewController {
         let date = Date()
         let calendar = Calendar.current
         let components = (calendar as NSCalendar).components([.day , .month , .year], from: date)
-        let year =  components.year
-        let month = components.month
-        let day = components.day
+        guard let year =  components.year else {return ""}
+        guard let month = components.month else {return ""}
+        guard let day = components.day else {return ""}
         return "\(day).\(month).\(year)"
     }
     
@@ -177,22 +180,14 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MyCell
-        typealias blitzFunc = () -> ()
         let post = DataManager.posts[(indexPath as NSIndexPath).row]
         let title = post.title
         let file = post.image
-        let imageUrl = URL(string: file)
-        cell.activityIndicator.startAnimating()
-        cell.myImageView.kf.setImage(with: imageUrl,
-                                     placeholder: nil,
-                                     options: [.transition(ImageTransition.fade(1))],
-                                     progressBlock: nil,
-                                     completionHandler: { image, error, cacheType, imageURL in
-                                       cell.activityIndicator.stopAnimating()
-        })
-        
+        if let imageUrl = URL(string: file) {
+        Nuke.loadImage(with: imageUrl, into: cell.myImageView)
+        }
         cell.myTitleView.text = title
-        cell.timeStampLabel.text = post.postDate
+        cell.timeStampLabel.text = post.postDate.formattedDateFromString(format: DateFormat.Post.rawValue)
         
         return cell
     }

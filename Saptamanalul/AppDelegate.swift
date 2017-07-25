@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         BuddyBuildSDK.setup()
         
-        FIRApp.configure()
+        FirebaseApp.configure()
         let settings: UIUserNotificationSettings =
             UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
         application.registerUserNotificationSettings(settings)
@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         Fabric.with([Answers.self, Crashlytics.self])
         Fabric.sharedSDK().debug = true
         
-        GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         // Override point for customization after application launch.
         Batch.start(withAPIKey: "5739669F65E82D8251293A48AC8010")
@@ -87,7 +87,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         {
             print("=======GOOGLE SIGNED IN=======")
             let authentication = user.authentication
-            let credential = FIRGoogleAuthProvider.credential(withIDToken: (authentication?.idToken)!,
+            let credential = GoogleAuthProvider.credential(withIDToken: (authentication?.idToken)!,
                                                               accessToken: (authentication?.accessToken)!)
             Authenticator.shared.firebaseSignIn(credential: credential)
             // Perform any operations on signed in user here.

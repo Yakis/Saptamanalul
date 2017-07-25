@@ -16,7 +16,6 @@
 		1509261D1CCB8EB900243434 /* MaterialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1509261C1CCB8EB900243434 /* MaterialButton.swift */; };
 		1509261F1CCB978000243434 /* MaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1509261E1CCB978000243434 /* MaterialTextField.swift */; };
 		1511DA011DBA2F0C0024A7E3 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1511DA001DBA2F0C0024A7E3 /* CurrentUser.swift */; };
-		1511DA031DBA792D0024A7E3 /* DataRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1511DA021DBA792D0024A7E3 /* DataRetriever.swift */; };
 		1511DA051DBA903D0024A7E3 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1511DA041DBA903D0024A7E3 /* Authenticator.swift */; };
 		1511DA071DBA90820024A7E3 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1511DA061DBA90820024A7E3 /* Utils.swift */; };
 		1523412E1E30DB2800921187 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1523412D1E30DB2800921187 /* DataManager.swift */; };
@@ -35,6 +34,7 @@
 		1581A40A1D0D6EE40015B63D /* DetailsAnuntViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1581A4091D0D6EE40015B63D /* DetailsAnuntViewController.swift */; };
 		1586D1A51CF31ED20090DD44 /* AnunturiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1586D1A41CF31ED20090DD44 /* AnunturiVC.swift */; };
 		1587E3E81CE6295600E8D355 /* PopoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587E3E71CE6295600E8D355 /* PopoverVC.swift */; };
+		1594D7BA1ED61420005DB7C6 /* RestApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1594D7B91ED61420005DB7C6 /* RestApiManager.swift */; };
 		159F280C1D452A2D00C9C19C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159F280B1D452A2D00C9C19C /* Colors.swift */; };
 		15A4354F1D1FBB2B00E378AD /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A4354E1D1FBB2B00E378AD /* Kingfisher.framework */; };
 		15CAD8441CC8C8B900F84D66 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CAD8431CC8C8B900F84D66 /* DetailsViewController.swift */; };
@@ -93,7 +93,6 @@
 		1509261C1CCB8EB900243434 /* MaterialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialButton.swift; sourceTree = "<group>"; };
 		1509261E1CCB978000243434 /* MaterialTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialTextField.swift; sourceTree = "<group>"; };
 		1511DA001DBA2F0C0024A7E3 /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
-		1511DA021DBA792D0024A7E3 /* DataRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataRetriever.swift; sourceTree = "<group>"; };
 		1511DA041DBA903D0024A7E3 /* Authenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		1511DA061DBA90820024A7E3 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		1523412D1E30DB2800921187 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -112,6 +111,7 @@
 		1581A4091D0D6EE40015B63D /* DetailsAnuntViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsAnuntViewController.swift; sourceTree = "<group>"; };
 		1586D1A41CF31ED20090DD44 /* AnunturiVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnunturiVC.swift; sourceTree = "<group>"; };
 		1587E3E71CE6295600E8D355 /* PopoverVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverVC.swift; sourceTree = "<group>"; };
+		1594D7B91ED61420005DB7C6 /* RestApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestApiManager.swift; sourceTree = "<group>"; };
 		159F280B1D452A2D00C9C19C /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		15A4354E1D1FBB2B00E378AD /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = "../../Library/Developer/Xcode/DerivedData/Saptamanalul-hbdevngxamnxzlegxdhyifwicbrd/Build/Products/Debug-iphoneos/Kingfisher/Kingfisher.framework"; sourceTree = "<group>"; };
 		15CAD8431CC8C8B900F84D66 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
@@ -305,10 +305,10 @@
 			children = (
 				1509261A1CCB88DC00243434 /* Constants.swift */,
 				159F280B1D452A2D00C9C19C /* Colors.swift */,
-				1511DA021DBA792D0024A7E3 /* DataRetriever.swift */,
 				1511DA041DBA903D0024A7E3 /* Authenticator.swift */,
 				1511DA061DBA90820024A7E3 /* Utils.swift */,
 				15E00F3C1DC510AA0076570B /* Extensions.swift */,
+				1594D7B91ED61420005DB7C6 /* RestApiManager.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -629,7 +629,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		87B51F371268D875B057913C /* [CP] Copy Pods Resources */ = {
@@ -670,13 +670,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1523412E1E30DB2800921187 /* DataManager.swift in Sources */,
-				1511DA031DBA792D0024A7E3 /* DataRetriever.swift in Sources */,
 				1587E3E81CE6295600E8D355 /* PopoverVC.swift in Sources */,
 				1586D1A51CF31ED20090DD44 /* AnunturiVC.swift in Sources */,
 				1511DA011DBA2F0C0024A7E3 /* CurrentUser.swift in Sources */,
 				154FFCC11CE5EE49004A50B4 /* MyCell.swift in Sources */,
 				1511DA071DBA90820024A7E3 /* Utils.swift in Sources */,
 				1581A40A1D0D6EE40015B63D /* DetailsAnuntViewController.swift in Sources */,
+				1594D7BA1ED61420005DB7C6 /* RestApiManager.swift in Sources */,
 				1541A4B41D1FE57A00C5F401 /* Post.swift in Sources */,
 				15E0A1F21DAFF9A800C21D6C /* ImageHeader.swift in Sources */,
 				1509261F1CCB978000243434 /* MaterialTextField.swift in Sources */,

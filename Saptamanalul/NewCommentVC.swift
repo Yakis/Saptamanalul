@@ -19,7 +19,6 @@ class NewCommentVC: UIViewController {
     @IBOutlet weak var publishButtonOutlet: UIButton!
     
     
-    var ref = FIRDatabase.database().reference()
     
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -40,7 +39,7 @@ class NewCommentVC: UIViewController {
 
     
     func setUserNameOnView () {
-        if let userName = FIRAuth.auth()?.currentUser?.displayName {
+        if let userName = Auth.auth().currentUser?.displayName {
             self.userName.text = userName
         }
     }

@@ -13,19 +13,20 @@ class Comment {
     
     var userName: String
     var text: String
-    var autoID: String
+    var autoID: Int
     var userID: String
-    var date: Date
+    var date: String
+    var post_id: Int
     
     
-    init(snapshot: FIRDataSnapshot) {
-        let value = snapshot.value as? Dictionary<String, AnyObject> ?? nil
-        autoID = snapshot.key
-        userName = value?["userName"] as? String ?? ""
-        text = value?["text"] as? String ?? ""
-        userID = value?["userID"] as? String ?? ""
-        let timestamp = value?["timestamp"] as? TimeInterval
-        date = Date(timeIntervalSince1970: timestamp! / 1000)
+    init(json: JSON) {
+       // let value = snapshot.value as? Dictionary<String, AnyObject> ?? nil
+        autoID = json["id"] as? Int ?? 0
+        userName = json["user_name"] as? String ?? ""
+        text = json["text"] as? String ?? ""
+        userID = json["user_id"] as? String ?? ""
+        date = json["created_at"] as? String ?? ""
+        post_id = json["post_id"] as? Int ?? 0
     }
     
     

@@ -8,7 +8,6 @@ pod 'SVProgressHUD', :git => 'https://github.com/SVProgressHUD/SVProgressHUD.git
 pod 'Batch', '~> 1.5'
 pod 'Kingfisher', '~> 3.0'
 pod 'Firebase'
-pod 'Firebase/Database'
 pod 'Firebase/Auth'
 pod 'FBSDKCoreKit'
 pod 'FBSDKShareKit'

@@ -21,7 +21,6 @@ class DetailsAnuntViewController: UIViewController, UIGestureRecognizerDelegate 
     
     
     var tapBGGesture: UITapGestureRecognizer!
-    var adsRef = FIRDatabase.database().reference().child("publicitate")
     
     
     override func viewDidLoad() {
@@ -58,13 +57,13 @@ class DetailsAnuntViewController: UIViewController, UIGestureRecognizerDelegate 
     
     
     func getRandomAd () {
-        adsRef.observe(.childAdded) { [weak self] (snapshot: FIRDataSnapshot) in
-            guard let adUrl = snapshot.value as? String else {return}
-            self?.adsUrl.append(adUrl)
-            DispatchQueue.main.async {
-                self?.setAdIfNoImage()
-            }
-        }
+//        adsRef.observe(.childAdded) { [weak self] (snapshot: FIRDataSnapshot) in
+//            guard let adUrl = snapshot.value as? String else {return}
+//            self?.adsUrl.append(adUrl)
+//            DispatchQueue.main.async {
+//                self?.setAdIfNoImage()
+//            }
+//        }
     }
     
     

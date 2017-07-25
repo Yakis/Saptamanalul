@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import FirebaseDatabase
 
 
 class AnunturiVC: UITableViewController, UISearchBarDelegate {
@@ -23,7 +22,6 @@ class AnunturiVC: UITableViewController, UISearchBarDelegate {
             self.tableView.reloadData()
         }
     }
-    var ref = FIRDatabase.database().reference()
     var searchActive: Bool = false
     var filteredItems: [Anunt] = [] {
         didSet {
@@ -69,12 +67,12 @@ class AnunturiVC: UITableViewController, UISearchBarDelegate {
 
     
     func getAnunturi () {
-        anunturi = []
-        let anunturiRef = self.ref.child("anunturi")
-        DataRetriever.shared.getData(reference: anunturiRef) { [weak self] snapshot in
-            let anunt = Anunt(snapshot: snapshot)
-            self?.anunturi.append(anunt)
-        }
+//        anunturi = []
+//        let anunturiRef = self.ref.child("anunturi")
+//        DataRetriever.shared.getData(reference: anunturiRef) { [weak self] snapshot in
+//            let anunt = Anunt(snapshot: snapshot)
+//            self?.anunturi.append(anunt)
+//        }
     }
     
     

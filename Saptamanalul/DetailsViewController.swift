@@ -8,7 +8,7 @@
 
 import UIKit
 import Social
-import Kingfisher
+import Nuke
 import Firebase
 
 
@@ -28,7 +28,10 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate, UISc
     var stopTimer: Timer!
     var comments = [Comment]() {
         didSet {
-        tableView.reloadData()
+           // tableView.reloadData()
+           // tableView.beginUpdates()
+           // tableView.insertRows(at: [IndexPath(row: comments.count-1, section: 0)], with: .automatic)
+           // tableView.endUpdates()
         }
     }
         
@@ -44,7 +47,7 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate, UISc
     func shareTapped () {
         let vc = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
         guard let imageUrl = URL(string: post.image) else {return}
-        imageView?.kf.setImage(with: imageUrl)
+        Nuke.loadImage(with: imageUrl, into: imageView)
         vc?.add(imageView?.image)
         vc?.setInitialText("\(post.title)\n\n\(post.body)")
         present(vc!, animated: true, completion: nil)
@@ -54,6 +57,7 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate, UISc
     
     
     override func viewDidAppear(_ animated: Bool) {
+        print(post.autoID)
         if post.pubImage != "" {
         runTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
         stopTimer = Timer.scheduledTimer(timeInterval: 8, target: self, selector: #selector(stopTimedCode), userInfo: nil, repeats: true)
@@ -125,18 +129,23 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate, UISc
     
     
     func getComments() {
-        let commentsRef = FIRDatabase.database().reference().child("posts").child(post.autoID).child("comments")
         self.comments = []
-        DataRetriever.shared.getData(reference: commentsRef) { [weak self] (snapshot) in
-            let comment = Comment(snapshot: snapshot)
-            self?.comments.append(comment)
+        let endpoint = "\(Endpoints.comments)/\(post.autoID)"
+        RestApiManager.shared.getData(url: endpoint) { [weak self] (json) in
+            DispatchQueue.main.async {
+                for object in json {
+                let comment = Comment(json: object)
+                self?.comments.append(comment)
+                }
+                self?.tableView.reloadData()
+            }
         }
     }
 
     
     func runTimedCode() {
         if let pubImageUrl = URL(string: post.pubImage) {
-            imageView?.kf.setImage(with: pubImageUrl)
+            Nuke.loadImage(with: pubImageUrl, into: imageView)
             imageView?.contentMode = .scaleAspectFit
         }
         runTimer.invalidate()
@@ -144,7 +153,7 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate, UISc
     
     func stopTimedCode () {
         if let image = URL(string: post.image) {
-            imageView?.kf.setImage(with: image)
+            Nuke.loadImage(with: image, into: imageView)
             imageView?.contentMode = .scaleAspectFill
         stopTimer.invalidate()
         }
@@ -163,15 +172,23 @@ class DetailsViewController: UIViewController, UIGestureRecognizerDelegate, UISc
     
     
     func publishAction () {
-        let commentsRef = FIRDatabase.database().reference().child("posts").child(self.post.autoID).child("comments")
-        guard let currentUser = FIRAuth.auth()?.currentUser else {return}
+        // let commentsRef = FIRDatabase.database().reference().child("posts").child(self.post.autoID).child("comments")
+        guard let currentUser = Auth.auth().currentUser else {return}
         let userName = currentUser.displayName!
         let userID = currentUser.uid as String
         if textView.text != "" {
             let text = textView.text as String
-            let post = ["text": text, "userName": userName, "userID": userID, "timestamp": FIRServerValue.timestamp()] as NSDictionary
-            commentsRef.childByAutoId().setValue(post)
-            dismissSubviewAnimated()
+            let post = ["text": text, "user_name": userName, "user_id": userID, "post_id": self.post.autoID] as JSON
+            self.dismissSubviewAnimated()
+            RestApiManager.shared.postData(json: post, completion: { [weak self] json in
+                DispatchQueue.main.async {
+                    let lastComment = Comment(json: json)
+                    self?.tableView.beginUpdates()
+                    self?.comments.insert(lastComment, at: 0)
+                        self?.tableView.insertRows(at: [IndexPath(row: 0, section: 1)], with: .automatic)
+                    self?.tableView.endUpdates()
+                }
+            })
         } else {
             dismissSubviewAnimated()
         }
@@ -244,7 +261,7 @@ extension DetailsViewController: UITableViewDataSource {
                 let comment = comments[indexPath.row]
                 commentCell.userName.text = comment.userName
                 commentCell.bodyLabel.text = comment.text
-        commentCell.dateLabel.text = comment.date.romaniaTime()
+            commentCell.dateLabel.text = comment.date.formattedDateFromString(format: DateFormat.Comment.rawValue)
                 return commentCell
         default: return UITableViewCell()
         }
@@ -268,12 +285,7 @@ extension DetailsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 1:
-            if CurrentUser.shared.token == comments[indexPath.row].userID {
-                // Sterge comentariul
-                deleteComment(editingStyle: editingStyle, indexPath: indexPath)
-            } else {
-                // Nu sterge
-            }
+            deleteComment(editingStyle: editingStyle, indexPath: indexPath)
         default:
             break
         }
@@ -281,12 +293,11 @@ extension DetailsViewController: UITableViewDataSource {
     
     
     func deleteComment (editingStyle: UITableViewCellEditingStyle, indexPath: IndexPath) {
-        let commentsRef = FIRDatabase.database().reference().child("posts").child(post.autoID).child("comments")
         let comment = comments[indexPath.row]
         if editingStyle == .delete {
             comments.remove(at: indexPath.row)
-            //tableView.deleteRows(at: [indexPath], with: .fade)
-            commentsRef.child(comment.autoID).removeValue()
+            RestApiManager.shared.deleteCommentBy(id: comment.autoID)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
     
@@ -315,7 +326,7 @@ extension DetailsViewController: UITableViewDelegate {
     
     func setupPostHeader() {
         guard let url = URL(string: post.image) else {return}
-        imageView?.kf.setImage(with: url)
+        Nuke.loadImage(with: url, into: imageView)
         imageView?.contentMode = .scaleAspectFill
         imageView?.clipsToBounds = true
     }

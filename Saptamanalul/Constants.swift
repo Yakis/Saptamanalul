@@ -29,3 +29,15 @@ struct Login {
     static let title = "Informare"
     static let message = "Nu poti posta comentarii fara sa fii autentificat!"
 }
+
+
+struct Endpoints {
+    static let posts = "http://82.40.147.137:3000/api/posts"
+    static let comments = "http://82.40.147.137:3000/api/comments"
+    static let formatSuffix = ".json"
+}
+
+enum DateFormat: String {
+    case Comment = "MM-dd-yyyy HH:mm"
+    case Post = "MMM d, yyyy"
+}
